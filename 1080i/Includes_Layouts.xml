@@ -451,6 +451,16 @@
         </definition>
     </include>
 
+    <include name="Layout_GameAchievement_Progress_Selected">
+        <description>
+            Textures come first so that they win: the control factory reads the first
+            matching child element, so these override the accent-coloured defaults
+            further down the progress control.
+        </description>
+        <texturebg colordiffuse="$VAR[ColorSelected_30]" border="12,0,12,0">progress/progress-nib.png</texturebg>
+        <midtexture colordiffuse="$VAR[ColorSelected]" border="12,0,12,0">progress/progress-nib.png</midtexture>
+    </include>
+
     <include name="Layout_GameAchievement">
         <description>
             One row of the RetroAchievements list. Kodi fills the columns from list item
@@ -465,7 +475,7 @@
             <control type="image">
                 <description>Achievement badge, dimmed while the achievement is locked</description>
                 <left>20</left>
-                <top>20</top>
+                <top>14</top>
                 <width>100</width>
                 <height>100</height>
                 <aspectratio>keep</aspectratio>
@@ -477,7 +487,7 @@
                 <width>1000</width>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>18</top>
+                    <top>12</top>
                     <height>40</height>
                     <font>font_main_bold</font>
                     <textcolor>dialog_fg_90</textcolor>
@@ -487,7 +497,7 @@
                 <control type="label">
                     <description>How the achievement is earned</description>
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>58</top>
+                    <top>52</top>
                     <height>32</height>
                     <font>font_tiny</font>
                     <textcolor>dialog_fg_50</textcolor>
@@ -495,8 +505,13 @@
                     <label>$INFO[ListItem.Label2]</label>
                 </control>
                 <control type="label">
-                    <description>How rare the achievement is</description>
-                    <top>90</top>
+                    <description>
+                        How rare the achievement is. The accent colour has to give way on the
+                        focused row: the focus texture is painted in that same colour, so
+                        keeping it would leave the line invisible against its own highlight.
+                    </description>
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>84</top>
                     <height>32</height>
                     <font>font_tiny</font>
                     <textcolor>$VAR[ColorHighlight]</textcolor>
@@ -510,7 +525,7 @@
                 <width>300</width>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>18</top>
+                    <top>12</top>
                     <height>40</height>
                     <align>right</align>
                     <font>font_main_bold</font>
@@ -520,7 +535,8 @@
                 </control>
                 <control type="label">
                     <description>Unlock date, shown only for earned achievements</description>
-                    <top>58</top>
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>52</top>
                     <height>32</height>
                     <align>right</align>
                     <font>font_tiny</font>
@@ -535,7 +551,8 @@
                         the add-on rather than built here, because only it knows what is being
                         counted.
                     </description>
-                    <top>58</top>
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>52</top>
                     <height>32</height>
                     <align>right</align>
                     <font>font_tiny</font>
@@ -548,10 +565,12 @@
                     <description>
                         Progress bar for counting achievements. Sits on the rarity line, which is
                         free on this side of the row, and only ever shows for achievements the
-                        player hasn't earned yet.
+                        player hasn't earned yet. Like the rarity line it has to drop the accent
+                        colour on the focused row, which is painted in that same colour.
                     </description>
+                    <include condition="$PARAM[selected]">Layout_GameAchievement_Progress_Selected</include>
                     <left>40</left>
-                    <top>100</top>
+                    <top>92</top>
                     <width>260</width>
                     <height>4</height>
                     <texturebg colordiffuse="dialog_fg_12" border="12,0,12,0">progress/progress-nib.png</texturebg>
