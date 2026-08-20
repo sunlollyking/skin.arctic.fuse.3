@@ -110,6 +110,74 @@
         </include>
     </include>
 
+    <include name="DialogGameAchievements">
+        <description>
+            RetroAchievements list. Kodi builds this dialog on DialogGameControllers.xml
+            rather than a window file of its own, because adding new window XML breaks
+            older skins, so the window switches between the two on IsDialogTopMost.
+
+            The list keeps control id 3: the dialog's view control is bound to that id,
+            and it is the same id the controller list uses.
+
+            Only available on a Kodi build carrying the RetroAchievements work. On stock
+            Kodi the condition in DialogGameControllers.xml never resolves true, so none
+            of this is loaded.
+        </description>
+        <include>Part_Dim_Overlay</include>
+        <control type="group">
+            <include>Dimension_DialogFullMenu</include>
+            <include>Animation_BounceIn_Dialog</include>
+            <include content="Part_Background_Panel">
+                <param name="dialog_size">Dimension_DialogFullMenu</param>
+            </include>
+
+            <!-- Content -->
+            <control type="group" id="8000">
+                <include>Size_Dialog_Pad</include>
+
+                <control type="group">
+                    <include>Size_Group_Head</include>
+                    <include content="Part_HeadText">
+                        <description>
+                            Kodi composes the whole header - "Achievements - Chrono Trigger
+                            (74% complete)" - so that skins don't have to reproduce the
+                            punctuation or the empty cases.
+                        </description>
+                        <param name="id">9999</param>
+                        <param name="label">$INFO[Window.Property(Header)]</param>
+                    </include>
+                    <include content="Part_ItemPage">
+                        <param name="id">3</param>
+                        <param name="items_label">$LOCALIZE[35287]</param>
+                    </include>
+                    <include>Part_CloseButton</include>
+                    <include>Part_Line</include>
+                </control>
+
+                <control type="group">
+                    <include>Size_Group_Body</include>
+                    <include content="List_DialogSelect">
+                        <param name="id">3</param>
+                        <param name="itemlayout_include">Layout_GameAchievement</param>
+                        <param name="item_height">140</param>
+                        <param name="item_w">1480</param>
+                        <param name="itemlayout_w">1480</param>
+                        <pagecontrol>61</pagecontrol>
+                        <onright>61</onright>
+                        <include>Size_Grouplist_Pad</include>
+                    </include>
+                </control>
+
+                <include content="Part_Scrollbar">
+                    <param name="id">61</param>
+                    <onleft>3</onleft>
+                    <onright>3</onright>
+                </include>
+
+            </control>
+        </control>
+    </include>
+
     <include name="DialogGameControllers_Button_Movement">
         <onback>9001</onback>
     </include>

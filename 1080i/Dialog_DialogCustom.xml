@@ -1726,6 +1726,22 @@
             <onclick>ActivateWindow(InGameSaves)</onclick>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8006</param>
+            <param name="groupid">8106</param>
+            <description>
+                Achievements button. The progress label is empty unless the running game has
+                a RetroAchievements set, which also keeps the button hidden on a Kodi build
+                without the achievements work, where the window and the info label are both
+                unknown.
+            </description>
+            <label>$LOCALIZE[35287]</label>
+            <param name="label2">$INFO[RetroPlayer.AchievementsProgress]</param>
+            <param name="has_label2">true</param>
+            <param name="icon">special://skin/extras/icons/trophy.png</param>
+            <onclick>ActivateWindow(GameAchievements)</onclick>
+            <visible>!String.IsEmpty(RetroPlayer.AchievementsProgress)</visible>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8003</param>
             <param name="groupid">8103</param>
             <description>Reset button</description>

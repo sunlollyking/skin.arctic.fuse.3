@@ -2,6 +2,7 @@
 <window>
     <defaultcontrol always="true">3</defaultcontrol>
     <controls>
-        <include>DialogGameControllers</include>
+        <include condition="!Window.IsDialogTopMost(gameachievements)">DialogGameControllers</include>
+        <include condition="Window.IsDialogTopMost(gameachievements)">DialogGameAchievements</include>
     </controls>
 </window>

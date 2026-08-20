@@ -40,6 +40,18 @@
         <value>ff03b585</value>
     </variable>
 
+    <!-- Achievement Badge -->
+    <variable name="Color_GameAchievementBadge">
+        <description>
+            Dims the badge of an achievement the player hasn't earned. RetroAchievements
+            supplies a separate greyscale badge, but not every achievement has one, so the
+            tint has to work on the full-colour badge too. Plain alpha rather than one of
+            the fg_ tokens, because those carry the theme's foreground hue.
+        </description>
+        <value condition="String.IsEmpty(ListItem.Property(achievement.earned))">60FFFFFF</value>
+        <value>FFFFFFFF</value>
+    </variable>
+
     <!-- Mouse Pointer -->
     <variable name="ColorMousePointer">
         <value condition="!String.IsEmpty(Skin.String(mousepointercolor.name))">$INFO[Skin.String(mousepointercolor.name)]</value>

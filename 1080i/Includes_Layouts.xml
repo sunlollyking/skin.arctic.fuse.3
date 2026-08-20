@@ -451,6 +451,118 @@
         </definition>
     </include>
 
+    <include name="Layout_GameAchievement">
+        <description>
+            One row of the RetroAchievements list. Kodi fills the columns from list item
+            properties set by the achievements dialog; see DialogGameAchievements.
+        </description>
+        <param name="selected">false</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Menu_Highlight_H</include>
+            </include>
+            <control type="image">
+                <description>Achievement badge, dimmed while the achievement is locked</description>
+                <left>20</left>
+                <top>20</top>
+                <width>100</width>
+                <height>100</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true" colordiffuse="$VAR[Color_GameAchievementBadge]">$INFO[ListItem.Icon]</texture>
+            </control>
+            <control type="group">
+                <description>Title, criteria and rarity</description>
+                <left>140</left>
+                <width>1000</width>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>18</top>
+                    <height>40</height>
+                    <font>font_main_bold</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <description>How the achievement is earned</description>
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>58</top>
+                    <height>32</height>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <selectedcolor>dialog_fg_50</selectedcolor>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+                <control type="label">
+                    <description>How rare the achievement is</description>
+                    <top>90</top>
+                    <height>32</height>
+                    <font>font_tiny</font>
+                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
+                    <label>$INFO[ListItem.Property(achievement.raritystars)] $INFO[ListItem.Property(achievement.raritycategory)]</label>
+                </control>
+            </control>
+            <control type="group">
+                <description>Point value and unlock state</description>
+                <left>1160</left>
+                <width>300</width>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>18</top>
+                    <height>40</height>
+                    <align>right</align>
+                    <font>font_main_bold</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <label>$INFO[ListItem.Property(achievement.points)]</label>
+                </control>
+                <control type="label">
+                    <description>Unlock date, shown only for earned achievements</description>
+                    <top>58</top>
+                    <height>32</height>
+                    <align>right</align>
+                    <font>font_tiny</font>
+                    <textcolor>$VAR[ColorWatchedProgress]</textcolor>
+                    <selectedcolor>$VAR[ColorWatchedProgress]</selectedcolor>
+                    <label>$INFO[ListItem.Property(achievement.unlockeddate)]</label>
+                    <visible>!String.IsEmpty(ListItem.Property(achievement.earned))</visible>
+                </control>
+                <control type="label">
+                    <description>
+                        Progress towards a counting achievement, such as "45/100". Supplied by
+                        the add-on rather than built here, because only it knows what is being
+                        counted.
+                    </description>
+                    <top>58</top>
+                    <height>32</height>
+                    <align>right</align>
+                    <font>font_tiny</font>
+                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
+                    <label>$INFO[ListItem.Property(achievement.measuredprogress)]</label>
+                    <visible>!String.IsEmpty(ListItem.Property(achievement.measured))</visible>
+                </control>
+                <control type="progress">
+                    <description>
+                        Progress bar for counting achievements. Sits on the rarity line, which is
+                        free on this side of the row, and only ever shows for achievements the
+                        player hasn't earned yet.
+                    </description>
+                    <left>40</left>
+                    <top>100</top>
+                    <width>260</width>
+                    <height>4</height>
+                    <texturebg colordiffuse="dialog_fg_12" border="12,0,12,0">progress/progress-nib.png</texturebg>
+                    <midtexture colordiffuse="$VAR[ColorHighlight]" border="12,0,12,0">progress/progress-nib.png</midtexture>
+                    <info>ListItem.Property(achievement.measuredpercent)</info>
+                    <visible>!String.IsEmpty(ListItem.Property(achievement.measured))</visible>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_PVRGuide_Ruler">
         <control type="group">
             <left>30</left>
