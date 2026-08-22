@@ -1246,4 +1246,37 @@
         <value condition="!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.biography))">$INFO[Window(Home).Property(TMDBHelper.ListItem.biography)]</value>
     </variable>
 
+    <include name="GameManualDetail">
+        <description>
+            One field of a manual offered for download. Sits in a grouplist, so a
+            field the catalogue knows nothing about takes no room at all rather
+            than leaving a labelled blank.
+        </description>
+        <param name="label" default="" />
+        <param name="property" default="" />
+        <definition>
+            <control type="group">
+                <height>34</height>
+                <visible>!String.IsEmpty(Container(110).ListItem.Property($PARAM[property]))</visible>
+                <control type="label">
+                    <left>0</left>
+                    <width>170</width>
+                    <height>34</height>
+                    <aligny>center</aligny>
+                    <font>font_tiny</font>
+                    <textcolor>panel_fg_50</textcolor>
+                    <label>$PARAM[label]</label>
+                </control>
+                <control type="label">
+                    <left>180</left>
+                    <width>440</width>
+                    <height>34</height>
+                    <aligny>center</aligny>
+                    <font>font_tiny</font>
+                    <textcolor>panel_fg_100</textcolor>
+                    <label>$INFO[Container(110).ListItem.Property($PARAM[property])]</label>
+                </control>
+            </control>
+        </definition>
+    </include>
 </includes>
