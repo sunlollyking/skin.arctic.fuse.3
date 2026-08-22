@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <controls>
+        <control type="image">
+            <description>
+                The page is read against a plain dark background rather than the game,
+                which is still running underneath and would show through scanned paper.
+            </description>
+            <left>0</left>
+            <top>0</top>
+            <width>100%</width>
+            <height>100%</height>
+            <texture colordiffuse="main_bg_100">common/white.png</texture>
+        </control>
+
+        <control type="group">
+            <animation effect="fade" time="200">WindowOpen</animation>
+            <animation effect="fade" time="200">WindowClose</animation>
+
+            <control type="image" id="9000">
+                <description>
+                    The page itself. Kodi sizes this control to the page as it loads, so
+                    the geometry set here is only the area it starts from.
+                </description>
+                <left>60</left>
+                <top>40</top>
+                <width>1800</width>
+                <height>940</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[Window.Property(Manual.Image)]</texture>
+            </control>
+
+            <control type="label">
+                <description>
+                    Shown while the document is being read. Opening happens on a background
+                    job, so without this a manual on a share would show an empty window for
+                    as long as the read took.
+                </description>
+                <left>60</left>
+                <top>40</top>
+                <width>1800</width>
+                <height>940</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$INFO[Window.Property(Manual.Status)]</label>
+                <visible>!String.IsEmpty(Window.Property(Manual.Status))</visible>
+            </control>
+
+            <control type="image">
+                <description>
+                    A zoomed page fills the screen and passes under the labels, so they are
+                    given something to sit on rather than being read against the paper.
+                </description>
+                <left>0</left>
+                <top>960</top>
+                <width>100%</width>
+                <height>120</height>
+                <texture colordiffuse="main_bg_90">common/white.png</texture>
+            </control>
+
+            <control type="label">
+                <left>60</left>
+                <top>1000</top>
+                <width>900</width>
+                <height>40</height>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_100</textcolor>
+                <label>$INFO[Window.Property(Manual.Title)]</label>
+            </control>
+
+            <control type="label">
+                <description>Only says anything while zoomed in</description>
+                <left>760</left>
+                <top>1000</top>
+                <width>400</width>
+                <height>40</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$INFO[Window.Property(Manual.ZoomLabel)]</label>
+            </control>
+
+            <control type="label">
+                <left>960</left>
+                <top>1000</top>
+                <width>900</width>
+                <height>40</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$INFO[Window.Property(Manual.PageLabel)]</label>
+            </control>
+        </control>
+    </controls>
+</window>

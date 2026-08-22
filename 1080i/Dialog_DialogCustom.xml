@@ -1742,6 +1742,18 @@
             <visible>!String.IsEmpty(RetroPlayer.AchievementsProgress)</visible>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8007</param>
+            <param name="groupid">8107</param>
+            <description>
+                Manual button. Opens the manual that came with the game, or offers to go
+                looking for one if there is none beside it. Kodi reports for itself when
+                nothing can be found, so the button stays available either way.
+            </description>
+            <label>$LOCALIZE[35311]</label>
+            <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
+            <onclick>ShowGameManual</onclick>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8003</param>
             <param name="groupid">8103</param>
             <description>Reset button</description>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol always="true">110</defaultcontrol>
+    <controls>
+        <control type="group">
+            <description>
+                Offers a manual for a game that has none beside it. Kodi asks whichever
+                add-on says it can provide manuals; nothing here knows about any service.
+            </description>
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>1000</width>
+            <height>620</height>
+            <animation effect="fade" time="200">WindowOpen</animation>
+            <animation effect="fade" time="200">WindowClose</animation>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="12" colordiffuse="panel_bg_70">common/white.png</texture>
+            </control>
+
+            <control type="label">
+                <left>40</left>
+                <top>24</top>
+                <width>920</width>
+                <height>56</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_main_bold</font>
+                <textcolor>panel_fg_100</textcolor>
+                <label>$LOCALIZE[35318]</label>
+            </control>
+
+            <control type="label">
+                <description>Which game this is about</description>
+                <left>40</left>
+                <top>84</top>
+                <width>920</width>
+                <height>40</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>panel_fg_70</textcolor>
+                <label>$INFO[Window.Property(Manuals.Game)]</label>
+            </control>
+
+            <control type="label">
+                <description>
+                    Which add-on is answering. Shown rather than made selectable, because
+                    with one provider installed there is nothing to pick between.
+                </description>
+                <left>40</left>
+                <top>128</top>
+                <width>920</width>
+                <height>34</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_tiny</font>
+                <textcolor>panel_fg_50</textcolor>
+                <label>$LOCALIZE[35320]  $INFO[Window.Property(Manuals.Provider)]</label>
+                <visible>!String.IsEmpty(Window.Property(Manuals.Provider))</visible>
+            </control>
+
+            <control type="list" id="120">
+                <description>
+                    The providers themselves, kept off screen. Kodi needs the control to
+                    bind them to; switching between them only matters once there is more
+                    than one installed.
+                </description>
+                <left>40</left>
+                <top>128</top>
+                <width>920</width>
+                <height>1</height>
+                <visible>false</visible>
+                <itemlayout height="1" width="920"/>
+                <focusedlayout height="1" width="920"/>
+            </control>
+
+            <control type="label">
+                <left>40</left>
+                <top>184</top>
+                <width>920</width>
+                <height>340</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>panel_fg_70</textcolor>
+                <label>$INFO[Window.Property(Manuals.Status)]</label>
+                <visible>!String.IsEmpty(Window.Property(Manuals.Status))</visible>
+            </control>
+
+            <control type="list" id="110">
+                <left>40</left>
+                <top>184</top>
+                <width>920</width>
+                <height>340</height>
+                <onup>110</onup>
+                <ondown>110</ondown>
+                <visible>String.IsEmpty(Window.Property(Manuals.Status))</visible>
+                <scrolltime tween="sine" easing="out">200</scrolltime>
+
+                <itemlayout height="64" width="920">
+                    <control type="label">
+                        <left>24</left>
+                        <top>0</top>
+                        <width>740</width>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>font_mini</font>
+                        <textcolor>panel_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>780</left>
+                        <top>0</top>
+                        <width>116</width>
+                        <height>64</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>font_tiny</font>
+                        <textcolor>panel_fg_50</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout height="64" width="920">
+                    <control type="image">
+                        <left>0</left>
+                        <top>2</top>
+                        <width>920</width>
+                        <height>60</height>
+                        <texture border="6" colordiffuse="$VAR[ColorSelected]">common/white.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>24</left>
+                        <top>0</top>
+                        <width>740</width>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>font_mini</font>
+                        <textcolor>panel_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <left>780</left>
+                        <top>0</top>
+                        <width>116</width>
+                        <height>64</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>font_tiny</font>
+                        <textcolor>panel_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+
+            <control type="label">
+                <left>40</left>
+                <top>552</top>
+                <width>920</width>
+                <height>40</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_tiny</font>
+                <textcolor>panel_fg_50</textcolor>
+                <label>$LOCALIZE[35319]</label>
+                <visible>String.IsEmpty(Window.Property(Manuals.Status))</visible>
+            </control>
+        </control>
+    </controls>
+</window>

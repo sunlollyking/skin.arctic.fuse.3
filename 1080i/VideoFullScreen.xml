@@ -26,5 +26,52 @@
                 <font>font_mini</font>
             </include>
         </control>
+
+        <control type="group">
+            <description>
+                RetroAchievements challenge indicator. Shown while the player is inside an
+                achievement Kodi is watching, so it has to sit over the running game rather
+                than in the OSD, which is not on screen while playing.
+
+                The title being empty is what keeps this hidden, which also covers a Kodi
+                build without the achievements work, where the info labels are unknown.
+            </description>
+            <right>60</right>
+            <top>60</top>
+            <width>420</width>
+            <height>96</height>
+            <visible>!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</visible>
+            <animation effect="fade" time="200">VisibleChange</animation>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>420</width>
+                <height>96</height>
+                <texture border="8" colordiffuse="main_bg_70">common/white.png</texture>
+            </control>
+
+            <control type="image">
+                <description>The achievement's badge, as the server serves it</description>
+                <left>12</left>
+                <top>12</top>
+                <width>72</width>
+                <height>72</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[RetroPlayer.AchievementsChallengeBadge]</texture>
+            </control>
+
+            <control type="label">
+                <left>98</left>
+                <top>12</top>
+                <width>310</width>
+                <height>72</height>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_100</textcolor>
+                <label>$INFO[RetroPlayer.AchievementsChallengeTitle]</label>
+                <wrapmultiline>true</wrapmultiline>
+            </control>
+        </control>
     </controls>
 </window>
