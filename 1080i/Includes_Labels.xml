@@ -1256,23 +1256,23 @@
         <param name="property" default="" />
         <definition>
             <control type="group">
-                <height>34</height>
+                <height>40</height>
                 <visible>!String.IsEmpty(Container(110).ListItem.Property($PARAM[property]))</visible>
                 <control type="label">
                     <left>0</left>
-                    <width>170</width>
-                    <height>34</height>
+                    <width>190</width>
+                    <height>40</height>
                     <aligny>center</aligny>
-                    <font>font_tiny</font>
-                    <textcolor>panel_fg_50</textcolor>
+                    <font>font_mini</font>
+                    <textcolor>panel_fg_70</textcolor>
                     <label>$PARAM[label]</label>
                 </control>
                 <control type="label">
-                    <left>180</left>
-                    <width>440</width>
-                    <height>34</height>
+                    <left>200</left>
+                    <width>420</width>
+                    <height>40</height>
                     <aligny>center</aligny>
-                    <font>font_tiny</font>
+                    <font>font_mini</font>
                     <textcolor>panel_fg_100</textcolor>
                     <label>$INFO[Container(110).ListItem.Property($PARAM[property])]</label>
                 </control>
