@@ -25,7 +25,7 @@
                 <top>0</top>
                 <width>100%</width>
                 <height>100%</height>
-                <texture border="12" colordiffuse="panel_bg_70">common/white.png</texture>
+                <texture border="12" colordiffuse="dialog_bg_100">common/white.png</texture>
             </control>
 
             <control type="label">
@@ -225,7 +225,7 @@
                         <height>64</height>
                         <aligny>center</aligny>
                         <font>font_mini</font>
-                        <textcolor>panel_fg_100</textcolor>
+                        <textcolor>$VAR[ColorSelectedInverted]</textcolor>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                     <control type="label">
@@ -240,7 +240,7 @@
                         <align>right</align>
                         <aligny>center</aligny>
                         <font>font_tiny</font>
-                        <textcolor>panel_fg_100</textcolor>
+                        <textcolor>$VAR[ColorSelectedInverted]</textcolor>
                         <label>$LOCALIZE[33003]</label>
                     </control>
                 </focusedlayout>
