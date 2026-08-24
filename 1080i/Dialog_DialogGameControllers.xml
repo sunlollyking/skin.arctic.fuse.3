@@ -134,7 +134,7 @@
                     <include>Size_Group_Head</include>
                     <include content="Part_HeadText">
                         <param name="id">9999</param>
-                        <param name="label">$LOCALIZE[35331] - $INFO[RetroPlayer.Title]</param>
+                        <param name="label">$LOCALIZE[35331]$INFO[RetroPlayer.Title, - ,]</param>
                     </include>
                     <include content="Part_ItemPage">
                         <param name="id">3</param>
@@ -146,6 +146,9 @@
 
                 <control type="group">
                     <include>Size_Group_Body</include>
+                    <!-- Room for the read-only note, which would otherwise be
+                         drawn over the last row -->
+                    <bottom>64</bottom>
                     <include content="List_DialogSelect">
                         <param name="id">3</param>
                         <param name="itemlayout_include">Layout_GameLeaderboard</param>
@@ -194,10 +197,9 @@
                         <param name="id">9999</param>
                         <param name="label">$INFO[Window.Property(Leaderboards.Title)]</param>
                     </include>
-                    <include content="Part_ItemPage">
-                        <param name="id">3</param>
-                        <param name="items_label">$LOCALIZE[35331]</param>
-                    </include>
+                    <!-- No item count here: it would read "6 leaderboards" while
+                         showing one leaderboard's standings, and it lands on top
+                         of the description below -->
                     <include>Part_CloseButton</include>
                     <include>Part_Line</include>
                 </control>

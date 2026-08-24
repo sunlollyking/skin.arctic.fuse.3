@@ -1705,19 +1705,6 @@
             <label>$LOCALIZE[35226]</label>
             <onclick>ActivateWindow(GameAdvancedSettings)</onclick>
         </include>
-        <include content="Settings_ButtonImage">
-            <param name="id">8008</param>
-            <param name="groupid">8108</param>
-            <description>
-                Leaderboards button. Browsing only: submitting a score needs hardcore
-                mode, which RetroAchievements grants an emulator once approved. Hidden
-                unless signed in, since there is nothing to show otherwise.
-            </description>
-            <label>$LOCALIZE[35331]</label>
-            <param name="icon">special://skin/extras/icons/trophy.png</param>
-            <onclick>ActivateWindow(gameleaderboards)</onclick>
-            <visible>RetroPlayer.AchievementsLoggedIn</visible>
-        </include>
     </include>
 
     <include name="DialogCustom_GameOSD_Items">
@@ -1765,6 +1752,19 @@
             <label>$LOCALIZE[35311]</label>
             <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
             <onclick>ShowGameManual</onclick>
+        </include>
+        <include content="Settings_ButtonImage">
+            <param name="id">8008</param>
+            <param name="groupid">8108</param>
+            <description>
+                Leaderboards button. Browsing only: submitting a score needs hardcore
+                mode, which RetroAchievements grants an emulator once approved. Hidden
+                unless signed in, since there is nothing to show otherwise.
+            </description>
+            <label>$LOCALIZE[35331]</label>
+            <param name="icon">special://skin/extras/icons/trophy.png</param>
+            <onclick>ActivateWindow(gameleaderboards)</onclick>
+            <visible>RetroPlayer.AchievementsLoggedIn</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8003</param>

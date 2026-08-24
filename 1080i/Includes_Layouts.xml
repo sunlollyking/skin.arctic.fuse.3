@@ -565,7 +565,7 @@
             </control>
             <control type="label">
                 <left>20</left>
-                <width>110</width>
+                <width>90</width>
                 <height>50</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
@@ -574,9 +574,18 @@
                 <selectedcolor>dialog_fg_90</selectedcolor>
                 <label>$INFO[ListItem.Property(RankLabel)]</label>
             </control>
+            <control type="image">
+                <description>The player's RetroAchievements avatar</description>
+                <left>116</left>
+                <top>7</top>
+                <width>36</width>
+                <height>36</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true" fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+            </control>
             <control type="label">
-                <left>150</left>
-                <width>560</width>
+                <left>168</left>
+                <width>540</width>
                 <height>50</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
