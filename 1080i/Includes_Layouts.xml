@@ -575,15 +575,27 @@
         </description>
         <param name="selected">false</param>
         <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
+            <control type="group">
+                <description>
+                    The highlight is inset, and its border halved from the default 40.
+                    A row is 64 high, so a 40px nine-slice border overlaps its own
+                    corners and bleeds sideways past the panel - the same reason the
+                    other short rows in this skin inset theirs.
+                </description>
+                <left>8</left>
+                <right>8</right>
+                <include content="Object_Control" condition="$PARAM[selected]">
+                    <param name="control">image</param>
+                    <include content="Texture_Menu_Highlight_H">
+                        <param name="border">32</param>
+                    </include>
+                </include>
+            </control>
             <control type="image">
                 <description>The signed-in player's own row</description>
-                <left>0</left>
+                <left>8</left>
+                <right>8</right>
                 <top>1</top>
-                <width>100%</width>
                 <height>62</height>
                 <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
                 <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
