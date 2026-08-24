@@ -76,6 +76,80 @@
 
         <control type="group">
             <description>
+                Measured achievement indicator. Some achievements are counted rather than
+                simply locked or unlocked - "collect 180 rings" - and this shows how far
+                along one is while the player works towards it.
+
+                The title being empty is what keeps this hidden, which also covers a Kodi
+                build without the work, where the info labels are unknown.
+            </description>
+            <right>60</right>
+            <top>60</top>
+            <width>420</width>
+            <height>96</height>
+            <visible>!String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)</visible>
+            <animation effect="fade" time="200">VisibleChange</animation>
+            <animation effect="slide" end="0,108" time="0" condition="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)">Conditional</animation>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>420</width>
+                <height>96</height>
+                <texture border="8" colordiffuse="main_bg_70">common/white.png</texture>
+            </control>
+
+            <control type="image">
+                <description>The achievement's badge, as the server serves it</description>
+                <left>12</left>
+                <top>12</top>
+                <width>72</width>
+                <height>72</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[RetroPlayer.AchievementsIndicatorBadge]</texture>
+            </control>
+
+            <control type="label">
+                <left>98</left>
+                <top>10</top>
+                <width>210</width>
+                <height>40</height>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_100</textcolor>
+                <label>$INFO[RetroPlayer.AchievementsIndicatorTitle]</label>
+                <scroll>true</scroll>
+                <scrollsuffix>   </scrollsuffix>
+            </control>
+
+            <control type="label">
+                <description>How far along, as the client counts it</description>
+                <right>12</right>
+                <top>10</top>
+                <width>90</width>
+                <height>40</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$INFO[RetroPlayer.AchievementsIndicatorProgress]</label>
+            </control>
+
+            <control type="progress">
+                <description>
+                    The same figure as a bar. Driven by the percentage rather than by
+                    parsing "13/180" back into numbers.
+                </description>
+                <left>98</left>
+                <top>58</top>
+                <width>310</width>
+                <height>8</height>
+                <info>RetroPlayer.AchievementsIndicatorPercent</info>
+            </control>
+        </control>
+
+        <control type="group">
+            <description>
                 Leaderboard tracker. While an attempt at a leaderboard runs, the client
                 publishes the value as it stands - the lap time so far, the score so far -
                 and this shows it.
@@ -92,7 +166,9 @@
             <height>64</height>
             <visible>!String.IsEmpty(RetroPlayer.LeaderboardTracker)</visible>
             <animation effect="fade" time="200">VisibleChange</animation>
-            <animation effect="slide" end="0,108" time="0" condition="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)">Conditional</animation>
+            <animation effect="slide" end="0,108" time="0" condition="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle) + String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)">Conditional</animation>
+            <animation effect="slide" end="0,108" time="0" condition="String.IsEmpty(RetroPlayer.AchievementsChallengeTitle) + !String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)">Conditional</animation>
+            <animation effect="slide" end="0,216" time="0" condition="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle) + !String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)">Conditional</animation>
 
             <control type="image">
                 <left>0</left>
