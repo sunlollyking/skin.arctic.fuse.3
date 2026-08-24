@@ -252,7 +252,9 @@
                     <include content="List_DialogSelect">
                         <param name="id">3</param>
                         <param name="itemlayout_include">Layout_GameLeaderboardEntry</param>
-                        <param name="item_height">50</param>
+                        <!-- Ten rows filling the body exactly. Thirteen smaller ones
+                             fitted, but were not readable at a glance across a room. -->
+                        <param name="item_height">64</param>
                         <param name="item_w">1480</param>
                         <param name="itemlayout_w">1480</param>
                         <pagecontrol>61</pagecontrol>

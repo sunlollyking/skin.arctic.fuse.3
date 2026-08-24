@@ -556,10 +556,10 @@
             <control type="label">
                 <left>20</left>
                 <width>90</width>
-                <height>50</height>
+                <height>64</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_mini</font>
+                <font>font_main</font>
                 <textcolor>$PARAM[color]</textcolor>
                 <selectedcolor>$PARAM[color]</selectedcolor>
                 <label>$INFO[ListItem.Property(RankLabel)]</label>
@@ -584,7 +584,7 @@
                 <left>0</left>
                 <top>1</top>
                 <width>100%</width>
-                <height>48</height>
+                <height>62</height>
                 <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
                 <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
             </control>
@@ -611,19 +611,19 @@
             <control type="image">
                 <description>The player's RetroAchievements avatar</description>
                 <left>116</left>
-                <top>7</top>
-                <width>36</width>
-                <height>36</height>
+                <top>13</top>
+                <width>38</width>
+                <height>38</height>
                 <aspectratio>keep</aspectratio>
                 <texture background="true" fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
             </control>
             <control type="label">
                 <left>168</left>
                 <width>540</width>
-                <height>50</height>
+                <height>64</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_mini</font>
+                <font>font_main</font>
                 <textcolor>dialog_fg_90</textcolor>
                 <selectedcolor>dialog_fg_90</selectedcolor>
                 <label>$INFO[ListItem.Label]</label>
@@ -635,21 +635,21 @@
                     an argument, so both are here.
                 </description>
                 <left>730</left>
-                <top>5</top>
+                <top>8</top>
                 <width>320</width>
-                <height>20</height>
+                <height>26</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_tiny</font>
+                <font>font_mini</font>
                 <textcolor>dialog_fg_70</textcolor>
                 <selectedcolor>dialog_fg_70</selectedcolor>
                 <label>$INFO[ListItem.Property(DateRelative)]</label>
             </control>
             <control type="label">
                 <left>730</left>
-                <top>25</top>
+                <top>34</top>
                 <width>320</width>
-                <height>20</height>
+                <height>24</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
                 <font>font_tiny</font>
@@ -660,11 +660,11 @@
             <control type="label">
                 <right>20</right>
                 <width>300</width>
-                <height>50</height>
+                <height>64</height>
                 <align>right</align>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_mini</font>
+                <font>font_main</font>
                 <textcolor>dialog_fg_90</textcolor>
                 <selectedcolor>dialog_fg_90</selectedcolor>
                 <label>$INFO[ListItem.Label2]</label>
