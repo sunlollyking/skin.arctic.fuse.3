@@ -543,6 +543,31 @@
         </definition>
     </include>
 
+    <include name="Layout_GameLeaderboardRank">
+        <description>
+            One place on a leaderboard. Kodi hands the row a Medal property for the
+            top three, so the colour is the skin's decision rather than a glyph baked
+            into the label.
+        </description>
+        <param name="medal"></param>
+        <param name="color">dialog_fg_90</param>
+        <param name="selected">false</param>
+        <definition>
+            <control type="label">
+                <left>20</left>
+                <width>90</width>
+                <height>50</height>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_mini</font>
+                <textcolor>$PARAM[color]</textcolor>
+                <selectedcolor>$PARAM[color]</selectedcolor>
+                <label>$INFO[ListItem.Property(RankLabel)]</label>
+                <visible>String.IsEqual(ListItem.Property(Medal),$PARAM[medal])</visible>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_GameLeaderboardEntry">
         <description>
             One row of a leaderboard's standings. The player's own row is tinted so it
@@ -563,17 +588,26 @@
                 <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
                 <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
             </control>
-            <control type="label">
-                <left>20</left>
-                <width>90</width>
-                <height>50</height>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_mini</font>
-                <textcolor>dialog_fg_90</textcolor>
-                <selectedcolor>dialog_fg_90</selectedcolor>
-                <label>$INFO[ListItem.Property(RankLabel)]</label>
-            </control>
+            <include content="Layout_GameLeaderboardRank">
+                <param name="medal">gold</param>
+                <param name="color">FFFFD24A</param>
+                <param name="selected">$PARAM[selected]</param>
+            </include>
+            <include content="Layout_GameLeaderboardRank">
+                <param name="medal">silver</param>
+                <param name="color">FFB9C6D2</param>
+                <param name="selected">$PARAM[selected]</param>
+            </include>
+            <include content="Layout_GameLeaderboardRank">
+                <param name="medal">bronze</param>
+                <param name="color">FFCD8B45</param>
+                <param name="selected">$PARAM[selected]</param>
+            </include>
+            <include content="Layout_GameLeaderboardRank">
+                <param name="medal"></param>
+                <param name="color">dialog_fg_90</param>
+                <param name="selected">$PARAM[selected]</param>
+            </include>
             <control type="image">
                 <description>The player's RetroAchievements avatar</description>
                 <left>116</left>
@@ -595,9 +629,27 @@
                 <label>$INFO[ListItem.Label]</label>
             </control>
             <control type="label">
+                <description>
+                    "3 months ago" is taken in at a glance where a date has to be
+                    worked out against today's, but the date itself is what settles
+                    an argument, so both are here.
+                </description>
                 <left>730</left>
+                <top>5</top>
                 <width>320</width>
-                <height>50</height>
+                <height>20</height>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_tiny</font>
+                <textcolor>dialog_fg_70</textcolor>
+                <selectedcolor>dialog_fg_70</selectedcolor>
+                <label>$INFO[ListItem.Property(DateRelative)]</label>
+            </control>
+            <control type="label">
+                <left>730</left>
+                <top>25</top>
+                <width>320</width>
+                <height>20</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
                 <font>font_tiny</font>

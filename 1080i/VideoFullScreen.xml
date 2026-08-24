@@ -73,5 +73,47 @@
                 <wrapmultiline>true</wrapmultiline>
             </control>
         </control>
+
+        <control type="group">
+            <description>
+                Leaderboard tracker. While an attempt at a leaderboard runs, the client
+                publishes the value as it stands - the lap time so far, the score so far -
+                and this shows it.
+
+                The value being empty is what keeps this hidden, which also covers a Kodi
+                build without the leaderboard work, where the info label is unknown.
+
+                Sits under the challenge indicator, and slides up to where that one sits
+                when there is none.
+            </description>
+            <right>60</right>
+            <top>60</top>
+            <width>420</width>
+            <height>64</height>
+            <visible>!String.IsEmpty(RetroPlayer.LeaderboardTracker)</visible>
+            <animation effect="fade" time="200">VisibleChange</animation>
+            <animation effect="slide" end="0,108" time="0" condition="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)">Conditional</animation>
+
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>420</width>
+                <height>64</height>
+                <texture border="8" colordiffuse="main_bg_70">common/white.png</texture>
+            </control>
+
+            <control type="label">
+                <description>The value as it stands, formatted by the client</description>
+                <left>14</left>
+                <top>0</top>
+                <width>392</width>
+                <height>64</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_midi_bold</font>
+                <textcolor>main_fg_100</textcolor>
+                <label>$INFO[RetroPlayer.LeaderboardTracker]</label>
+            </control>
+        </control>
     </controls>
 </window>

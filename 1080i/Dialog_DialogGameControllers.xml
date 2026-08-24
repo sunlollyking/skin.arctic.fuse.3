@@ -208,10 +208,29 @@
                     <description>What the leaderboard measures</description>
                     <top>96</top>
                     <height>32</height>
-                    <width>100%</width>
+                    <width>62%</width>
                     <font>font_tiny</font>
                     <textcolor>dialog_fg_50</textcolor>
                     <label>$INFO[Window.Property(Leaderboards.Description)]</label>
+                </control>
+
+                <control type="label">
+                    <description>
+                        Where the player stands, without reading down the table for a
+                        name. Kodi composes the whole sentence, including the case
+                        where they have never set a time. It shares the description's
+                        row because the body below starts at constant_dialog_top, and
+                        a line of its own would land on the standings.
+                    </description>
+                    <right>0</right>
+                    <top>96</top>
+                    <height>32</height>
+                    <width>36%</width>
+                    <align>right</align>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_100</textcolor>
+                    <label>$INFO[Window.Property(Leaderboards.PlayerBest)]</label>
+                    <visible>!String.IsEmpty(Window.Property(Leaderboards.PlayerBest))</visible>
                 </control>
 
                 <control type="label">
