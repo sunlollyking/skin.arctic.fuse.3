@@ -461,6 +461,156 @@
         <midtexture colordiffuse="$VAR[ColorSelected]" border="12,0,12,0">progress/progress-nib.png</midtexture>
     </include>
 
+    <include name="Layout_GameLeaderboard">
+        <description>
+            One row of the leaderboards list. Kodi fills the columns from list item
+            properties set by the leaderboards dialog; see DialogGameLeaderboards.
+        </description>
+        <param name="selected">false</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Menu_Highlight_H</include>
+            </include>
+            <control type="group">
+                <description>What the leaderboard measures</description>
+                <left>20</left>
+                <width>940</width>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>12</top>
+                    <height>40</height>
+                    <font>font_main_bold</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <description>Which way it ranks - fastest time, highest score</description>
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>52</top>
+                    <height>32</height>
+                    <font>font_tiny</font>
+                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
+                    <label>$INFO[ListItem.Property(Format)]</label>
+                </control>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>84</top>
+                    <height>32</height>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <selectedcolor>dialog_fg_50</selectedcolor>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+            </control>
+            <control type="group">
+                <description>Who holds it, and where the player stands</description>
+                <right>20</right>
+                <width>440</width>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>12</top>
+                    <height>40</height>
+                    <align>right</align>
+                    <font>font_main_bold</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <label>$INFO[ListItem.Property(TopScore)]</label>
+                </control>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>52</top>
+                    <height>32</height>
+                    <align>right</align>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <selectedcolor>dialog_fg_50</selectedcolor>
+                    <label>$INFO[ListItem.Property(TopUsername)]</label>
+                </control>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>84</top>
+                    <height>32</height>
+                    <align>right</align>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <selectedcolor>dialog_fg_50</selectedcolor>
+                    <label>$INFO[ListItem.Property(PlayerRank)]$INFO[ListItem.Property(TotalEntries),  ·  ,]</label>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Layout_GameLeaderboardEntry">
+        <description>
+            One row of a leaderboard's standings. The player's own row is tinted so it
+            can be found without reading down the table.
+        </description>
+        <param name="selected">false</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Menu_Highlight_H</include>
+            </include>
+            <control type="image">
+                <description>The signed-in player's own row</description>
+                <left>0</left>
+                <top>1</top>
+                <width>100%</width>
+                <height>48</height>
+                <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
+                <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <width>110</width>
+                <height>50</height>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_mini</font>
+                <textcolor>dialog_fg_90</textcolor>
+                <selectedcolor>dialog_fg_90</selectedcolor>
+                <label>$INFO[ListItem.Property(RankLabel)]</label>
+            </control>
+            <control type="label">
+                <left>150</left>
+                <width>560</width>
+                <height>50</height>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_mini</font>
+                <textcolor>dialog_fg_90</textcolor>
+                <selectedcolor>dialog_fg_90</selectedcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="label">
+                <left>730</left>
+                <width>320</width>
+                <height>50</height>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_tiny</font>
+                <textcolor>dialog_fg_50</textcolor>
+                <selectedcolor>dialog_fg_50</selectedcolor>
+                <label>$INFO[ListItem.Property(Date)]</label>
+            </control>
+            <control type="label">
+                <right>20</right>
+                <width>300</width>
+                <height>50</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <include condition="$PARAM[selected]">Color_SelectedText</include>
+                <font>font_mini</font>
+                <textcolor>dialog_fg_90</textcolor>
+                <selectedcolor>dialog_fg_90</selectedcolor>
+                <label>$INFO[ListItem.Label2]</label>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_GameAchievement">
         <description>
             One row of the RetroAchievements list. Kodi fills the columns from list item

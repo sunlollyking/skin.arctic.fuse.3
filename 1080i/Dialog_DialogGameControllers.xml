@@ -110,6 +110,139 @@
         </include>
     </include>
 
+    <include name="DialogGameLeaderboards">
+        <description>
+            The leaderboards of the game being played. Browsing only: a score can only
+            be submitted in hardcore mode, which RetroAchievements grants an emulator
+            once it has been approved.
+
+            Like the achievements list this is built on DialogGameControllers.xml rather
+            than a window file of its own, and keeps control id 3 for the list.
+        </description>
+        <include>Part_Dim_Overlay</include>
+        <control type="group">
+            <include>Dimension_DialogFullMenu</include>
+            <include>Animation_BounceIn_Dialog</include>
+            <include content="Part_Background_Panel">
+                <param name="dialog_size">Dimension_DialogFullMenu</param>
+            </include>
+
+            <control type="group" id="8000">
+                <include>Size_Dialog_Pad</include>
+
+                <control type="group">
+                    <include>Size_Group_Head</include>
+                    <include content="Part_HeadText">
+                        <param name="id">9999</param>
+                        <param name="label">$LOCALIZE[35331] - $INFO[RetroPlayer.Title]</param>
+                    </include>
+                    <include content="Part_ItemPage">
+                        <param name="id">3</param>
+                        <param name="items_label">$LOCALIZE[35331]</param>
+                    </include>
+                    <include>Part_CloseButton</include>
+                    <include>Part_Line</include>
+                </control>
+
+                <control type="group">
+                    <include>Size_Group_Body</include>
+                    <include content="List_DialogSelect">
+                        <param name="id">3</param>
+                        <param name="itemlayout_include">Layout_GameLeaderboard</param>
+                        <param name="item_height">128</param>
+                        <param name="item_w">1480</param>
+                        <param name="itemlayout_w">1480</param>
+                        <pagecontrol>61</pagecontrol>
+                        <onright>61</onright>
+                        <include>Size_Grouplist_Pad</include>
+                    </include>
+                </control>
+
+                <control type="label">
+                    <description>Said once, at the foot, rather than on every row</description>
+                    <bottom>10</bottom>
+                    <height>40</height>
+                    <width>100%</width>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <label>$LOCALIZE[35332]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+
+    <include name="DialogGameLeaderboardEntries">
+        <description>
+            The standings of one leaderboard, reached from the leaderboards list.
+        </description>
+        <include>Part_Dim_Overlay</include>
+        <control type="group">
+            <include>Dimension_DialogFullMenu</include>
+            <include>Animation_BounceIn_Dialog</include>
+            <include content="Part_Background_Panel">
+                <param name="dialog_size">Dimension_DialogFullMenu</param>
+            </include>
+
+            <control type="group" id="8000">
+                <include>Size_Dialog_Pad</include>
+
+                <control type="group">
+                    <include>Size_Group_Head</include>
+                    <include content="Part_HeadText">
+                        <param name="id">9999</param>
+                        <param name="label">$INFO[Window.Property(Leaderboards.Title)]</param>
+                    </include>
+                    <include content="Part_ItemPage">
+                        <param name="id">3</param>
+                        <param name="items_label">$LOCALIZE[35331]</param>
+                    </include>
+                    <include>Part_CloseButton</include>
+                    <include>Part_Line</include>
+                </control>
+
+                <control type="label">
+                    <description>What the leaderboard measures</description>
+                    <top>96</top>
+                    <height>32</height>
+                    <width>100%</width>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <label>$INFO[Window.Property(Leaderboards.Description)]</label>
+                </control>
+
+                <control type="label">
+                    <description>Loading, or nothing to show</description>
+                    <top>300</top>
+                    <height>40</height>
+                    <width>100%</width>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font_mini</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <label>$INFO[Window.Property(Leaderboards.Status)]</label>
+                    <visible>!String.IsEmpty(Window.Property(Leaderboards.Status))</visible>
+                </control>
+
+                <control type="group">
+                    <include>Size_Group_Body</include>
+                    <visible>String.IsEmpty(Window.Property(Leaderboards.Status))</visible>
+                    <include content="List_DialogSelect">
+                        <param name="id">3</param>
+                        <param name="itemlayout_include">Layout_GameLeaderboardEntry</param>
+                        <param name="item_height">50</param>
+                        <param name="item_w">1480</param>
+                        <param name="itemlayout_w">1480</param>
+                        <pagecontrol>61</pagecontrol>
+                        <onright>61</onright>
+                        <include>Size_Grouplist_Pad</include>
+                    </include>
+                </control>
+            </control>
+        </control>
+    </include>
+
     <include name="DialogGameAchievements">
         <description>
             RetroAchievements list. Kodi builds this dialog on DialogGameControllers.xml

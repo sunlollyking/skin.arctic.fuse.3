@@ -2,7 +2,12 @@
 <window>
     <defaultcontrol always="true">3</defaultcontrol>
     <controls>
-        <include condition="!Window.IsDialogTopMost(gameachievements)">DialogGameControllers</include>
+        <!-- Listed per dialog rather than toggled on one condition: this window
+             now stands in for four game dialogs, and a binary switch cannot
+             tell them apart. Controllers is last, as the fallback. -->
         <include condition="Window.IsDialogTopMost(gameachievements)">DialogGameAchievements</include>
+        <include condition="Window.IsDialogTopMost(gameleaderboards)">DialogGameLeaderboards</include>
+        <include condition="Window.IsDialogTopMost(gameleaderboardentries)">DialogGameLeaderboardEntries</include>
+        <include condition="!Window.IsDialogTopMost(gameachievements) + !Window.IsDialogTopMost(gameleaderboards) + !Window.IsDialogTopMost(gameleaderboardentries)">DialogGameControllers</include>
     </controls>
 </window>
