@@ -252,7 +252,7 @@
                 <aligny>center</aligny>
                 <font>font_tiny</font>
                 <textcolor>panel_fg_50</textcolor>
-                <label>$LOCALIZE[35320]  $INFO[Window.Property(Manuals.Provider)]</label>
+                <label>$LOCALIZE[35319]  $INFO[Window.Property(Manuals.Provider)]</label>
                 <visible>!String.IsEmpty(Window.Property(Manuals.Provider))</visible>
             </control>
 
