@@ -1742,6 +1742,19 @@
             <visible>!String.IsEmpty(RetroPlayer.AchievementsProgress)</visible>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8009</param>
+            <param name="groupid">8109</param>
+            <description>
+                Cheats button. Kodi reports whether any codes were found for the running
+                game, which also keeps the button hidden on a build without the cheat
+                engine, where the window and the condition are both unknown.
+            </description>
+            <label>$LOCALIZE[35373]</label>
+            <param name="icon">special://skin/extras/icons/wand-magic-sparkles.png</param>
+            <onclick>ActivateWindow(GameCheats)</onclick>
+            <visible>RetroPlayer.HasCheats</visible>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8007</param>
             <param name="groupid">8107</param>
             <description>
@@ -1749,7 +1762,7 @@
                 looking for one if there is none beside it. Kodi reports for itself when
                 nothing can be found, so the button stays available either way.
             </description>
-            <label>$LOCALIZE[35311]</label>
+            <label>$LOCALIZE[35310]</label>
             <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
             <onclick>ShowGameManual</onclick>
         </include>
@@ -1764,7 +1777,7 @@
             <label>$LOCALIZE[35331]</label>
             <param name="icon">special://skin/extras/icons/trophy.png</param>
             <onclick>ActivateWindow(gameleaderboards)</onclick>
-            <visible>RetroPlayer.AchievementsLoggedIn</visible>
+            <visible>RetroPlayer.HasLeaderboards</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8003</param>
