@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,520,521,522,523,524,526,528</views>
+        <views>500,501,502,503,504,505,530,506,507,508,509,549,510,511,512,513,514,515,520,521,522,523,524,526,528</views>
     </include>
 
     <include name="View_Row_Items">
@@ -229,6 +229,7 @@
                 <include condition="$EXP[Exp_View_503_Include]">View_503_Circle_Row</include>
                 <include condition="$EXP[Exp_View_504_Include]">View_504_Board_Row</include>
                 <include condition="$EXP[Exp_View_505_Include]">View_505_Card_Row</include>
+                <include condition="$EXP[Exp_View_530_Include]">View_530_Machine_Row</include>
 
                 <!-- Wall Views -->
                 <include condition="$EXP[Exp_View_510_Include]">View_510_Square_Wall</include>
@@ -236,6 +237,7 @@
                 <include condition="$EXP[Exp_View_512_Include]">View_512_Poster_Wall</include>
                 <include condition="$EXP[Exp_View_513_Include]">View_513_Circle_Wall</include>
                 <include condition="$EXP[Exp_View_514_Include]">View_514_Board_Wall</include>
+                <include condition="$EXP[Exp_View_515_Include]">View_515_Machine_Wall</include>
 
                 <!-- Combined Views -->
                 <include condition="$EXP[Exp_View_520_Include]">View_520_Square_Combined_Row</include>

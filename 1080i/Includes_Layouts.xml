@@ -2787,6 +2787,101 @@
         </definition>
     </include>
 
+    <include name="Layout_Machine">
+        <param name="detailed">false</param>
+        <param name="selected">false</param>
+        <param name="icon">$VAR[Image_Machine_Photo]</param>
+        <param name="textcolor">main_fg</param>
+        <param name="diffuse">diffuse/landscape_w560_h310.png</param>
+        <param name="listitem">ListItem</param>
+        <param name="affix" />
+        <definition>
+            <control type="group">
+
+                <width>$PARAM[item_w]</width>
+                <height>$PARAM[item_h]</height>
+
+                <include content="Object_ItemBack">
+                    <param name="selected">$PARAM[selected]</param>
+                    <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                </include>
+
+                <include content="Object_Control" condition="$PARAM[selected]">
+                    <param name="control">image</param>
+                    <include>Texture_Box_Highlight_V</include>
+                </include>
+
+                <control type="group">
+                    <visible>![String.IsEmpty($PARAM[listitem].Art(photo)) + String.IsEmpty($PARAM[listitem].Art(fanart)) + String.IsEmpty($PARAM[listitem].Art(thumb))]</visible>
+                    <include content="Object_Layout_Image_Rectangle">
+                        <param name="diffuse">$PARAM[diffuse]</param>
+                        <param name="icon">$PARAM[icon]</param>
+                        <param name="listitem">$PARAM[listitem]</param>
+                        <param name="selected">$PARAM[selected]</param>
+                        <param name="aspectratio">scale</param>
+                    </include>
+                </control>
+
+                <control type="image" description="Machine logo">
+                    <top>10%</top>
+                    <left>10%</left>
+                    <right>10%</right>
+                    <bottom>34%</bottom>
+                    <texture background="true">$VAR[Image_Machine_Logo]</texture>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <visible>![String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo))]</visible>
+                </control>
+
+                <control type="group" description="Machine name, when it has no logo, on its own ground so it reads over any photo">
+                    <top>50%</top>
+                    <height>112</height>
+                    <centertop>50%</centertop>
+                    <visible>String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo))</visible>
+                    <control type="image">
+                        <texture colordiffuse="cc000000">common/white.png</texture>
+                        <visible>![String.IsEmpty($PARAM[listitem].Art(photo)) + String.IsEmpty($PARAM[listitem].Art(fanart)) + String.IsEmpty($PARAM[listitem].Art(thumb))]</visible>
+                    </control>
+                    <control type="textbox">
+                        <left>30</left>
+                        <right>30</right>
+                        <top>10</top>
+                        <bottom>10</bottom>
+                        <label>$INFO[$PARAM[listitem].Label]</label>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font_main_bold</font>
+                        <textcolor>ffffffff</textcolor>
+                    </control>
+                </control>
+
+                <control type="group" description="Game count, on its own ground so it reads over any machine photo">
+                    <bottom>0</bottom>
+                    <height>56</height>
+                    <visible>!String.IsEmpty($PARAM[listitem].Property(gamecount))</visible>
+                    <control type="image">
+                        <texture colordiffuse="cc000000">common/white.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <right>30</right>
+                        <label>$INFO[$PARAM[listitem].Property(gamecount),, $LOCALIZE[31901]]</label>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font_hint_bold</font>
+                        <textcolor>ffffffff</textcolor>
+                    </control>
+                </control>
+
+                <include content="Object_SelectBox" condition="$PARAM[selected]">
+                    <param name="affix">$PARAM[affix]</param>
+                    <param name="indicator">true</param>
+                    <param name="focusbounce">true</param>
+                    <param name="listitem">$PARAM[listitem]</param>
+                </include>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_Landscape">
         <param name="detailed">false</param>
         <param name="selected">false</param>

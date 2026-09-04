@@ -132,6 +132,7 @@
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(poster))">$INFO[Container(450).ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(season.poster))">$INFO[Container(450).ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(tvshow.poster))">$INFO[Container(450).ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(boxfront))">$INFO[Container(450).ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Icon)">$INFO[Container(450).ListItem.Icon]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Property(fallback.icon))">$INFO[Container(450).ListItem.Property(fallback.icon)]</value>
     </variable>
@@ -140,6 +141,7 @@
         <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(boxfront))">$INFO[ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
         <value condition="!String.IsEmpty(ListItem.Property(fallback.icon))">$INFO[ListItem.Property(fallback.icon)]</value>
     </variable>
@@ -148,11 +150,13 @@
         <value condition="!String.IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(season.poster))">$INFO[Container.ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.poster))">$INFO[Container.ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(boxfront))">$INFO[Container.ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Icon)">$INFO[Container.ListItem.Icon]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Property(fallback.icon))">$INFO[Container.ListItem.Property(fallback.icon)]</value>
     </variable>
     <variable name="Image_Poster_C450">
         <value condition="!String.IsEmpty(Container(450).ListItem.Property(override_poster))">$INFO[Container(450).ListItem.Property(override_poster)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(boxfront))">$INFO[Container(450).ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(poster))">$INFO[Container(450).ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(season.poster))">$INFO[Container(450).ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(tvshow.poster))">$INFO[Container(450).ListItem.Art(tvshow.poster)]</value>
@@ -161,6 +165,7 @@
     </variable>
     <variable name="Image_Poster">
         <value condition="!String.IsEmpty(ListItem.Property(override_poster))">$INFO[ListItem.Property(override_poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(boxfront))">$INFO[ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -169,24 +174,55 @@
     </variable>
     <variable name="Image_Poster_Container">
         <value condition="!String.IsEmpty(Container.ListItem.Property(override_poster))">$INFO[Container.ListItem.Property(override_poster)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(boxfront))">$INFO[Container.ListItem.Art(boxfront)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(poster))">$INFO[Container.ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(season.poster))">$INFO[Container.ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.poster))">$INFO[Container.ListItem.Art(tvshow.poster)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Icon)">$INFO[Container.ListItem.Icon]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Property(fallback.icon))">$INFO[Container.ListItem.Property(fallback.icon)]</value>
     </variable>
+    <variable name="Image_Machine_Photo">
+        <value condition="!String.IsEmpty(ListItem.Art(photo))">$INFO[ListItem.Art(photo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    </variable>
+    <variable name="Image_Machine_Logo">
+        <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(logo))">$INFO[ListItem.Art(logo)]</value>
+    </variable>
+    <variable name="Image_Machine_Photo_Container">
+        <value condition="!String.IsEmpty(Container.ListItem.Art(photo))">$INFO[Container.ListItem.Art(photo)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(thumb))">$INFO[Container.ListItem.Art(thumb)]</value>
+    </variable>
+    <variable name="Image_Machine_Logo_Container">
+        <value condition="!String.IsEmpty(Container.ListItem.Art(clearlogo))">$INFO[Container.ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(logo))">$INFO[Container.ListItem.Art(logo)]</value>
+    </variable>
+    <variable name="Image_Machine_Photo_C450">
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(photo))">$INFO[Container(450).ListItem.Art(photo)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(fanart))">$INFO[Container(450).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(thumb))">$INFO[Container(450).ListItem.Art(thumb)]</value>
+    </variable>
+    <variable name="Image_Machine_Logo_C450">
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(clearlogo))">$INFO[Container(450).ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(logo))">$INFO[Container(450).ListItem.Art(logo)]</value>
+    </variable>
     <variable name="Image_Clearlogo_C450">
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(clearlogo))">$INFO[Container(450).ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(logo))">$INFO[Container(450).ListItem.Art(logo)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(tvshow.clearlogo))">$INFO[Container(450).ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(artist.clearlogo))">$INFO[Container(450).ListItem.Art(artist.clearlogo)]</value>
     </variable>
     <variable name="Image_Clearlogo">
         <value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(logo))">$INFO[ListItem.Art(logo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(artist.clearlogo))">$INFO[ListItem.Art(artist.clearlogo)]</value>
     </variable>
     <variable name="Image_Clearlogo_Container">
         <value condition="!String.IsEmpty(Container.ListItem.Art(clearlogo))">$INFO[Container.ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(logo))">$INFO[Container.ListItem.Art(logo)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))">$INFO[Container.ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(artist.clearlogo))">$INFO[Container.ListItem.Art(artist.clearlogo)]</value>
     </variable>
@@ -211,6 +247,9 @@
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container(450).ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container(450).ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container(450).ListItem.Art(tvshow.landscape)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(screenshot))">$INFO[Container(450).ListItem.Art(screenshot)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(titlescreen))">$INFO[Container(450).ListItem.Art(titlescreen)]</value>
+        <value condition="!String.IsEmpty(Container(450).ListItem.Art(photo))">$INFO[Container(450).ListItem.Art(photo)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(fanart))">$INFO[Container(450).ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(tvshow.fanart))">$INFO[Container(450).ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.EPGEventIcon)">$INFO[Container(450).ListItem.EPGEventIcon]</value>
@@ -227,6 +266,9 @@
         <value condition="!String.IsEmpty(ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[ListItem.Art(tvshow.landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(screenshot))">$INFO[ListItem.Art(screenshot)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(titlescreen))">$INFO[ListItem.Art(titlescreen)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(photo))">$INFO[ListItem.Art(photo)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
@@ -243,6 +285,9 @@
         <value condition="!String.IsEmpty(Container.ListItem.Art(landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container.ListItem.Art(landscape)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(season.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container.ListItem.Art(season.landscape)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container.ListItem.Art(tvshow.landscape)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(screenshot))">$INFO[Container.ListItem.Art(screenshot)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(titlescreen))">$INFO[Container.ListItem.Art(titlescreen)]</value>
+        <value condition="!String.IsEmpty(Container.ListItem.Art(photo))">$INFO[Container.ListItem.Art(photo)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.EPGEventIcon)">$INFO[Container.ListItem.EPGEventIcon]</value>

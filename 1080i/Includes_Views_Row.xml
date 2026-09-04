@@ -63,6 +63,16 @@
 
 
 
+    <!-- Machine Row -->
+    <include name="View_530_Machine_Row">
+        <include content="View_Row_Include">
+            <param name="id">530</param>
+            <param name="include">List_Machine_Row</param>
+            <param name="viewtype_label">$LOCALIZE[31902]</param>
+            <param name="visible">$EXP[Exp_View_530]</param>
+        </include>
+    </include>
+
     <!-- Row Template View -->
     <include name="View_Row_Include">
         <definition>

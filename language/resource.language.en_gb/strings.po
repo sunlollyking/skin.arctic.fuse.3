@@ -2432,3 +2432,23 @@ msgstr ""
 msgctxt "#31625"
 msgid "High"
 msgstr ""
+
+#: /1080i/Includes_Info.xml
+msgctxt "#31900"
+msgid " players"
+msgstr ""
+
+#: /1080i/Includes_Layouts.xml
+msgctxt "#31901"
+msgid " games"
+msgstr ""
+
+#: /1080i/Includes_Views_Row.xml
+msgctxt "#31902"
+msgid "Machine row"
+msgstr ""
+
+#: /1080i/Includes_Views_Wall.xml
+msgctxt "#31903"
+msgid "Machine wall"
+msgstr ""

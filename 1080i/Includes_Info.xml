@@ -484,7 +484,7 @@
                 <left>$PARAM[left]</left>
                 <height>80</height>
 
-                <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,movie) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,season) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,episode) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,video) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | !String.IsEmpty($PARAM[container]$PARAM[listitem].ChannelNumberLabel) | $PARAM[override]]</visible>
+                <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,movie) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,season) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,episode) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,video) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | !String.IsEmpty($PARAM[container]$PARAM[listitem].ChannelNumberLabel) | [Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] | $PARAM[override]]</visible>
 
 
                 <control type="grouplist">
@@ -612,6 +612,49 @@
                         <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Duration(m),, $LOCALIZE[31073]]</param>
                         <param name="visible">!String.IsEmpty($PARAM[container]$PARAM[listitem].Duration) + Integer.IsEqual($PARAM[container]$PARAM[listitem].Duration(h),0) + [String.IsEqual($PARAM[container]$PARAM[listitem].DBType,movie) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,episode) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,season) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,video) | $PARAM[override]]</param>
                     </include>
+
+                    <!-- Game platform -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Platform]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)</param>
+                    </include>
+
+                    <!-- Game year -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Year]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Year)</param>
+                    </include>
+
+                    <!-- Game genre -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Genre]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Genre)</param>
+                    </include>
+
+                    <!-- Game players -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Players,, $LOCALIZE[31900]]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Players)</param>
+                    </include>
+
+                    <!-- Game region -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Region]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Region)</param>
+                    </include>
+
+                    <!-- Game achievements -->
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].AchievementsProgress]</param>
+                        <param name="visible">[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].AchievementsProgress)</param>
+                    </include>
+
 
                 </control>
             </control>

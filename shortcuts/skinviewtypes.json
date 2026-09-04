@@ -7,6 +7,7 @@
         "503":  "31418",
         "504":  "31100",
         "505":  "31563",
+        "530":  "31902",
 
         "506":  "31120",
         "507":  "31479",
@@ -19,6 +20,7 @@
         "512":  "31554",
         "513":  "31557",
         "514":  "31101",
+        "515":  "31903",
 
         "520":  "31002",
         "521":  "31003",
@@ -35,6 +37,7 @@
         "503":  "special://skin/extras/viewtypes/row-circle.jpg",
         "504":  "special://skin/extras/viewtypes/row-board.jpg",
         "505":  "special://skin/extras/viewtypes/row-card.jpg",
+        "530":  "special://skin/extras/viewtypes/row-board.jpg",
 
         "506":  "special://skin/extras/viewtypes/list-basic.jpg",
         "507":  "special://skin/extras/viewtypes/list-media.jpg",
@@ -47,6 +50,7 @@
         "512":  "special://skin/extras/viewtypes/wall-poster.jpg",
         "513":  "special://skin/extras/viewtypes/wall-circle.jpg",
         "514":  "special://skin/extras/viewtypes/wall-board.jpg",
+        "515":  "special://skin/extras/viewtypes/wall-board.jpg",
 
         "520":  "special://skin/extras/viewtypes/combined-square.jpg",
         "521":  "special://skin/extras/viewtypes/combined-landscape.jpg",
@@ -58,7 +62,7 @@
     },
     "groups": {
         "31007": {
-            "viewtypes": ["500","501","502","503","504","505"],
+            "viewtypes": ["500","501","502","503","504","505","530"],
             "icon": "special://skin/extras/icons/table-columns.png"
         },
         "535": {
@@ -66,7 +70,7 @@
             "icon": "special://skin/extras/icons/table-list.png"
         },
         "31008": {
-            "viewtypes": ["510","511","512","513","514"],
+            "viewtypes": ["510","511","512","513","514","515"],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
         "31083": {
@@ -251,15 +255,157 @@
         },
         "games": {
             "rule": "Container.Content(games)",
-            "viewtypes": ["500", "501", "502", "503", "504", "510", "511", "512", "513", "514", "506", "507", "508", "509"],
-            "library": "501",
-            "plugins": "501"
+            "viewtypes": [
+                "500",
+                "501",
+                "502",
+                "503",
+                "504",
+                "505",
+                "530",
+                "510",
+                "511",
+                "512",
+                "513",
+                "514",
+                "515",
+                "520",
+                "521",
+                "522",
+                "523",
+                "524",
+                "526",
+                "528",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549"
+            ],
+            "library": "502",
+            "plugins": "502"
+        },
+        "platforms": {
+            "rule": "Container.Content(platforms)",
+            "viewtypes": [
+                "530",
+                "515",
+                "501",
+                "504",
+                "511",
+                "514",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549",
+                "521",
+                "524",
+                "526",
+                "528"
+            ],
+            "library": "530",
+            "plugins": "530"
+        },
+        "releases": {
+            "rule": "Container.Content(releases)",
+            "viewtypes": [
+                "500",
+                "501",
+                "502",
+                "503",
+                "504",
+                "505",
+                "530",
+                "510",
+                "511",
+                "512",
+                "513",
+                "514",
+                "515",
+                "520",
+                "521",
+                "522",
+                "523",
+                "524",
+                "526",
+                "528",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549"
+            ],
+            "library": "507",
+            "plugins": "507"
+        },
+        "gameoverview": {
+            "rule": "Container.Content(overview)",
+            "viewtypes": [
+                "500",
+                "501",
+                "504",
+                "510",
+                "511",
+                "514",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549"
+            ],
+            "library": "506",
+            "plugins": "506"
+        },
+        "gamefacets": {
+            "rule": "[Container.Content(developers) | Container.Content(publishers) | Container.Content(collections) | Container.Content(regions) | Container.Content(players) | Container.Content(ageratings) | Container.Content(categories)]",
+            "viewtypes": [
+                "500",
+                "501",
+                "504",
+                "510",
+                "511",
+                "514",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549"
+            ],
+            "library": "506",
+            "plugins": "506"
         },
         "none-games": {
             "rule": "Container.Content() + Window.IsVisible(MyGames.xml)",
-            "viewtypes": ["500", "501", "502", "503", "504", "510", "511", "512", "513", "514", "506", "507", "508", "509"],
-            "library": "501",
-            "plugins": "501"
+            "viewtypes": [
+                "500",
+                "501",
+                "502",
+                "503",
+                "504",
+                "505",
+                "530",
+                "510",
+                "511",
+                "512",
+                "513",
+                "514",
+                "515",
+                "520",
+                "521",
+                "522",
+                "523",
+                "524",
+                "526",
+                "528",
+                "506",
+                "507",
+                "508",
+                "509",
+                "549"
+            ],
+            "library": "502",
+            "plugins": "502"
         },
         "none-recordings": {
             "rule": "Container.Content() + Window.IsVisible(MyPVRRecordings.xml)",

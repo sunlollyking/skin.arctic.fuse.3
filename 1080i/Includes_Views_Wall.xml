@@ -51,6 +51,16 @@
         </include>
     </include>
 
+    <!-- Machine Wall -->
+    <include name="View_515_Machine_Wall">
+        <include content="View_Wall_Include">
+            <param name="id">515</param>
+            <param name="include">List_Machine_Row</param>
+            <param name="viewtype_label">$LOCALIZE[31903]</param>
+            <param name="visible">$EXP[Exp_View_515]</param>
+        </include>
+    </include>
+
     <!-- Wall Template View -->
     <include name="View_Wall_Include">
         <param name="overlay">true</param>
