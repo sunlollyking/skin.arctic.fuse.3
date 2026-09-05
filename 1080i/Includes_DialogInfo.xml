@@ -1758,6 +1758,157 @@
         </definition>
     </include>
 
+    <include name="DialogInfo_GameDetails">
+        <include content="_DialogInfo_GameDetails">
+            <param name="left_group_width">480</param>
+            <param name="right">80</param>
+        </include>
+    </include>
+
+    <include name="_DialogInfo_GameDetails">
+        <definition>
+            <control type="group">
+                <top>15</top>
+            </control>
+
+            <control type="group">
+                <left>20</left>
+                <height>80</height>
+
+                <control type="grouplist" id="9000">
+                    <orientation>horizontal</orientation>
+                    <top>-2</top>
+                    <left>20</left>
+                    <height>57</height>
+                    <itemgap>40</itemgap>
+                    <ondown>5000</ondown>
+
+                    <include content="Button_Underline_Switcher">
+                        <param name="id">4001</param>
+                        <label>$LOCALIZE[208]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <onclick>Dialog.Close(gameinformation)</onclick>
+                        <onclick>PlayMedia($ESCINFO[ListItem.FilenameAndPath])</onclick>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
+                        <param name="id">4014</param>
+                        <label>$LOCALIZE[35588]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <onclick>ActivateWindow(gameachievements)</onclick>
+                        <visible>!String.IsEmpty(ListItem.AchievementsTotal)</visible>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
+                        <param name="id">4006</param>
+                        <label>$LOCALIZE[184]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <onclick>SendClick(6)</onclick>
+                        <visible>Control.IsEnabled(6)</visible>
+                    </include>
+                </control>
+
+            </control>
+
+            <control type="group">
+                <left>0</left>
+                <right>$PARAM[right]</right>
+                <height>320</height>
+
+                <!-- What the machine is and who made it -->
+                <control type="grouplist">
+                    <orientation>vertical</orientation>
+                    <itemgap>0</itemgap>
+                    <width>$PARAM[left_group_width]</width>
+                    <height>320</height>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/gamepad.png</param>
+                        <param name="role">$LOCALIZE[35549]</param>
+                        <param name="name">$INFO[ListItem.Platform]</param>
+                        <visible>!String.IsEmpty(ListItem.Platform)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/microchip.png</param>
+                        <param name="role">$LOCALIZE[35521]</param>
+                        <param name="name">$INFO[ListItem.Developer]</param>
+                        <visible>!String.IsEmpty(ListItem.Developer)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/building.png</param>
+                        <param name="role">$LOCALIZE[35522]</param>
+                        <param name="name">$INFO[ListItem.Publisher]</param>
+                        <visible>!String.IsEmpty(ListItem.Publisher)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/genre.png</param>
+                        <param name="role">$LOCALIZE[515]</param>
+                        <param name="name">$INFO[ListItem.Genre]</param>
+                        <visible>!String.IsEmpty(ListItem.Genre)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/users.png</param>
+                        <param name="role">$LOCALIZE[35525]</param>
+                        <param name="name">$INFO[ListItem.Players]</param>
+                        <visible>!String.IsEmpty(ListItem.Players)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/earth-americas.png</param>
+                        <param name="role">$LOCALIZE[35524]</param>
+                        <param name="name">$INFO[ListItem.Region]</param>
+                        <visible>!String.IsEmpty(ListItem.Region)</visible>
+                    </include>
+                </control>
+
+                <!-- When it came out and what has been done with it -->
+                <control type="grouplist">
+                    <orientation>vertical</orientation>
+                    <itemgap>0</itemgap>
+                    <height>320</height>
+                    <left>$PARAM[left_group_width]</left>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/calendar-days.png</param>
+                        <param name="role">$LOCALIZE[345]</param>
+                        <param name="name">$INFO[ListItem.Year]</param>
+                        <visible>!String.IsEmpty(ListItem.Year)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/trophy.png</param>
+                        <param name="role">$LOCALIZE[35588]</param>
+                        <param name="name">$INFO[ListItem.AchievementsEarned,, / ]$INFO[ListItem.AchievementsTotal]</param>
+                        <visible>!String.IsEmpty(ListItem.AchievementsTotal)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/star.png</param>
+                        <param name="role">$LOCALIZE[563]</param>
+                        <param name="name">$INFO[ListItem.Rating]</param>
+                        <visible>!String.IsEmpty(ListItem.Rating)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/award.png</param>
+                        <param name="role">$LOCALIZE[573]</param>
+                        <param name="name">$INFO[ListItem.Mpaa]</param>
+                        <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/play.png</param>
+                        <param name="role">$LOCALIZE[567]</param>
+                        <param name="name">$INFO[ListItem.PlayCount]</param>
+                        <visible>!String.IsEmpty(ListItem.PlayCount)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/clock.png</param>
+                        <param name="role">$LOCALIZE[568]</param>
+                        <param name="name">$INFO[ListItem.LastPlayed]</param>
+                        <visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+                    </include>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="DialogInfo_MusicDetails">
         <include content="_DialogInfo_MusicDetails">
             <param name="left_group_width">480</param>
