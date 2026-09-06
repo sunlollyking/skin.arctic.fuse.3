@@ -377,6 +377,9 @@
         <value condition="String.StartsWith(ListItem.FolderPath,videodb://)">$LOCALIZE[14022]</value>
         <value condition="String.StartsWith(ListItem.FolderPath,pvr://)">$LOCALIZE[31000]</value>
         <value condition="String.StartsWith(ListItem.FolderPath,plugin://)">$LOCALIZE[24000]</value>
+        <!-- Each way into a platform draws its own glyph, so "Folder" under
+             every one of them says nothing the row does not already say -->
+        <value condition="Container.Content(overview)" />
         <value condition="ListItem.IsFolder">$LOCALIZE[20334]</value>
         <value>$LOCALIZE[31025]</value>
     </variable>

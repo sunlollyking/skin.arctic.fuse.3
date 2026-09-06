@@ -172,6 +172,9 @@
                 <texture diffuse="diffuse/landscape_w1040_h585.png" background="true">$VAR[Image_Landscape]</texture>
                 <fadetime>background_fadetime</fadetime>
                 <aspectratio scalediffuse="false">keep</aspectratio>
+                <!-- The way back up has no art of its own, so this falls to the
+                     back arrow and blows a small glyph up to fill the panel -->
+                <visible>!ListItem.IsParentFolder</visible>
             </control>
         </control>
     </include>
