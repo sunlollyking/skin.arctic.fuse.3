@@ -2452,3 +2452,8 @@ msgstr ""
 msgctxt "#31903"
 msgid "Machine wall"
 msgstr ""
+
+#: /1080i/Includes_Info.xml
+msgctxt "#31904"
+msgid " achievements"
+msgstr ""

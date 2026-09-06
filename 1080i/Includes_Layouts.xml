@@ -2832,14 +2832,13 @@
                     <visible>![String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo))]</visible>
                 </control>
 
-                <control type="group" description="Machine name, when it has no logo, on its own ground so it reads over any photo">
+                <control type="group" description="Machine name, when it has no logo. Always on its own ground: the focus highlight is light, so white text over a machine with no photo is otherwise invisible">
                     <top>50%</top>
                     <height>112</height>
                     <centertop>50%</centertop>
-                    <visible>String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo))</visible>
+                    <visible>String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo)) + !$PARAM[listitem].IsParentFolder</visible>
                     <control type="image">
                         <texture colordiffuse="cc000000">common/white.png</texture>
-                        <visible>![String.IsEmpty($PARAM[listitem].Art(photo)) + String.IsEmpty($PARAM[listitem].Art(fanart)) + String.IsEmpty($PARAM[listitem].Art(thumb))]</visible>
                     </control>
                     <control type="textbox">
                         <left>30</left>
@@ -2851,6 +2850,18 @@
                         <aligny>center</aligny>
                         <font>font_main_bold</font>
                         <textcolor>ffffffff</textcolor>
+                    </control>
+                </control>
+
+                <control type="group" description="The parent entry is a way out of the listing, not a machine">
+                    <visible>$PARAM[listitem].IsParentFolder</visible>
+                    <control type="image">
+                        <width>96</width>
+                        <height>96</height>
+                        <centertop>50%</centertop>
+                        <centerleft>50%</centerleft>
+                        <texture colordiffuse="main_fg_70">special://skin/extras/icons/arrow-turn-up.png</texture>
+                        <aspectratio>keep</aspectratio>
                     </control>
                 </control>
 

@@ -146,9 +146,9 @@
     </include>
 
     <!-- Expressions -->
-    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505]]</expression>
+    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_530]]</expression>
 
-    <expression name="View_Mode_Wall_Expression">[$EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514]]</expression>
+    <expression name="View_Mode_Wall_Expression">[$EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514] | $EXP[Exp_View_515]]</expression>
 
     <expression name="View_Mode_List_Expression">[$EXP[View_Mode_List_Full_Expression] | $EXP[View_Mode_List_Flix_Expression]]</expression>
     <expression name="View_Mode_List_Full_Expression">[$EXP[Exp_View_506] | $EXP[Exp_View_507] | $EXP[Exp_View_508]]</expression>

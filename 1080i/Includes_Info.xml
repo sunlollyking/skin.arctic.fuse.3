@@ -651,7 +651,7 @@
                     <!-- Game achievements -->
                     <include content="Info_Line_Label">
                         <param name="colordiffuse">$PARAM[colordiffuse]</param>
-                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].AchievementsProgress]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].AchievementsProgress,, $LOCALIZE[31904]]</param>
                         <param name="visible">[[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !Window.IsVisible(DialogGameInfo.xml)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].AchievementsProgress)</param>
                     </include>
 
