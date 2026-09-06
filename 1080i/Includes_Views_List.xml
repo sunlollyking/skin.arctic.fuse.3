@@ -119,6 +119,8 @@
         </include>
     </include>
 
+    <!-- The way back up has no art of its own, so an unguarded panel falls to
+         the back arrow and blows a small glyph up to fill itself -->
     <include name="View_Media_Square">
         <control type="group">
             <height>612</height>
@@ -133,6 +135,7 @@
                 <texture diffuse="diffuse/square_w585_h585.png" background="true">$INFO[ListItem.Icon]</texture>
                 <fadetime>background_fadetime</fadetime>
                 <aspectratio scalediffuse="false">scale</aspectratio>
+                <visible>!ListItem.IsParentFolder</visible>
             </control>
         </control>
     </include>
@@ -153,6 +156,7 @@
                     <texture diffuse="diffuse/poster_w410_h585.png" background="true">$PARAM[image]</texture>
                     <fadetime>background_fadetime</fadetime>
                     <aspectratio scalediffuse="false">scale</aspectratio>
+                    <visible>!ListItem.IsParentFolder</visible>
                 </control>
             </control>
         </definition>
@@ -172,8 +176,6 @@
                 <texture diffuse="diffuse/landscape_w1040_h585.png" background="true">$VAR[Image_Landscape]</texture>
                 <fadetime>background_fadetime</fadetime>
                 <aspectratio scalediffuse="false">keep</aspectratio>
-                <!-- The way back up has no art of its own, so this falls to the
-                     back arrow and blows a small glyph up to fill the panel -->
                 <visible>!ListItem.IsParentFolder</visible>
             </control>
         </control>
