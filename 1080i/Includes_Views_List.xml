@@ -135,7 +135,17 @@
                 <texture diffuse="diffuse/square_w585_h585.png" background="true">$INFO[ListItem.Icon]</texture>
                 <fadetime>background_fadetime</fadetime>
                 <aspectratio scalediffuse="false">scale</aspectratio>
-                <visible>!ListItem.IsParentFolder</visible>
+                <visible>!ListItem.IsParentFolder + !Container.Content(overview)</visible>
+            </control>
+            <control type="image">
+                <visible>Container.Content(overview) + !ListItem.IsParentFolder</visible>
+                <texture>$INFO[ListItem.Icon]</texture>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <width>220</width>
+                <height>220</height>
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <colordiffuse>main_fg_70</colordiffuse>
             </control>
         </control>
     </include>
@@ -176,7 +186,17 @@
                 <texture diffuse="diffuse/landscape_w1040_h585.png" background="true">$VAR[Image_Landscape]</texture>
                 <fadetime>background_fadetime</fadetime>
                 <aspectratio scalediffuse="false">keep</aspectratio>
-                <visible>!ListItem.IsParentFolder</visible>
+                <visible>!ListItem.IsParentFolder + !Container.Content(overview)</visible>
+            </control>
+            <control type="image">
+                <visible>Container.Content(overview) + !ListItem.IsParentFolder</visible>
+                <texture>$INFO[ListItem.Icon]</texture>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <width>220</width>
+                <height>220</height>
+                <centerleft>50%</centerleft>
+                <centertop>50%</centertop>
+                <colordiffuse>main_fg_70</colordiffuse>
             </control>
         </control>
     </include>
