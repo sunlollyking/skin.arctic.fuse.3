@@ -206,6 +206,10 @@
             <include>Info_Panel_Dimensions</include>
             <include content="Info_Panel">
                 <param name="visible">String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer))</param>
+                <!-- The panel is 420 tall and the title and details line take 240
+                     of it, so a description that assumes it has 240 to itself
+                     runs past the bottom and over the list header below -->
+                <param name="otherplotheight">160</param>
                 <param name="visible_line">$EXP[View_Row_Info_Details_Expression]</param>
                 <param name="visible_plot">$EXP[View_Row_Info_Details_Expression]</param>
                 <param name="visible_meta">$EXP[View_Row_Info_Details_Expression]</param>
