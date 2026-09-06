@@ -150,6 +150,9 @@
                 </include>
                 <include content="Info_Panel" condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">
                     <param name="plotheight">120</param>
+                    <!-- A game's description comes through the fallback block,
+                         which otherwise takes 240 and lands on the buttons -->
+                    <param name="otherplotheight">120</param>
                     <param name="plotwidth">$PARAM[plotwidth]</param>
                     <param name="include_title">false</param>
                 </include>
@@ -1868,11 +1871,19 @@
                     <itemgap>0</itemgap>
                     <height>320</height>
                     <left>$PARAM[left_group_width]</left>
+                    <!-- A third of the library knows the day a game was sold,
+                         not just the year, so say so where it does -->
                     <include content="Object_InfoCircle">
-                        <param name="icon">special://skin/extras/icons/calendar-days.png</param>
+                        <param name="icon">special://skin/extras/icons/calendar-day.png</param>
+                        <param name="role">$LOCALIZE[172]</param>
+                        <param name="name">$INFO[ListItem.Premiered]</param>
+                        <visible>!String.IsEmpty(ListItem.Premiered)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/calendar-day.png</param>
                         <param name="role">$LOCALIZE[345]</param>
                         <param name="name">$INFO[ListItem.Year]</param>
-                        <visible>!String.IsEmpty(ListItem.Year)</visible>
+                        <visible>!String.IsEmpty(ListItem.Year) + String.IsEmpty(ListItem.Premiered)</visible>
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/trophy.png</param>
@@ -1888,7 +1899,7 @@
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/award.png</param>
-                        <param name="role">$LOCALIZE[573]</param>
+                        <param name="role">$LOCALIZE[31905]</param>
                         <param name="name">$INFO[ListItem.Mpaa]</param>
                         <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
                     </include>
