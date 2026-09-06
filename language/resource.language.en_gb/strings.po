@@ -2455,7 +2455,7 @@ msgstr ""
 
 #: /1080i/Includes_Info.xml
 msgctxt "#31904"
-msgid " achievements"
+msgid "achievements"
 msgstr ""
 
 #: /1080i/Includes_DialogInfo.xml
