@@ -1899,6 +1899,12 @@
                         <visible>!String.IsEmpty(ListItem.Year) + String.IsEmpty(ListItem.Premiered)</visible>
                     </include>
                     <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/code-branch.png</param>
+                        <param name="role">$LOCALIZE[35663]</param>
+                        <param name="name">$INFO[ListItem.Property(edition)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(edition))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/trophy.png</param>
                         <param name="role">$LOCALIZE[35588]</param>
                         <param name="name">$INFO[ListItem.AchievementsEarned,, / ]$INFO[ListItem.AchievementsTotal]</param>
