@@ -125,8 +125,10 @@
 
     <include name="DialogInfo_Info_Group">
         <param name="indent">520</param>
+        <param name="extended_height">320</param>
+        <param name="bottom_inset">-40</param>
         <definition>
-            <bottom>-40</bottom>
+            <bottom>$PARAM[bottom_inset]</bottom>
             <right>$PARAM[indent]</right>
             <control type="group">
                 <include content="DialogInfo_Animation_Left" condition="!String.IsEqual(Window(Home).Property(InfoPanel.FullSwitch),Spotlight)">
@@ -176,6 +178,7 @@
             <control type="grouplist">
                 <left>-40</left>
                 <top>400</top>
+                <height>$PARAM[extended_height]</height>
                 <orientation>vertical</orientation>
                 <include>DialogInfo_Animation_Left</include>
                 <include condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">$PARAM[extended_include]</include>
@@ -1700,7 +1703,7 @@
                 <control type="grouplist" id="9200">
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
-                    <height>320</height>
+                    <height>480</height>
                     <left>$PARAM[left_group_width]</left>
 
                     <onup>9000</onup>
@@ -1829,14 +1832,14 @@
             <control type="group">
                 <left>0</left>
                 <right>$PARAM[right]</right>
-                <height>320</height>
+                <height>480</height>
 
                 <!-- What the machine is and who made it -->
                 <control type="grouplist">
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
                     <width>$PARAM[left_group_width]</width>
-                    <height>320</height>
+                    <height>480</height>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/gamepad.png</param>
                         <param name="role">$LOCALIZE[35549]</param>
@@ -1914,6 +1917,12 @@
                         <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
                     </include>
                     <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/cubes-stacked.png</param>
+                        <param name="role">$LOCALIZE[20434]</param>
+                        <param name="name">$INFO[ListItem.Set]</param>
+                        <visible>!String.IsEmpty(ListItem.Set)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/play.png</param>
                         <param name="role">$LOCALIZE[567]</param>
                         <param name="name">$INFO[ListItem.PlayCount]</param>
@@ -1924,6 +1933,12 @@
                         <param name="role">$LOCALIZE[568]</param>
                         <param name="name">$INFO[ListItem.LastPlayed]</param>
                         <visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/book.png</param>
+                        <param name="role">$LOCALIZE[35585]</param>
+                        <param name="name">$LOCALIZE[107]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(hasmanual))</visible>
                     </include>
                 </control>
             </control>

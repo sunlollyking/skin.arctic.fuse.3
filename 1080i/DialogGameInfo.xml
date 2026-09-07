@@ -32,6 +32,10 @@
                     <include content="DialogInfo_Info_Group">
                         <param name="extended_include">DialogInfo_GameDetails</param>
                         <param name="plotwidth">90%</param>
+                        <!-- a game carries more facts than a film; six rows a
+                             column rather than the four the default allows -->
+                        <param name="extended_height">480</param>
+                        <param name="bottom_inset">-180</param>
                     </include>
                 </control>
             </control>
