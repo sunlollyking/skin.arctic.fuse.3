@@ -1882,7 +1882,10 @@
                 <control type="grouplist">
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
-                    <height>320</height>
+                    <!-- A grouplist clips what will not fit rather than
+                         scrolling, and ten rows compete for this column, so it
+                         matches the height of the one beside it -->
+                    <height>480</height>
                     <left>$PARAM[left_group_width]</left>
                     <!-- A third of the library knows the day a game was sold,
                          not just the year, so say so where it does -->
