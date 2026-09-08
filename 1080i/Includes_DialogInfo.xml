@@ -1703,7 +1703,7 @@
                 <control type="grouplist" id="9200">
                     <orientation>vertical</orientation>
                     <itemgap>0</itemgap>
-                    <height>480</height>
+                    <height>320</height>
                     <left>$PARAM[left_group_width]</left>
 
                     <onup>9000</onup>
