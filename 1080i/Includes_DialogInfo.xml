@@ -1814,7 +1814,9 @@
                         <usealttexture>false</usealttexture>
                         <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
                         <onclick>ActivateWindow(gameachievements)</onclick>
-                        <visible>!String.IsEmpty(ListItem.AchievementsTotal)</visible>
+                        <!-- The list it opens is the signed-in person's own progress,
+                             so without a sign-in there is nothing behind the tab -->
+                        <visible>!String.IsEmpty(ListItem.AchievementsTotal) + System.GetBool(gamesachievements.loggedin)</visible>
                     </include>
 
                     <include content="Button_Underline_Switcher">
@@ -1911,7 +1913,7 @@
                         <param name="icon">special://skin/extras/icons/trophy.png</param>
                         <param name="role">$LOCALIZE[35588]</param>
                         <param name="name">$INFO[ListItem.AchievementsEarned,, / ]$INFO[ListItem.AchievementsTotal]</param>
-                        <visible>!String.IsEmpty(ListItem.AchievementsTotal)</visible>
+                        <visible>!String.IsEmpty(ListItem.AchievementsTotal) + System.GetBool(gamesachievements.loggedin)</visible>
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/star.png</param>
