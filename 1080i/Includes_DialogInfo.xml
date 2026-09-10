@@ -1816,11 +1816,11 @@
                         <label>$LOCALIZE[35669]</label>
                         <usealttexture>false</usealttexture>
                         <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
-                        <!-- The library hands its pictures to the picture
-                             window, which already knows how to browse, zoom
-                             and run a slideshow through them -->
+                        <!-- Opened to be looked at rather than sorted through,
+                             so it goes straight to the pictures, paused on the
+                             first, with Kodi's own zoom and pan -->
                         <onclick>Dialog.Close(gameinformation)</onclick>
-                        <onclick>ActivateWindow(pictures,"gamedb://titles/$INFO[ListItem.DBID]/art/",return)</onclick>
+                        <onclick>SlideShow("gamedb://titles/$INFO[ListItem.DBID]/art/",notrandom,pause)</onclick>
                         <visible>Integer.IsGreater(ListItem.DBID,0)</visible>
                     </include>
 
@@ -1830,9 +1830,12 @@
                         <usealttexture>false</usealttexture>
                         <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
                         <onclick>ActivateWindow(gameachievements)</onclick>
-                        <!-- The list it opens is the signed-in person's own progress,
-                             so without a sign-in there is nothing behind the tab -->
-                        <visible>!String.IsEmpty(ListItem.AchievementsTotal) + System.GetBool(gamesachievements.loggedin)</visible>
+                        <!-- The list is fetched when it is opened, so what decides
+                             whether to offer it is that the game can be asked about
+                             at all, not a count somebody has already stored. And it
+                             is the signed-in person's own progress, so it needs a
+                             sign-in. -->
+                        <visible>!String.IsEmpty(ListItem.AchievementsGameId) + System.GetBool(gamesachievements.loggedin)</visible>
                     </include>
 
                     <include content="Button_Underline_Switcher">
