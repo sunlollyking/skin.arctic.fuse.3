@@ -3,11 +3,21 @@
 
     <!-- Square Wall -->
     <include name="View_510_Square_Wall">
-        <include content="View_Wall_Include">
+        <include content="View_Wall_Include" condition="!Window.IsVisible(games)">
             <param name="id">510</param>
             <param name="include">List_Square_Row</param>
             <param name="viewtype_label">$LOCALIZE[31556]</param>
             <param name="visible">$EXP[Exp_View_510]</param>
+        </include>
+        <include content="View_Wall_Include" condition="Window.IsVisible(games)">
+            <param name="id">510</param>
+            <param name="include">List_Square_Row</param>
+            <param name="viewtype_label">$LOCALIZE[31556]</param>
+            <param name="visible">$EXP[Exp_View_510]</param>
+            <param name="item_w">view_game_item_w</param>
+            <param name="item_h">view_game_item_w</param>
+            <param name="itemlayout_w">view_game_itemlayout_w</param>
+            <param name="itemlayout_h">view_game_itemlayout_h</param>
         </include>
     </include>
 
@@ -64,12 +74,20 @@
     <!-- Wall Template View -->
     <include name="View_Wall_Include">
         <param name="overlay">true</param>
+        <param name="item_w">view_poster_item_w</param>
+        <param name="item_h">view_poster_item_w</param>
+        <param name="itemlayout_w">view_poster_itemlayout_w</param>
+        <param name="itemlayout_h">view_poster_itemlayout_h</param>
         <definition>
             <control type="group">
                 <visible>Control.IsVisible($PARAM[id])</visible>
                 <control type="group">
                     <include content="$PARAM[include]">
                         <param name="id">$PARAM[id]</param>
+                        <param name="item_w">$PARAM[item_w]</param>
+                        <param name="item_h">$PARAM[item_h]</param>
+                        <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
+                        <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
                         <param name="control">panel</param>
                         <param name="orientation">vertical</param>
                         <param name="offset_y">40</param>

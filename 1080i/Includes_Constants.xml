@@ -103,6 +103,11 @@
     <constant name="view_poster_itemlayout_w">257.14</constant>
     <constant name="-view_poster_itemlayout_w">-257.14</constant>
     <constant name="view_poster_item_w">217.14</constant>
+    <!-- A games wall of six across rather than seven: a box front carries its
+         title as artwork, so it has to be read as well as recognised -->
+    <constant name="view_game_itemlayout_w">300</constant>
+    <constant name="view_game_item_w">260</constant>
+    <constant name="view_game_itemlayout_h">408.34</constant>
     <constant name="-view_poster_item_w">-217.14</constant>
     <constant name="view_poster_movement">6</constant>
 
