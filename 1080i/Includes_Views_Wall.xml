@@ -3,22 +3,65 @@
 
     <!-- Square Wall -->
     <include name="View_510_Square_Wall">
-        <include content="View_Wall_Include" condition="!Window.IsVisible(games)">
+        <include content="View_Wall_Include">
             <param name="id">510</param>
             <param name="include">List_Square_Row</param>
             <param name="viewtype_label">$LOCALIZE[31556]</param>
             <param name="visible">$EXP[Exp_View_510]</param>
+            <include>View_510_Square_Wall_Game_Layout</include>
         </include>
-        <include content="View_Wall_Include" condition="Window.IsVisible(games)">
-            <param name="id">510</param>
-            <param name="include">List_Square_Row</param>
-            <param name="viewtype_label">$LOCALIZE[31556]</param>
-            <param name="visible">$EXP[Exp_View_510]</param>
-            <param name="item_w">view_game_item_w</param>
-            <param name="item_h">view_game_item_w</param>
-            <param name="itemlayout_w">view_game_itemlayout_w</param>
-            <param name="itemlayout_h">view_game_itemlayout_h</param>
-        </include>
+    </include>
+
+    <!-- A game's box front carries its title as artwork, so it has to be read
+         as well as recognised: six to a row rather than seven. The platform
+         list and the game list are the same view of the same window and are
+         told apart only by their content, which an include condition cannot
+         see - it is resolved once when the window is activated. A layout
+         condition is checked every time the container draws, so the choice
+         has to be made here. -->
+    <include name="View_510_Square_Wall_Game_Layout">
+        <itemlayout condition="Container.Content(games)" width="view_game_itemlayout_w" height="view_game_itemlayout_h">
+            <control type="group">
+                <left>view_offx</left>
+                <right>-view_offx</right>
+                <top>40</top>
+                <bottom>-40</bottom>
+                <include content="Layout_Square">
+                    <param name="selected">false</param>
+                    <param name="item_w">view_game_item_w</param>
+                    <param name="item_h">view_game_item_w</param>
+                    <param name="id">510</param>
+                </include>
+            </control>
+        </itemlayout>
+        <focusedlayout condition="Container.Content(games)" width="view_game_itemlayout_w" height="view_game_itemlayout_h">
+            <control type="group">
+                <left>view_offx</left>
+                <right>-view_offx</right>
+                <top>40</top>
+                <bottom>-40</bottom>
+                <control type="group">
+                    <animation effect="fade" start="100" end="0" condition="Control.HasFocus(510)">Conditional</animation>
+                    <include content="Layout_Square">
+                        <param name="focusedlayout">true</param>
+                        <param name="selected">false</param>
+                        <param name="item_w">view_game_item_w</param>
+                        <param name="item_h">view_game_item_w</param>
+                        <param name="id">510</param>
+                    </include>
+                </control>
+                <control type="group">
+                    <animation effect="fade" start="100" end="0" condition="!Control.HasFocus(510)">Conditional</animation>
+                    <include content="Layout_Square">
+                        <param name="focusedlayout">true</param>
+                        <param name="selected">true</param>
+                        <param name="item_w">view_game_item_w</param>
+                        <param name="item_h">view_game_item_w</param>
+                        <param name="id">510</param>
+                    </include>
+                </control>
+            </control>
+        </focusedlayout>
     </include>
 
     <!-- Landscape Wall -->
@@ -74,20 +117,12 @@
     <!-- Wall Template View -->
     <include name="View_Wall_Include">
         <param name="overlay">true</param>
-        <param name="item_w">view_poster_item_w</param>
-        <param name="item_h">view_poster_item_w</param>
-        <param name="itemlayout_w">view_poster_itemlayout_w</param>
-        <param name="itemlayout_h">view_poster_itemlayout_h</param>
         <definition>
             <control type="group">
                 <visible>Control.IsVisible($PARAM[id])</visible>
                 <control type="group">
                     <include content="$PARAM[include]">
                         <param name="id">$PARAM[id]</param>
-                        <param name="item_w">$PARAM[item_w]</param>
-                        <param name="item_h">$PARAM[item_h]</param>
-                        <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
-                        <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
                         <param name="control">panel</param>
                         <param name="orientation">vertical</param>
                         <param name="offset_y">40</param>
@@ -107,6 +142,7 @@
                         <onfocus condition="![$PARAM[overlay]]">ClearProperty(Background.ShowOverlay,Home)</onfocus>
                         <onfocus condition="$PARAM[overlay]">SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                         <onfocus>SetProperty(InfoPanel.FullSwitch,Wall,Home)</onfocus>
+                        <nested />
                     </include>
                 </control>
             </control>
