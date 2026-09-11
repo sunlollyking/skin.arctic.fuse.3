@@ -154,6 +154,9 @@
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.landscape)) + !Skin.HasSetting(DisableLandscapeArt)">$INFO[Container.ListItem.Art(tvshow.landscape)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
         <value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.fanart))">$INFO[Container.ListItem.Art(tvshow.fanart)]</value>
+        <!-- A list whose rows have no art of their own, such as the filters
+             under a game platform, carries the picture itself -->
+        <value condition="!String.IsEmpty(Container.Art(fanart))">$INFO[Container.Art(fanart)]</value>
     </variable>
 
     <variable name="Image_AddonStatus">

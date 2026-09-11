@@ -597,6 +597,55 @@
                 <param name="hidden_button_enabled">$PARAM[hidden_button_enabled]</param>
                 <param name="hidden_button">$PARAM[hidden_button]</param>
                 <include condition="$PARAM[use_movement]">List_Poster_Row_Movement</include>
+                <!-- A game's box front carries its title as artwork, so it has
+                     to be read as well as recognised: six to a row rather than
+                     seven. The game list and the platform list are the same view
+                     of the same window, and an include condition cannot tell them
+                     apart because it is resolved once, when the window is
+                     activated. A layout condition is checked every time the
+                     container draws. -->
+            <itemlayout condition="Container.Content(games)" width="view_game_itemlayout_w" height="view_game_itemlayout_h">
+                <control type="group">
+                    <left>view_offx</left>
+                    <right>-view_offx</right>
+                    <top>40</top>
+                    <bottom>-40</bottom>
+                    <include content="Layout_Square">
+                        <param name="selected">false</param>
+                        <param name="item_w">view_game_item_w</param>
+                        <param name="item_h">view_game_item_w</param>
+                        <param name="id">510</param>
+                    </include>
+                </control>
+            </itemlayout>
+            <focusedlayout condition="Container.Content(games)" width="view_game_itemlayout_w" height="view_game_itemlayout_h">
+                <control type="group">
+                    <left>view_offx</left>
+                    <right>-view_offx</right>
+                    <top>40</top>
+                    <bottom>-40</bottom>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="0" condition="Control.HasFocus(510)">Conditional</animation>
+                        <include content="Layout_Square">
+                            <param name="focusedlayout">true</param>
+                            <param name="selected">false</param>
+                            <param name="item_w">view_game_item_w</param>
+                            <param name="item_h">view_game_item_w</param>
+                            <param name="id">510</param>
+                        </include>
+                    </control>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="0" condition="!Control.HasFocus(510)">Conditional</animation>
+                        <include content="Layout_Square">
+                            <param name="focusedlayout">true</param>
+                            <param name="selected">true</param>
+                            <param name="item_w">view_game_item_w</param>
+                            <param name="item_h">view_game_item_w</param>
+                            <param name="id">510</param>
+                        </include>
+                    </control>
+                </control>
+            </focusedlayout>
                 <nested />
             </include>
         </definition>
