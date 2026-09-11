@@ -1839,6 +1839,20 @@
                     </include>
 
                     <include content="Button_Underline_Switcher">
+                        <param name="id">4016</param>
+                        <label>$LOCALIZE[35310]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <!-- The viewer is a window, and one cannot be activated
+                             under a modal dialog. The address the catalogues
+                             reported is handed over so that a manual already
+                             known about is fetched rather than searched for. -->
+                        <onclick>Dialog.Close(gameinformation)</onclick>
+                        <onclick>ShowGameManual($ESCINFO[ListItem.FilenameAndPath],$ESCINFO[ListItem.Property(manual)])</onclick>
+                        <visible>!String.IsEmpty(ListItem.Property(hasmanual))</visible>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
                         <param name="id">4006</param>
                         <label>$LOCALIZE[184]</label>
                         <usealttexture>false</usealttexture>

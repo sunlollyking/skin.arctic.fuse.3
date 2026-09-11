@@ -393,15 +393,17 @@
                     <!-- The cropped logo is the last video item's, kept on a Home
                          property that nothing clears. A game has its own clearlogo
                          and no crop of its own, so it would otherwise be titled
-                         with whatever film was looked at last. -->
-                    <visible>[!String.IsEmpty($PARAM[croplogo]) + $EXP[Exp_TMDbHelper_IsCrop] + !Container.Content(games)]</visible>
+                         with whatever film was looked at last. Inside the game
+                         information dialog the container is the dialog's own, so
+                         the window is what says a game is being shown. -->
+                    <visible>[!String.IsEmpty($PARAM[croplogo]) + $EXP[Exp_TMDbHelper_IsCrop] + !Container.Content(games) + !Window.IsVisible(gameinformation)]</visible>
                 </control>
                 <control type="image">
                     <height>info_title_logo_h</height>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
                     <fadetime>0</fadetime>
                     <texture background="true">$INFO[$PARAM[container]$PARAM[listitem].Art(clearlogo)]</texture>
-                    <visible>![!String.IsEmpty($PARAM[croplogo]) + $EXP[Exp_TMDbHelper_IsCrop] + !Container.Content(games)]</visible>
+                    <visible>![!String.IsEmpty($PARAM[croplogo]) + $EXP[Exp_TMDbHelper_IsCrop] + !Container.Content(games) + !Window.IsVisible(gameinformation)]</visible>
                     <visible>!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
                 </control>
                 <control type="image">
