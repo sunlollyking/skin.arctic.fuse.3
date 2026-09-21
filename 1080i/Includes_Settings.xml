@@ -75,11 +75,10 @@
             <onclick>ActivateWindow(pvrsettings)</onclick>
         </item>
         <item>
-            <label>$LOCALIZE[15016]</label>
-            <label2>Achievements / Rewind / Saves</label2>
+            <label>$LOCALIZE[10821]</label>
+            <label2>$LOCALIZE[16000] / $LOCALIZE[15312]</label2>
             <icon>special://skin/extras/icons/gamepad.png</icon>
-            <onclick>ActivateWindow(GameSettings)</onclick>
-            <visible>System.GetBool(gamesgeneral.enable)</visible>
+            <onclick>ActivateWindow(gamesettings)</onclick>
         </item>
         <item>
             <label>LibreELEC</label>
@@ -106,12 +105,12 @@
             <icon>special://skin/extras/icons/addon.png</icon>
             <onclick>ActivateWindow(addonbrowser)</onclick>
         </item>
-        <item>
+        <!-- <item>
             <label>$LOCALIZE[19033]</label>
             <label2>$LOCALIZE[13000]</label2>
             <icon>special://skin/extras/icons/sysinfo.png</icon>
             <onclick>ActivateWindow(systeminfo)</onclick>
-        </item>
+        </item> -->
         <item>
             <label>$LOCALIZE[10050]</label>
             <label2>$LOCALIZE[13000]</label2>
