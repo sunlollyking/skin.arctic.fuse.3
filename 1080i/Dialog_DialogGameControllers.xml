@@ -171,6 +171,7 @@
                     <font>font_tiny</font>
                     <textcolor>dialog_fg_50</textcolor>
                     <label>$LOCALIZE[35332]</label>
+                    <visible>!RetroPlayer.AchievementsHardcore</visible>
                 </control>
             </control>
         </control>
@@ -378,6 +379,14 @@
                 <onclick>ActivateWindow(gameleaderboards)</onclick>
             </include>
             <include content="Button_Dialog">
+                <param name="id">108340</param>
+                <param name="groupid">108440</param>
+                <param name="control">radiobutton</param>
+                <param name="icon">special://skin/extras/icons/bolt.png</param>
+                <label>$LOCALIZE[35700]</label>
+                <selected>System.GetBool(gamesachievements.hardcore)</selected>
+            </include>
+            <include content="Button_Dialog">
                 <param name="id">108331</param>
                 <param name="groupid">108431</param>
                 <param name="control">radiobutton</param>
@@ -403,6 +412,7 @@
     </include>
 
     <variable name="Label_GameAchievements_Help">
+        <value condition="Control.HasFocus(108340)">$LOCALIZE[35302]</value>
         <value condition="Control.HasFocus(108331)">$LOCALIZE[35304]</value>
         <value condition="Control.HasFocus(108332)">$LOCALIZE[35366]</value>
     </variable>
