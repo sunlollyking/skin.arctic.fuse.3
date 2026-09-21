@@ -1813,7 +1813,7 @@
 
                     <include content="Button_Underline_Switcher">
                         <param name="id">4015</param>
-                        <label>$LOCALIZE[35669]</label>
+                        <label>$LOCALIZE[39123]</label>
                         <usealttexture>false</usealttexture>
                         <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
                         <!-- Opened to be looked at rather than sorted through,
@@ -1935,7 +1935,7 @@
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/code-branch.png</param>
-                        <param name="role">$LOCALIZE[35663]</param>
+                        <param name="role">$LOCALIZE[31906]</param>
                         <param name="name">$INFO[ListItem.Property(edition)]</param>
                         <visible>!String.IsEmpty(ListItem.Property(edition))</visible>
                     </include>

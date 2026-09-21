@@ -2483,3 +2483,8 @@ msgstr ""
 msgctxt "#31905"
 msgid "Age rating"
 msgstr ""
+
+#: /1080i/Includes_DialogInfo.xml
+msgctxt "#31906"
+msgid "Edition"
+msgstr ""

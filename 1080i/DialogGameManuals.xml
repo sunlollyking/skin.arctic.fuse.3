@@ -130,11 +130,11 @@
                         <param name="property" value="manual.year" />
                     </include>
                     <include content="GameManualDetail">
-                        <param name="label" value="$LOCALIZE[35327]" />
+                        <param name="label" value="$LOCALIZE[35727]" />
                         <param name="property" value="manual.publisher" />
                     </include>
                     <include content="GameManualDetail">
-                        <param name="label" value="$LOCALIZE[35328]" />
+                        <param name="label" value="$LOCALIZE[35728]" />
                         <param name="property" value="manual.developer" />
                     </include>
                     <include content="GameManualDetail">
