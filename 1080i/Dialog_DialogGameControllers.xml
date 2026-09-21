@@ -328,7 +328,7 @@
                 <include>Size_Dialog_Pad</include>
 
                 <control type="group">
-                    <include>Size_LeftGroup_Main</include>
+                    <right>440</right>
                     <control type="group">
                         <include>Size_Group_Head</include>
                         <include content="Part_HeadText">
@@ -361,10 +361,18 @@
                     </control>
                 </control>
 
-                <include content="Part_Button_Grouplist">
-                    <param name="onleft">3</param>
-                    <param name="items">DialogGameAchievements_Items</param>
-                </include>
+                <control type="group">
+                    <width>440</width>
+                    <right>0</right>
+                    <include>Part_Panel</include>
+                    <control type="grouplist" id="9000">
+                        <onleft>3</onleft>
+                        <itemgap>20</itemgap>
+                        <orientation>vertical</orientation>
+                        <include>Size_Grouplist_Pad</include>
+                        <include>DialogGameAchievements_Items</include>
+                    </control>
+                </control>
             </control>
         </control>
     </include>
@@ -378,27 +386,21 @@
                 <label>$LOCALIZE[35331]</label>
                 <onclick>ActivateWindow(gameleaderboards)</onclick>
             </include>
-            <include content="Button_Dialog">
+            <include content="Settings_ButtonRadio">
                 <param name="id">108340</param>
-                <param name="groupid">108440</param>
-                <param name="control">radiobutton</param>
-                <param name="icon">special://skin/extras/icons/bolt.png</param>
+                <param name="dialog">true</param>
                 <label>$LOCALIZE[35700]</label>
                 <selected>System.GetBool(gamesachievements.hardcore)</selected>
             </include>
-            <include content="Button_Dialog">
+            <include content="Settings_ButtonRadio">
                 <param name="id">108331</param>
-                <param name="groupid">108431</param>
-                <param name="control">radiobutton</param>
-                <param name="icon">special://skin/extras/icons/rotate.png</param>
+                <param name="dialog">true</param>
                 <label>$LOCALIZE[35303]</label>
                 <selected>System.GetBool(gamesachievements.encore)</selected>
             </include>
-            <include content="Button_Dialog">
+            <include content="Settings_ButtonRadio">
                 <param name="id">108332</param>
-                <param name="groupid">108432</param>
-                <param name="control">radiobutton</param>
-                <param name="icon">special://skin/extras/icons/circle-info.png</param>
+                <param name="dialog">true</param>
                 <label>$LOCALIZE[35365]</label>
                 <selected>System.GetBool(gamesachievements.challengeindicator)</selected>
             </include>
