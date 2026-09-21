@@ -1734,33 +1734,37 @@
             <onclick>ActivateWindow(InGameSaves)</onclick>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8010</param>
+            <param name="groupid">8110</param>
+            <label>$LOCALIZE[35272]</label>
+            <param name="icon">special://skin/extras/icons/compact-disc.png</param>
+            <onclick>ActivateWindow(GameDiscManager)</onclick>
+            <visible>$EXP[Exp_Kodi_Games_v22] + RetroPlayer.SupportsEject</visible>
+        </include>
+        <include content="Settings_ButtonImage">
+            <param name="id">8011</param>
+            <param name="groupid">8111</param>
+            <label>$LOCALIZE[35172]</label>
+            <param name="icon">special://skin/extras/icons/people-group.png</param>
+            <onclick>ActivateWindow(GameAgents)</onclick>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8006</param>
             <param name="groupid">8106</param>
-            <description>
-                Achievements button. The progress label is empty unless the running game has
-                a RetroAchievements set, which also keeps the button hidden on a Kodi build
-                without the achievements work, where the window and the info label are both
-                unknown.
-            </description>
             <label>$LOCALIZE[35287]</label>
             <param name="label2">$INFO[RetroPlayer.AchievementsProgress]</param>
             <param name="has_label2">true</param>
             <param name="icon">special://skin/extras/icons/trophy.png</param>
             <onclick>ActivateWindow(GameAchievements)</onclick>
-            <visible>!String.IsEmpty(RetroPlayer.AchievementsProgress)</visible>
+            <visible>$EXP[Exp_Kodi_Games_v22]</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8009</param>
             <param name="groupid">8109</param>
-            <description>
-                Cheats button. Kodi reports whether any codes were found for the running
-                game, which also keeps the button hidden on a build without the cheat
-                engine, where the window and the condition are both unknown.
-            </description>
-            <label>$LOCALIZE[35373]</label>
+            <label>$LOCALIZE[35320]</label>
             <param name="icon">special://skin/extras/icons/wand-magic-sparkles.png</param>
             <onclick>ActivateWindow(GameCheats)</onclick>
-            <visible>RetroPlayer.HasCheats</visible>
+            <visible>$EXP[Exp_Kodi_Games_v22] + RetroPlayer.SupportsCheats</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8007</param>
@@ -1773,19 +1777,6 @@
             <label>$LOCALIZE[35310]</label>
             <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
             <onclick>ShowGameManual</onclick>
-        </include>
-        <include content="Settings_ButtonImage">
-            <param name="id">8008</param>
-            <param name="groupid">8108</param>
-            <description>
-                Leaderboards button. Browsing only: submitting a score needs hardcore
-                mode, which RetroAchievements grants an emulator once approved. Hidden
-                unless signed in, since there is nothing to show otherwise.
-            </description>
-            <label>$LOCALIZE[35331]</label>
-            <param name="icon">special://skin/extras/icons/trophy.png</param>
-            <onclick>ActivateWindow(gameleaderboards)</onclick>
-            <visible>RetroPlayer.HasLeaderboards</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8003</param>

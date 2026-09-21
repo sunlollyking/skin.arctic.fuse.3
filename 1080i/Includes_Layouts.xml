@@ -537,7 +537,7 @@
                     <font>font_tiny</font>
                     <textcolor>dialog_fg_50</textcolor>
                     <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Property(PlayerRank)]$INFO[ListItem.Property(TotalEntries),  ·  ,]</label>
+                    <label>$INFO[ListItem.Property(PlayerStanding)]$INFO[ListItem.Property(PlayerScore),  ·  ,]$INFO[ListItem.Property(TotalEntries),  ·  ,]</label>
                 </control>
             </control>
         </definition>
@@ -684,6 +684,46 @@
         </definition>
     </include>
 
+    <include name="Layout_GameSave">
+        <param name="selected">false</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Menu_Highlight_H</include>
+            </include>
+            <control type="image">
+                <left>20</left>
+                <top>14</top>
+                <width>178</width>
+                <height>100</height>
+                <aspectratio>keep</aspectratio>
+                <texture background="true">$INFO[ListItem.Art(screenshot)]</texture>
+            </control>
+            <control type="group">
+                <left>220</left>
+                <right>20</right>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>24</top>
+                    <height>40</height>
+                    <font>font_main_bold</font>
+                    <textcolor>dialog_fg_90</textcolor>
+                    <selectedcolor>dialog_fg_90</selectedcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                    <include condition="$PARAM[selected]">Color_SelectedText</include>
+                    <top>64</top>
+                    <height>32</height>
+                    <font>font_tiny</font>
+                    <textcolor>dialog_fg_50</textcolor>
+                    <selectedcolor>dialog_fg_50</selectedcolor>
+                    <label>$INFO[ListItem.Label2]</label>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_GameAchievement">
         <description>
             One row of the RetroAchievements list. Kodi fills the columns from list item
@@ -707,7 +747,7 @@
             <control type="group">
                 <description>Title, criteria and rarity</description>
                 <left>140</left>
-                <width>1000</width>
+                <right>340</right>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
                     <top>12</top>
@@ -744,7 +784,7 @@
             </control>
             <control type="group">
                 <description>Point value and unlock state</description>
-                <left>1160</left>
+                <right>20</right>
                 <width>300</width>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
