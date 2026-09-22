@@ -1705,6 +1705,14 @@
             <onclick>ActivateWindow(GamePorts)</onclick>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8008</param>
+            <param name="groupid">8108</param>
+            <param name="dialog">true</param>
+            <param name="icon">special://skin/extras/icons/people-group.png</param>
+            <label>$LOCALIZE[35172]</label>
+            <onclick>ActivateWindow(GameAgents)</onclick>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8007</param>
             <param name="groupid">8107</param>
             <param name="dialog">true</param>
@@ -1740,13 +1748,6 @@
             <param name="icon">special://skin/extras/icons/compact-disc.png</param>
             <onclick>ActivateWindow(GameDiscManager)</onclick>
             <visible>$EXP[Exp_Kodi_Games_v22] + RetroPlayer.SupportsEject</visible>
-        </include>
-        <include content="Settings_ButtonImage">
-            <param name="id">8011</param>
-            <param name="groupid">8111</param>
-            <label>$LOCALIZE[35172]</label>
-            <param name="icon">special://skin/extras/icons/people-group.png</param>
-            <onclick>ActivateWindow(GameAgents)</onclick>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8006</param>

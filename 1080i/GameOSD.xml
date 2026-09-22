@@ -8,6 +8,7 @@
             <param name="include_content">DialogCustom_GameOSD_Items</param>
             <param name="include_list">DialogCustom_Settings_Grouplist</param>
             <param name="resize">true</param>
+            <param name="visible">!Window.IsVisible(Custom_1118_Dialog_Settings.xml)</param>
         </include>
     </controls>
 </window>
