@@ -1150,7 +1150,7 @@
         <onload>SetProperty(Data04.Label,$LOCALIZE[570],1126)</onload>
         <onload>SetProperty(Data04.Label2,$INFO[ListItem.DateAdded],1126)</onload>
         <onload>SetProperty(Data05.Label,$LOCALIZE[568],1126)</onload>
-        <onload>SetProperty(Data05.Label2,$INFO[ListItem.LastPlayed]$INFO[ListItem.Playcount,$COMMA , $LOCALIZE[31096]],1126)</onload>
+        <onload>SetProperty(Data05.Label2,$INFO[ListItem.LastPlayed]$INFO[ListItem.Playcount,$COMMA , $LOCALIZE[31096]]$INFO[ListItem.Property(playtime),$COMMA , $LOCALIZE[35671]],1126)</onload>
         <onload>SetProperty(Data06.Label,$LOCALIZE[31207],1126)</onload>
         <onload>SetProperty(Data06.Label2,$INFO[ListItem.VideoCodec]$VAR[Label_ListItem_VideoQuality, • ,]$INFO[ListItem.HdrType, • ,]$INFO[ListItem.VideoAspect, • ,]$INFO[ListItem.AudioCodec, • ,]$VAR[Label_ListItem_AudioChannels, • ,],1126)</onload>
 
