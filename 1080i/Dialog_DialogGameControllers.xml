@@ -448,8 +448,8 @@
                     <control type="group">
                         <include>Size_Group_Body</include>
                         <control type="label" id="1083898">
-                            <left>constant_grouplist_pad</left>
-                            <right>constant_grouplist_pad</right>
+                            <left>constant_dialog_pad</left>
+                            <right>constant_dialog_pad</right>
                             <height>60</height>
                             <font>font_main</font>
                             <textcolor>$VAR[ColorHighlight]</textcolor>

@@ -587,7 +587,7 @@
                 <include content="Object_Control" condition="$PARAM[selected]">
                     <param name="control">image</param>
                     <include content="Texture_Menu_Highlight_H">
-                        <param name="border">32</param>
+                        <param name="border">40,0,40,0</param>
                     </include>
                 </include>
             </control>
@@ -893,7 +893,7 @@
             <control type="group">
                 <description>Title, criteria and rarity</description>
                 <left>140</left>
-                <right>340</right>
+                <right>400</right>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
                     <top>12</top>
@@ -931,7 +931,7 @@
             <control type="group">
                 <description>Point value and unlock state</description>
                 <right>20</right>
-                <width>300</width>
+                <width>380</width>
                 <control type="label">
                     <include condition="$PARAM[selected]">Color_SelectedText</include>
                     <top>12</top>
@@ -978,7 +978,7 @@
                         colour on the focused row, which is painted in that same colour.
                     </description>
                     <include condition="$PARAM[selected]">Layout_GameAchievement_Progress_Selected</include>
-                    <left>40</left>
+                    <left>120</left>
                     <top>92</top>
                     <width>260</width>
                     <height>4</height>
