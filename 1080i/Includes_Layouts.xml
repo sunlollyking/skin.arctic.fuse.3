@@ -596,7 +596,7 @@
                 <left>8</left>
                 <right>8</right>
                 <top>1</top>
-                <height>62</height>
+                <height>60</height>
                 <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
                 <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
             </control>
@@ -623,7 +623,7 @@
             <control type="image">
                 <description>The player's RetroAchievements avatar</description>
                 <left>116</left>
-                <top>13</top>
+                <top>12</top>
                 <width>38</width>
                 <height>38</height>
                 <aspectratio>keep</aspectratio>
@@ -632,7 +632,7 @@
             <control type="label">
                 <left>168</left>
                 <width>540</width>
-                <height>64</height>
+                <height>62</height>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>
                 <font>font_main</font>
@@ -672,7 +672,7 @@
             <control type="label">
                 <right>20</right>
                 <width>300</width>
-                <height>64</height>
+                <height>62</height>
                 <align>right</align>
                 <aligny>center</aligny>
                 <include condition="$PARAM[selected]">Color_SelectedText</include>

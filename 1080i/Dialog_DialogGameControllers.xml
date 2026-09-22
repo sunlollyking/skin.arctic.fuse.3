@@ -207,9 +207,10 @@
 
                 <control type="label">
                     <description>What the leaderboard measures</description>
-                    <top>96</top>
+                    <left>constant_dialog_pad</left>
+                    <top>120</top>
                     <height>32</height>
-                    <width>62%</width>
+                    <width>60%</width>
                     <font>font_tiny</font>
                     <textcolor>dialog_fg_50</textcolor>
                     <label>$INFO[Window.Property(Leaderboards.Description)]</label>
@@ -219,12 +220,10 @@
                     <description>
                         Where the player stands, without reading down the table for a
                         name. Kodi composes the whole sentence, including the case
-                        where they have never set a time. It shares the description's
-                        row because the body below starts at constant_dialog_top, and
-                        a line of its own would land on the standings.
+                        where they have never set a time.
                     </description>
-                    <right>0</right>
-                    <top>96</top>
+                    <right>constant_dialog_pad</right>
+                    <top>120</top>
                     <height>32</height>
                     <width>36%</width>
                     <align>right</align>
@@ -248,14 +247,14 @@
                 </control>
 
                 <control type="group">
-                    <include>Size_Group_Body</include>
+                    <top>140</top>
                     <visible>String.IsEmpty(Window.Property(Leaderboards.Status))</visible>
                     <include content="List_DialogSelect">
                         <param name="id">3</param>
                         <param name="itemlayout_include">Layout_GameLeaderboardEntry</param>
                         <!-- Ten rows filling the body exactly. Thirteen smaller ones
                              fitted, but were not readable at a glance across a room. -->
-                        <param name="item_height">64</param>
+                        <param name="item_height">62</param>
                         <param name="item_w">1480</param>
                         <param name="itemlayout_w">1480</param>
                         <pagecontrol>61</pagecontrol>
