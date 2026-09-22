@@ -1983,6 +1983,12 @@
                         <visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
                     </include>
                     <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/hourglass-half.png</param>
+                        <param name="role">$LOCALIZE[35671]</param>
+                        <param name="name">$INFO[ListItem.Property(playtime)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(playtime))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/book.png</param>
                         <param name="role">$LOCALIZE[35585]</param>
                         <param name="name">$LOCALIZE[107]</param>
