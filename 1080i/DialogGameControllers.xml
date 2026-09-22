@@ -8,6 +8,8 @@
         <include condition="Window.IsDialogTopMost(gameleaderboardentries)">DialogGameLeaderboardEntries</include>
         <include condition="Window.IsDialogTopMost(gamecheats)">DialogGameCheats</include>
         <include condition="Window.IsDialogTopMost(gameindicators)">DialogGameIndicators</include>
-        <include condition="!Window.IsDialogTopMost(gameachievements) + !Window.IsDialogTopMost(gameleaderboards) + !Window.IsDialogTopMost(gameleaderboardentries) + !Window.IsDialogTopMost(gamecheats) + !Window.IsDialogTopMost(gameindicators)">DialogGameControllers</include>
+        <include condition="Window.IsDialogTopMost(gameports)">DialogGamePorts</include>
+        <include condition="Window.IsDialogTopMost(gameagents)">DialogGameAgents</include>
+        <include condition="!Window.IsDialogTopMost(gameachievements) + !Window.IsDialogTopMost(gameleaderboards) + !Window.IsDialogTopMost(gameleaderboardentries) + !Window.IsDialogTopMost(gamecheats) + !Window.IsDialogTopMost(gameindicators) + !Window.IsDialogTopMost(gameports) + !Window.IsDialogTopMost(gameagents)">DialogGameControllers</include>
     </controls>
 </window>

@@ -454,6 +454,7 @@
                         <include>Size_Group_Body</include>
                         <include content="List_Dialog">
                             <param name="id">10811</param>
+                            <param name="itemlayout_include">Layout_GameFilterRow</param>
                             <pagecontrol>61</pagecontrol>
                             <onright>61</onright>
                             <include>Size_Grouplist_Pad</include>
