@@ -279,9 +279,10 @@
                 <param name="dialog_size">Dimension_DialogFullMenu</param>
             </include>
 
-            <!-- Signed out: how to get an account -->
+            <!-- Signed out: how to get an account. Not tied to a running game, as the
+                 library opens this dialog for a game that isn't -->
             <control type="group">
-                <visible>!RetroPlayer.AchievementsLoggedIn | !Player.HasGame</visible>
+                <visible>!RetroPlayer.AchievementsLoggedIn</visible>
                 <include>Size_Dialog_Pad</include>
                 <control type="group">
                     <include>Size_Group_Head</include>
@@ -323,7 +324,7 @@
 
             <!-- Content -->
             <control type="group" id="8000">
-                <visible>RetroPlayer.AchievementsLoggedIn + Player.HasGame</visible>
+                <visible>RetroPlayer.AchievementsLoggedIn</visible>
                 <include>Size_Dialog_Pad</include>
 
                 <control type="group">
