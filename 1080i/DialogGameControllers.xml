@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">3</defaultcontrol>
+    <onload condition="Window.IsDialogTopMost(gameachievements) + !RetroPlayer.AchievementsLoggedIn">SetFocus(9001)</onload>
     <controls>
-        <!-- Kodi builds most of its game dialogs on this one window file -->
-        <include condition="Window.IsDialogTopMost(gameachievements)">DialogGameAchievements</include>
-        <include condition="Window.IsDialogTopMost(gameleaderboards)">DialogGameLeaderboards</include>
-        <include condition="Window.IsDialogTopMost(gameleaderboardentries)">DialogGameLeaderboardEntries</include>
-        <include condition="Window.IsDialogTopMost(gamecheats)">DialogGameCheats</include>
-        <include condition="Window.IsDialogTopMost(gameindicators)">DialogGameIndicators</include>
-        <include condition="Window.IsDialogTopMost(gameports)">DialogGamePorts</include>
-        <include condition="Window.IsDialogTopMost(gameagents)">DialogGameAgents</include>
-        <include condition="!Window.IsDialogTopMost(gameachievements) + !Window.IsDialogTopMost(gameleaderboards) + !Window.IsDialogTopMost(gameleaderboardentries) + !Window.IsDialogTopMost(gamecheats) + !Window.IsDialogTopMost(gameindicators) + !Window.IsDialogTopMost(gameports) + !Window.IsDialogTopMost(gameagents)">DialogGameControllers</include>
+        <include condition="Window.IsDialogTopMost(gameports)">DialogGameControllers_GamePorts</include>
+        <include condition="Window.IsDialogTopMost(gameagents)">DialogGameControllers_GameAgents</include>
+        <include condition="Window.IsDialogTopMost(gameleaderboards)">DialogGameControllers_GameLeaderBoards</include>
+        <include condition="Window.IsDialogTopMost(gameleaderboardentries)">DialogGameControllers_GameLeaderBoardEntries</include>
+        <include condition="Window.IsDialogTopMost(gameachievements)">DialogGameControllers_GameAchievements</include>
+        <include condition="Window.IsDialogTopMost(gameindicators)">DialogGameControllers_GameIndicators</include>
+        <include condition="Window.IsDialogTopMost(gamecheats)">DialogGameControllers_GameCheats</include>
+        <include condition="Window.IsDialogTopMost(gamecontrollers)">DialogGameControllers</include>
     </controls>
 </window>

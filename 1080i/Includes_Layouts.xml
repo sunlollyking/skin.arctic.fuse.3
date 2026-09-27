@@ -96,6 +96,57 @@
         </definition>
     </include>
 
+    <include name="Layout_GameWindow">
+        <param name="selected">false</param>
+        <param name="current">ListItem.IsSelected</param>
+        <definition>
+            <control type="group">
+                <left>-740</left>
+                <right>740</right>
+                <control type="group">
+                    <include content="Dimension_Padding">
+                        <param name="pad">20</param>
+                    </include>
+
+                    <include>Part_GameWindow</include>
+
+                    <include content="Object_SelectBox" condition="$PARAM[selected]">
+                        <param name="indicator">false</param>
+                        <param name="focusbounce">true</param>
+                    </include>
+
+                    <include content="Object_Control" condition="$PARAM[selected]">
+                        <param name="control">group</param>
+                        <visible>$PARAM[current]</visible>
+                        <centerbottom>0</centerbottom>
+                        <right>25</right>
+                        <width>64</width>
+                        <height>64</height>
+
+                        <!-- Focused Item -->
+                        <include content="Object_Indicator_Selected">
+                            <param name="shadow">false</param>
+                        </include>
+
+                        <!-- Black Circle Backing -->
+                        <control type="image">
+                            <texture colordiffuse="ff333333">indicator/circle-colordiffuse.png</texture>
+                        </control>
+
+                        <control type="image">
+                            <texture colordiffuse="$VAR[ColorWatchedProgress]" diffuse="indicator/circle-diffuse.png" background="true" flipx="true" flipy="true">progress/circle/p100.png</texture>
+                            <aspectratio align="center" aligny="center">keep</aspectratio>
+                        </control>
+                        <control type="image">
+                            <bordersize>20</bordersize>
+                            <texture colordiffuse="$VAR[ColorWatchedProgress]">indicator/checkmark.png</texture>
+                        </control>
+                    </include>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_MenuList_Labels">
         <control type="group">
             <control type="label">
@@ -369,623 +420,6 @@
                         <colordiffuse>$PARAM[color_nf]</colordiffuse>
                         <texture diffuse="diffuse/circle/circle_120.png">$INFO[ListItem.Icon]</texture>
                     </control>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameFilter">
-        <param name="selected">false</param>
-        <param name="detailed">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="group">
-                <left>0</left>
-                <width>$PARAM[item_h]</width>
-                <control type="group">
-                    <left>40</left>
-                    <top>20</top>
-                    <bottom>20</bottom>
-                    <width>100</width>
-                    <control type="image">
-                        <aspectratio>scale</aspectratio>
-                        <texture border="4">$INFO[ListItem.Icon]</texture>
-                        <bordertexture colordiffuse="black">common/white.png</bordertexture>
-                        <bordersize>4</bordersize>
-                    </control>
-                    <control type="gamewindow">
-                        <videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
-                        <stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
-                        <rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
-                        <visible>String.IsEmpty(ListItem.Art(screenshot))</visible>
-                    </control>
-                    <control type="image">
-                        <aspectratio>scale</aspectratio>
-                        <texture border="4">$INFO[ListItem.Art(screenshot)]</texture>
-                        <bordertexture colordiffuse="black">common/white.png</bordertexture>
-                        <bordersize>4</bordersize>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <left>140</left>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <textoffsetx>40</textoffsetx>
-                    <textcolor>dialog_fg_70</textcolor>
-                    <selectedcolor>dialog_fg_70</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                    <visible>String.IsEmpty(ListItem.Label2)</visible>
-                </control>
-
-                <control type="group">
-                    <height>80</height>
-                    <centertop>50%</centertop>
-                    <control type="label">
-                        <include condition="$PARAM[selected]">Color_SelectedText</include>
-                        <textoffsetx>40</textoffsetx>
-                        <font>font_main_bold</font>
-                        <textcolor>dialog_fg_70</textcolor>
-                        <selectedcolor>dialog_fg_70</selectedcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                        <visible>!String.IsEmpty(ListItem.Label2)</visible>
-                        <top>10</top>
-                        <height>30</height>
-                    </control>
-                    <control type="label">
-                        <include condition="$PARAM[selected]">Color_SelectedText</include>
-                        <textoffsetx>40</textoffsetx>
-                        <font>font_tiny</font>
-                        <textcolor>dialog_fg_70</textcolor>
-                        <selectedcolor>dialog_fg_70</selectedcolor>
-                        <label>$INFO[ListItem.Label2]</label>
-                        <visible>!String.IsEmpty(ListItem.Label2)</visible>
-                        <bottom>10</bottom>
-                        <height>30</height>
-                    </control>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameAchievement_Progress_Selected">
-        <description>
-            Textures come first so that they win: the control factory reads the first
-            matching child element, so these override the accent-coloured defaults
-            further down the progress control.
-        </description>
-        <texturebg colordiffuse="$VAR[ColorSelected_30]" border="12,0,12,0">progress/progress-nib.png</texturebg>
-        <midtexture colordiffuse="$VAR[ColorSelected]" border="12,0,12,0">progress/progress-nib.png</midtexture>
-    </include>
-
-    <include name="Layout_GameLeaderboard">
-        <description>
-            One row of the leaderboards list. Kodi fills the columns from list item
-            properties set by the leaderboards dialog; see DialogGameLeaderboards.
-        </description>
-        <param name="selected">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="group">
-                <description>What the leaderboard measures</description>
-                <left>20</left>
-                <width>940</width>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>12</top>
-                    <height>40</height>
-                    <font>font_main_bold</font>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                    <description>Which way it ranks - fastest time, highest score</description>
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>52</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>$VAR[ColorHighlight]</textcolor>
-                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
-                    <label>$INFO[ListItem.Property(Format)]</label>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>84</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Label2]</label>
-                </control>
-            </control>
-            <control type="group">
-                <description>Who holds it, and where the player stands</description>
-                <right>20</right>
-                <width>440</width>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>12</top>
-                    <height>40</height>
-                    <align>right</align>
-                    <font>font_main_bold</font>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <label>$INFO[ListItem.Property(TopScore)]</label>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>52</top>
-                    <height>32</height>
-                    <align>right</align>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Property(TopUsername)]</label>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>84</top>
-                    <height>32</height>
-                    <align>right</align>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Property(PlayerStanding)]$INFO[ListItem.Property(PlayerScore),  ·  ,]$INFO[ListItem.Property(TotalEntries),  ·  ,]</label>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameLeaderboardRank">
-        <description>
-            One place on a leaderboard. Kodi hands the row a Medal property for the
-            top three, so the colour is the skin's decision rather than a glyph baked
-            into the label.
-        </description>
-        <param name="medal"></param>
-        <param name="color">dialog_fg_90</param>
-        <param name="selected">false</param>
-        <definition>
-            <control type="label">
-                <left>20</left>
-                <width>90</width>
-                <height>64</height>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_main</font>
-                <textcolor>$PARAM[color]</textcolor>
-                <selectedcolor>$PARAM[color]</selectedcolor>
-                <label>$INFO[ListItem.Property(RankLabel)]</label>
-                <visible>String.IsEqual(ListItem.Property(Medal),$PARAM[medal])</visible>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameLeaderboardEntry">
-        <description>
-            One row of a leaderboard's standings. The player's own row is tinted so it
-            can be found without reading down the table.
-        </description>
-        <param name="selected">false</param>
-        <definition>
-            <control type="group">
-                <description>
-                    The highlight is inset, and its border halved from the default 40.
-                    A row is 64 high, so a 40px nine-slice border overlaps its own
-                    corners and bleeds sideways past the panel - the same reason the
-                    other short rows in this skin inset theirs.
-                </description>
-                <left>8</left>
-                <right>8</right>
-                <include content="Object_Control" condition="$PARAM[selected]">
-                    <param name="control">image</param>
-                    <include content="Texture_Menu_Highlight_H">
-                        <param name="border">40,0,40,0</param>
-                    </include>
-                </include>
-            </control>
-            <control type="image">
-                <description>The signed-in player's own row</description>
-                <left>8</left>
-                <right>8</right>
-                <top>1</top>
-                <height>60</height>
-                <texture border="4" colordiffuse="dialog_fg_12">common/white.png</texture>
-                <visible>!String.IsEmpty(ListItem.Property(IsPlayer))</visible>
-            </control>
-            <include content="Layout_GameLeaderboardRank">
-                <param name="medal">gold</param>
-                <param name="color">FFFFD24A</param>
-                <param name="selected">$PARAM[selected]</param>
-            </include>
-            <include content="Layout_GameLeaderboardRank">
-                <param name="medal">silver</param>
-                <param name="color">FFB9C6D2</param>
-                <param name="selected">$PARAM[selected]</param>
-            </include>
-            <include content="Layout_GameLeaderboardRank">
-                <param name="medal">bronze</param>
-                <param name="color">FFCD8B45</param>
-                <param name="selected">$PARAM[selected]</param>
-            </include>
-            <include content="Layout_GameLeaderboardRank">
-                <param name="medal"></param>
-                <param name="color">dialog_fg_90</param>
-                <param name="selected">$PARAM[selected]</param>
-            </include>
-            <control type="image">
-                <description>The player's RetroAchievements avatar</description>
-                <left>116</left>
-                <top>12</top>
-                <width>38</width>
-                <height>38</height>
-                <aspectratio>keep</aspectratio>
-                <texture background="true" fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-            </control>
-            <control type="label">
-                <left>168</left>
-                <width>540</width>
-                <height>62</height>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_main</font>
-                <textcolor>dialog_fg_90</textcolor>
-                <selectedcolor>dialog_fg_90</selectedcolor>
-                <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <description>
-                    "3 months ago" is taken in at a glance where a date has to be
-                    worked out against today's, but the date itself is what settles
-                    an argument, so both are here.
-                </description>
-                <left>730</left>
-                <top>8</top>
-                <width>320</width>
-                <height>26</height>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_mini</font>
-                <textcolor>dialog_fg_70</textcolor>
-                <selectedcolor>dialog_fg_70</selectedcolor>
-                <label>$INFO[ListItem.Property(DateRelative)]</label>
-            </control>
-            <control type="label">
-                <left>730</left>
-                <top>34</top>
-                <width>320</width>
-                <height>24</height>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_tiny</font>
-                <textcolor>dialog_fg_50</textcolor>
-                <selectedcolor>dialog_fg_50</selectedcolor>
-                <label>$INFO[ListItem.Property(Date)]</label>
-            </control>
-            <control type="label">
-                <right>20</right>
-                <width>300</width>
-                <height>62</height>
-                <align>right</align>
-                <aligny>center</aligny>
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <font>font_main</font>
-                <textcolor>dialog_fg_90</textcolor>
-                <selectedcolor>dialog_fg_90</selectedcolor>
-                <label>$INFO[ListItem.Label2]</label>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameFilterRow">
-        <description>
-            The select dialog's checkmark row. A second label - a save's date, a
-            filter's description - goes underneath rather than beside, as the panel
-            is too narrow for both on one line.
-        </description>
-        <param name="selected">false</param>
-        <param name="misc">ListItem.IsSelected</param>
-        <definition>
-            <include condition="$PARAM[selected]">Part_List_Highlight</include>
-            <control type="group">
-                <left>40</left>
-                <right>40</right>
-                <include content="Part_List_Checkmark" condition="!$PARAM[selected]">
-                    <param name="selected">$PARAM[misc]</param>
-                </include>
-                <include content="Part_List_Checkmark" condition="$PARAM[selected]">
-                    <param name="selected">$PARAM[misc]</param>
-                    <param name="colordiffuse_off">$VAR[ColorSelected]</param>
-                    <param name="colordiffuse_on">$VAR[ColorSelected]</param>
-                </include>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <left>40</left>
-                    <textcolor>dialog_fg_70</textcolor>
-                    <selectedcolor>dialog_fg_70</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                    <visible>String.IsEmpty(ListItem.Label2)</visible>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <left>40</left>
-                    <top>6</top>
-                    <height>40</height>
-                    <textcolor>dialog_fg_70</textcolor>
-                    <selectedcolor>dialog_fg_70</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                    <visible>!String.IsEmpty(ListItem.Label2)</visible>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <left>40</left>
-                    <top>40</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_70</selectedcolor>
-                    <label>$INFO[ListItem.Label2]</label>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GamePort">
-        <param name="selected">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="label">
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <left>40</left>
-                <right>520</right>
-                <font>font_main_bold</font>
-                <textcolor>dialog_fg_90</textcolor>
-                <selectedcolor>dialog_fg_90</selectedcolor>
-                <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="label">
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <right>140</right>
-                <width>360</width>
-                <align>right</align>
-                <font>font_main</font>
-                <textcolor>dialog_fg_70</textcolor>
-                <selectedcolor>dialog_fg_70</selectedcolor>
-                <label>$INFO[ListItem.Label2]</label>
-            </control>
-            <control type="gamecontroller">
-                <right>30</right>
-                <centertop>50%</centertop>
-                <width>90</width>
-                <height>90</height>
-                <texture>$INFO[ListItem.Icon]</texture>
-                <portaddress>$INFO[ListItem.FilenameAndPath]</portaddress>
-                <controllerdiffuse>$VAR[ColorHighlight]</controllerdiffuse>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameAgentPort">
-        <control type="gamecontroller">
-            <top>8</top>
-            <width>80</width>
-            <height>80</height>
-            <texture>$INFO[ListItem.Icon]</texture>
-            <controllerid>$INFO[ListItem.Property(game.controllerid)]</controllerid>
-            <controlleraddress>$INFO[ListItem.FilenameAndPath]</controlleraddress>
-            <controllerdiffuse>$VAR[ColorHighlight]</controllerdiffuse>
-        </control>
-    </include>
-
-    <include name="Layout_GameAgentController">
-        <control type="gamecontroller">
-            <top>8</top>
-            <width>80</width>
-            <height>80</height>
-            <texture>$INFO[ListItem.Icon]</texture>
-            <controllerid>$INFO[ListItem.Property(game.controllerid)]</controllerid>
-            <peripherallocation>$INFO[ListItem.FilenameAndPath]</peripherallocation>
-            <controllerdiffuse>$VAR[ColorHighlight]</controllerdiffuse>
-        </control>
-    </include>
-
-    <include name="Layout_GameAgent">
-        <param name="selected">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="label">
-                <include condition="$PARAM[selected]">Color_SelectedText</include>
-                <left>40</left>
-                <width>300</width>
-                <font>font_main_bold</font>
-                <textcolor>dialog_fg_90</textcolor>
-                <selectedcolor>dialog_fg_90</selectedcolor>
-                <label>$INFO[ListItem.Label]</label>
-            </control>
-            <control type="gamecontrollerlist">
-                <left>360</left>
-                <right>20</right>
-                <orientation>horizontal</orientation>
-                <enable>false</enable>
-                <itemlayout width="80" height="96">
-                    <include>Layout_GameAgentController</include>
-                </itemlayout>
-                <focusedlayout width="80" height="96">
-                    <include>Layout_GameAgentController</include>
-                </focusedlayout>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameSave">
-        <param name="selected">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="image">
-                <left>20</left>
-                <top>14</top>
-                <width>178</width>
-                <height>100</height>
-                <aspectratio>keep</aspectratio>
-                <texture background="true">$INFO[ListItem.Art(screenshot)]</texture>
-            </control>
-            <control type="group">
-                <left>220</left>
-                <right>20</right>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>24</top>
-                    <height>40</height>
-                    <font>font_main_bold</font>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>64</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Label2]</label>
-                </control>
-            </control>
-        </definition>
-    </include>
-
-    <include name="Layout_GameAchievement">
-        <description>
-            One row of the RetroAchievements list. Kodi fills the columns from list item
-            properties set by the achievements dialog; see DialogGameAchievements.
-        </description>
-        <param name="selected">false</param>
-        <definition>
-            <include content="Object_Control" condition="$PARAM[selected]">
-                <param name="control">image</param>
-                <include>Texture_Menu_Highlight_H</include>
-            </include>
-            <control type="image">
-                <description>Achievement badge, dimmed while the achievement is locked</description>
-                <left>20</left>
-                <top>14</top>
-                <width>100</width>
-                <height>100</height>
-                <aspectratio>keep</aspectratio>
-                <texture background="true" colordiffuse="$VAR[Color_GameAchievementBadge]">$INFO[ListItem.Icon]</texture>
-            </control>
-            <control type="group">
-                <description>Title, criteria and rarity</description>
-                <left>140</left>
-                <right>400</right>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>12</top>
-                    <height>40</height>
-                    <font>font_main_bold</font>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <label>$INFO[ListItem.Label]</label>
-                </control>
-                <control type="label">
-                    <description>How the achievement is earned</description>
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>52</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>dialog_fg_50</textcolor>
-                    <selectedcolor>dialog_fg_50</selectedcolor>
-                    <label>$INFO[ListItem.Label2]</label>
-                </control>
-                <control type="label">
-                    <description>
-                        How rare the achievement is. The accent colour has to give way on the
-                        focused row: the focus texture is painted in that same colour, so
-                        keeping it would leave the line invisible against its own highlight.
-                    </description>
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>84</top>
-                    <height>32</height>
-                    <font>font_tiny</font>
-                    <textcolor>$VAR[ColorHighlight]</textcolor>
-                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
-                    <label>$INFO[ListItem.Property(achievement.raritystars)] $INFO[ListItem.Property(achievement.raritycategory)]</label>
-                </control>
-            </control>
-            <control type="group">
-                <description>Point value and unlock state</description>
-                <right>20</right>
-                <width>380</width>
-                <control type="label">
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>12</top>
-                    <height>40</height>
-                    <align>right</align>
-                    <font>font_main_bold</font>
-                    <textcolor>dialog_fg_90</textcolor>
-                    <selectedcolor>dialog_fg_90</selectedcolor>
-                    <label>$INFO[ListItem.Property(achievement.points)]</label>
-                </control>
-                <control type="label">
-                    <description>Unlock date, shown only for earned achievements</description>
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>52</top>
-                    <height>32</height>
-                    <align>right</align>
-                    <font>font_tiny</font>
-                    <textcolor>$VAR[ColorWatchedProgress]</textcolor>
-                    <selectedcolor>$VAR[ColorWatchedProgress]</selectedcolor>
-                    <label>$INFO[ListItem.Property(achievement.unlockeddate)]</label>
-                    <visible>!String.IsEmpty(ListItem.Property(achievement.earned))</visible>
-                </control>
-                <control type="label">
-                    <description>
-                        Progress towards a counting achievement, such as "45/100". Supplied by
-                        the add-on rather than built here, because only it knows what is being
-                        counted.
-                    </description>
-                    <include condition="$PARAM[selected]">Color_SelectedText</include>
-                    <top>52</top>
-                    <height>32</height>
-                    <align>right</align>
-                    <font>font_tiny</font>
-                    <textcolor>$VAR[ColorHighlight]</textcolor>
-                    <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
-                    <label>$INFO[ListItem.Property(achievement.measuredprogress)]</label>
-                    <visible>!String.IsEmpty(ListItem.Property(achievement.measured))</visible>
-                </control>
-                <control type="progress">
-                    <description>
-                        Progress bar for counting achievements. Sits on the rarity line, which is
-                        free on this side of the row, and only ever shows for achievements the
-                        player hasn't earned yet. Like the rarity line it has to drop the accent
-                        colour on the focused row, which is painted in that same colour.
-                    </description>
-                    <include condition="$PARAM[selected]">Layout_GameAchievement_Progress_Selected</include>
-                    <left>120</left>
-                    <top>92</top>
-                    <width>260</width>
-                    <height>4</height>
-                    <texturebg colordiffuse="dialog_fg_12" border="12,0,12,0">progress/progress-nib.png</texturebg>
-                    <midtexture colordiffuse="$VAR[ColorHighlight]" border="12,0,12,0">progress/progress-nib.png</midtexture>
-                    <info>ListItem.Property(achievement.measuredpercent)</info>
-                    <visible>!String.IsEmpty(ListItem.Property(achievement.measured))</visible>
                 </control>
             </control>
         </definition>
@@ -2485,6 +1919,64 @@
                         <param name="diffuse">$PARAM[diffuse]</param>
                     </include>
                 </control>
+
+                <control type="group">
+                    <include content="Object_ContentBanner" condition="$PARAM[indicator]">
+                        <param name="listitem">$PARAM[listitem]</param>
+                    </include>
+                    <include content="Object_TraktOverlays" condition="$PARAM[indicator] + [Skin.HasSetting(Indicator.TraktWatchlist) | Skin.HasSetting(Indicator.TraktFavourites)]">
+                        <param name="listitem">$PARAM[listitem]</param>
+                    </include>
+                    <include condition="!$PARAM[selected]" content="Object_Indicator">
+                        <param name="affix">$PARAM[affix]</param>
+                        <param name="listitem">$PARAM[listitem]</param>
+                    </include>
+                    <include content="Object_SelectBox" condition="$PARAM[selected]">
+                        <param name="indicator">true</param>
+                        <param name="focusbounce">false</param>
+                    </include>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Layout_Placard">
+        <param name="selected">false</param>
+        <param name="diffuse">diffuse/card_w731_h310.png</param>
+        <param name="textcolor">main_fg</param>
+        <param name="listitem">ListItem</param>
+        <param name="affix" />
+        <definition>
+            <control type="group">
+                <width>$PARAM[item_w]</width>
+                <height>$PARAM[item_h]</height>
+                <control type="group">
+                    <include content="Object_ItemBack">
+                        <param name="selected">$PARAM[selected]</param>
+                        <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                    </include>
+
+                    <include content="Object_Layout_Image_Rectangle">
+                        <param name="diffuse">$PARAM[diffuse]</param>
+                        <param name="icon">$VAR[Image_Card_Fanart]</param>
+                        <param name="listitem">$PARAM[listitem]</param>
+                        <param name="aspectratio">scale</param>
+                        <param name="selected">$PARAM[selected]</param>
+                    </include>
+
+                    <include content="Object_ClearLogo_WithShadow">
+                        <param name="diffuse">$PARAM[diffuse]</param>
+                    </include>
+                </control>
+
+                <include content="Layout_Labels">
+                    <param name="top">10</param>
+                    <param name="item_h">$PARAM[item_h]</param>
+                    <param name="affix">$PARAM[affix]</param>
+                    <param name="listitem">$PARAM[listitem]</param>
+                    <param name="textcolor">$PARAM[textcolor]</param>
+                    <param name="use_label2">$PARAM[use_label2]</param>
+                </include>
 
                 <control type="group">
                     <include content="Object_ContentBanner" condition="$PARAM[indicator]">
