@@ -87,8 +87,8 @@
 
             <control type="label">
                 <left>960</left>
+                <right>60</right>
                 <top>1000</top>
-                <width>900</width>
                 <height>40</height>
                 <align>right</align>
                 <aligny>center</aligny>

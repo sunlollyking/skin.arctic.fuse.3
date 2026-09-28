@@ -1777,9 +1777,9 @@
             <!-- Three columns of facts rather than two: a game carries far more
                  of them than a film, and stacked two deep they pushed the
                  description into a narrow strip -->
-            <param name="left_group_width">440</param>
-            <param name="mid_group_left">440</param>
-            <param name="right_group_left">880</param>
+            <param name="left_group_width">400</param>
+            <param name="mid_group_left">400</param>
+            <param name="right_group_left">720</param>
             <param name="right">80</param>
         </include>
     </include>
