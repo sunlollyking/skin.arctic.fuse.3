@@ -290,7 +290,7 @@
             <icon>special://skin/extras/icons/circle-plus.png</icon>
             <visible>ListItem.IsFolder</visible>
             <onclick>Dialog.Close(contextmenu,true)</onclick>
-            <onclick>RunScript(script.skinvariables,set_listitem_to_menunode=homewidgets||1101widgets||1102widgets||1103widgets||1104widgets||homesubmenu||1101submenu||1102submenu||1103submenu||1104submenu||powermenu||powertray,skin=$VAR[Path_SkinVariables_SkinFolder])</onclick>
+            <onclick>RunScript(script.skinvariables,set_listitem_to_menunode=homewidgets||1101widgets||1102widgets||1103widgets||1104widgets||homesubmenu||1101submenu||1102submenu||1103submenu||1104submenu||powermenu||powertray,skin=$VAR[Path_SkinVariables_SkinFolder]$VAR[Path_ContextMenu_MenuNodeTarget])</onclick>
         </item>
         <item>
             <label>$LOCALIZE[33061]</label>
@@ -305,4 +305,9 @@
             <onclick>PreviousMenu</onclick>
         </item> -->
     </include>
+
+    <!-- skinvariables only recognises the video, music, picture, program and PVR windows -->
+    <variable name="Path_ContextMenu_MenuNodeTarget">
+        <value condition="Window.IsVisible(MyGames.xml)">,target=games</value>
+    </variable>
 </includes>

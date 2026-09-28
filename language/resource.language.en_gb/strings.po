@@ -2523,3 +2523,8 @@ msgstr ""
 msgctxt "#31906"
 msgid "Edition"
 msgstr ""
+
+#: /1080i/Includes_Info.xml
+msgctxt "#31907"
+msgid " player"
+msgstr ""

@@ -86,7 +86,7 @@
         },
         {
             "name": "Games",
-            "path": "sources://games/",
+            "path": "gamedb://",
             "icon": "special://skin/extras/icons/gamepad.png",
             "link": "false",
             "node": "games",
@@ -148,6 +148,14 @@
             "icon": "special://skin/extras/icons/folder.png",
             "node": "music",
             "link": "false"
+        },
+        {
+            "name": "Game Playlists",
+            "path": "special://gameplaylists/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "node": "games",
+            "link": "false",
+            "rule": "System.GetBool(gamesgeneral.enable)"
         },
         {
             "name": "Skin Playlists",
@@ -811,6 +819,142 @@
             "icon": "special://skin/extras/icons/folder.png",
             "link": "false",
             "node": "radioguide"
+        },
+        {
+            "name": "Games",
+            "path": "grouping://shortcuts/default/games/",
+            "icon": "special://skin/extras/icons/folder.png",
+            "link": "false",
+            "node": "games",
+            "rule": "System.GetBool(gamesgeneral.enable)"
+        }
+    ],
+    "grouping://shortcuts/default/games/": [
+        {
+            "name": "Continue Playing Games",
+            "path": "gamedb://continueplaying/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Best Games",
+            "path": "special://skin/extras/playlists/games/BestGames.xsp",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "New Games",
+            "path": "special://skin/extras/playlists/games/NewGames.xsp",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Recently Added Games",
+            "path": "gamedb://recentlyadded/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Recently Played Games",
+            "path": "gamedb://recentlyplayed/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Most Played Games",
+            "path": "gamedb://mostplayed/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Random Games",
+            "path": "special://skin/extras/playlists/games/RandomGames.xsp",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Latest Releases",
+            "path": "special://skin/extras/playlists/games/LatestGameReleases.xsp",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Favourite Games",
+            "path": "gamedb://favourites/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Completed Games",
+            "path": "gamedb://completed/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Multiplayer Games",
+            "path": "gamedb://multiplayer/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Co-op Games",
+            "path": "gamedb://coop/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Games With Achievements",
+            "path": "gamedb://achievements/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Platforms",
+            "path": "gamedb://platforms/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Genres",
+            "path": "gamedb://genres/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Years",
+            "path": "gamedb://years/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Collections",
+            "path": "gamedb://collections/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Nodes",
+            "path": "gamedb://",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
         }
     ],
     "grouping://shortcuts/default/movies/": [

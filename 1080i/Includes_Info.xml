@@ -643,8 +643,13 @@
                     <!-- Game players -->
                     <include content="Info_Line_Label">
                         <param name="colordiffuse">$PARAM[colordiffuse]</param>
-                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Players,, $LOCALIZE[31900]]</param>
-                        <param name="visible">[[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !Window.IsVisible(DialogGameInfo.xml)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Players)</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Players,,$LOCALIZE[31907]]</param>
+                        <param name="visible">[[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !Window.IsVisible(DialogGameInfo.xml)] + String.IsEqual($PARAM[container]$PARAM[listitem].Players,1)</param>
+                    </include>
+                    <include content="Info_Line_Label">
+                        <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                        <param name="label">$INFO[$PARAM[container]$PARAM[listitem].Players,,$LOCALIZE[31900]]</param>
+                        <param name="visible">[[Container.Content(games) | Container.Content(releases) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Platform)] + !Window.IsVisible(DialogGameInfo.xml)] + !String.IsEmpty($PARAM[container]$PARAM[listitem].Players) + !String.IsEqual($PARAM[container]$PARAM[listitem].Players,1)</param>
                     </include>
 
                     <!-- Game region -->
