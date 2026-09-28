@@ -1757,7 +1757,7 @@
             <param name="icon">special://skin/extras/icons/compact-disc.png</param>
             <label>$LOCALIZE[35272]</label>
             <onclick>ActivateWindow(GameDiscManager)</onclick>
-            <visible>$EXP[Exp_Kodi_Games_v22] + RetroPlayer.SupportsEject</visible>
+            <visible>RetroPlayer.SupportsEject</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8008</param>
@@ -1768,7 +1768,6 @@
             <param name="label2">$INFO[RetroPlayer.AchievementsProgress]</param>
             <param name="has_label2">true</param>
             <onclick>ActivateWindow(GameAchievements)</onclick>
-            <visible>$EXP[Exp_Kodi_Games_v22]</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8009</param>
@@ -1800,7 +1799,6 @@
             <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
             <label>$LOCALIZE[35310]</label>
             <onclick>ShowGameManual</onclick>
-            <visible>$EXP[Exp_Kodi_Games_v22]</visible>
         </include>
 
         <include content="Settings_ButtonImage">
