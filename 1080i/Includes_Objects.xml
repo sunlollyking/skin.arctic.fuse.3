@@ -404,22 +404,6 @@
         <param name="game_aspectratio">keep</param>
         <param name="selected">false</param>
         <definition>
-            <!-- Many game art links are a catalogue's guess at a file name and
-                 lead nowhere; the title shows through where the picture failed.
-                 A game standing in its logo for a cover already shows its name,
-                 and the logo is transparent. -->
-            <control type="textbox">
-                <textcolor>main_fg_70</textcolor>
-                <label>$INFO[$PARAM[listitem].Label]</label>
-                <include content="Dimension_Padding">
-                    <param name="pad">20</param>
-                </include>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>font_mini_bold</font>
-                <visible>String.IsEqual($PARAM[listitem].DBType,game)</visible>
-                <visible>String.IsEmpty($PARAM[listitem].Art(clearlogo)) | !String.IsEqual($PARAM[listitem].Icon,$PARAM[listitem].Art(clearlogo))</visible>
-            </control>
             <control type="image">
                 <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[aspectratio]</aspectratio>
@@ -427,11 +411,12 @@
                 <visible>!String.IsEqual($PARAM[listitem].DBType,game)</visible>
             </control>
             <!-- A game's box runs from a tall carton to a square jewel case, so
-                 filling a tile cuts an edge off many of them -->
+                 filling a tile cuts an edge off many of them. Many game art links
+                 are a catalogue's guess at a file name and lead nowhere. -->
             <control type="image">
-                <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                <texture background="true" diffuse="$PARAM[diffuse]" fallback="DefaultAddonGame.png">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[game_aspectratio]</aspectratio>
-                <visible>String.IsEqual($PARAM[listitem].DBType,game)</visible>
+                <visible>String.IsEqual($PARAM[listitem].DBType,game) + !String.StartsWith($PARAM[listitem].Icon,Default)</visible>
             </control>
             <control type="image">
                 <include content="Object_ColorDiffuse" condition="$PARAM[selected]">
