@@ -1675,6 +1675,18 @@
             <label>$LOCALIZE[35227]</label>
             <onclick>ActivateWindow(GameVideoRotation)</onclick>
         </include>
+        <include content="Button_Dialog_Setting">
+            <param name="id">8008</param>
+            <param name="groupid">8108</param>
+            <param name="dialog">true</param>
+            <param name="control">radiobutton</param>
+            <param name="istext">true</param>
+            <param name="label">$LOCALIZE[35241]</param>
+            <description>Bezel button</description>
+            <onclick>PlayerControl(Bezel)</onclick>
+            <selected>RetroPlayer.BezelEnabled</selected>
+            <visible>RetroPlayer.HasBezel</visible>
+        </include>
         <include content="Settings_ButtonImage">
             <param name="id">8004</param>
             <param name="groupid">8104</param>
