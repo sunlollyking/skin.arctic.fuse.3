@@ -1812,6 +1812,15 @@
                     </include>
 
                     <include content="Button_Underline_Switcher">
+                        <!-- Kodi opens the game's versions for this id -->
+                        <param name="id">5</param>
+                        <label>$LOCALIZE[35543]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <visible>Integer.IsGreater(ListItem.ReleaseCount,1)</visible>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
                         <param name="id">4015</param>
                         <label>$LOCALIZE[39123]</label>
                         <usealttexture>false</usealttexture>
