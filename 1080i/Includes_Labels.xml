@@ -929,6 +929,7 @@
     </variable>
 
     <variable name="Label_MediaList_Title">
+        <value condition="Container.Content(releases)">$INFO[ListItem.Label]</value>
         <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
     </variable>
