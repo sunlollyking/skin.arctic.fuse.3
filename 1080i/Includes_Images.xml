@@ -448,6 +448,7 @@
     </variable>
 
     <variable name="Image_CombinedStudio">
+        <value condition="String.IsEqual(ListItem.DBType,game) + System.AddonIsEnabled(resource.images.studios.games) + !String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[ListItem.Studio,resource://resource.images.studios.games/,.png]</value>
         <value condition="!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.base_first_studio))">$INFO[Window(Home).Property(TMDbHelper.ListItem.base_first_studio),resource://resource.images.studios.coloured/,.png]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.coloured/,.png]</value>
