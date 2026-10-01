@@ -25,7 +25,7 @@
                     <include>Size_Group_Head</include>
                     <include content="Part_HeadText">
                         <param name="id">0</param>
-                        <param name="label">$LOCALIZE[35318]</param>
+                        <param name="label">$LOCALIZE[35317]</param>
                     </include>
                     <include>Part_CloseButton</include>
                 </control>
@@ -38,8 +38,8 @@
                         <left>40</left>
                         <right>40</right>
                         <height>40</height>
-                        <font>font_tiny</font>
-                        <textcolor>dialog_fg_70</textcolor>
+                        <font>font_mini</font>
+                        <textcolor>dialog_fg_90</textcolor>
                         <label>$INFO[Window.Property(Manuals.Game)]</label>
                     </control>
 
@@ -54,7 +54,7 @@
                         <font>font_main</font>
                         <textcolor>dialog_fg_90</textcolor>
                         <wrapmultiline>true</wrapmultiline>
-                        <label>$INFO[Window.Property(Manuals.Status)]</label>
+                        <label>$INFO[Window.Property(Manuals.Status)]$INFO[Window.Property(Manuals.Progress),  ,%]</label>
                         <visible>!String.IsEmpty(Window.Property(Manuals.Status))</visible>
                     </control>
 
@@ -86,7 +86,7 @@
                                 <description>Which machine, as a tagline under the title</description>
                                 <top>40</top>
                                 <height>40</height>
-                                <font>font_tiny</font>
+                                <font>font_mini</font>
                                 <textcolor>$VAR[ColorHighlight]</textcolor>
                                 <label>$INFO[Container(110).ListItem.Property(manual.system)]</label>
                             </control>

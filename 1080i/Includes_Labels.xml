@@ -1294,7 +1294,7 @@
                     <width>180</width>
                     <height>40</height>
                     <aligny>center</aligny>
-                    <font>font_tiny</font>
+                    <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <label>$PARAM[label]</label>
                 </control>
@@ -1303,7 +1303,7 @@
                     <right>0</right>
                     <height>40</height>
                     <aligny>center</aligny>
-                    <font>font_tiny</font>
+                    <font>font_mini</font>
                     <textcolor>dialog_fg_90</textcolor>
                     <label>$INFO[Container(110).ListItem.Property($PARAM[property])]</label>
                 </control>
