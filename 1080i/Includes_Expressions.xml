@@ -153,6 +153,6 @@
 
     <expression name="Exp_SeasonalTheme_Active">[Skin.HasSetting(SeasonalTheme.Enable) + [$EXP[Exp_SeasonalTheme_Christmas] | $EXP[Exp_SeasonalTheme_Summer] | $EXP[Exp_SeasonalTheme_Halloween]]]</expression>
 
-    <expression name="Exp_SeasonalTheme_Visible">[!System.ScreenSaverActive + !Window.IsVisible(slideshow) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo)]]</expression>
+    <expression name="Exp_SeasonalTheme_Visible">[!System.ScreenSaverActive + !Window.IsVisible(slideshow) + !Window.IsVisible(script-game-manuals-viewer.xml) + [[!Window.IsVisible(visualisation) + !VideoPlayer.IsFullscreen] | Window.IsActive(fullscreeninfo)]]</expression>
 
 </includes>
