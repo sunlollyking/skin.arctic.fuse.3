@@ -1797,12 +1797,15 @@
             <param name="dialog">true</param>
             <description>
                 Manual button. Opens the manual that came with the game, or offers to go
-                looking for one if there is none beside it. Kodi reports for itself when
-                nothing can be found, so the button stays available either way.
+                looking for one if there is none beside it. script.game.manuals reports
+                for itself when nothing can be found, so the button stays available
+                either way.
             </description>
             <param name="icon">special://skin/extras/icons/book-open-reader.png</param>
             <label>$LOCALIZE[35310]</label>
-            <onclick>ShowGameManual</onclick>
+            <onclick condition="!System.HasAddon(script.game.manuals)">InstallAddon(script.game.manuals)</onclick>
+            <onclick condition="System.HasAddon(script.game.manuals) + !System.AddonIsEnabled(script.game.manuals)">EnableAddon(script.game.manuals)</onclick>
+            <onclick condition="System.AddonIsEnabled(script.game.manuals)">RunScript(script.game.manuals,game=$ESCINFO[Player.FilenameAndPath],title=$ESCINFO[RetroPlayer.Title])</onclick>
         </include>
 
         <include content="Settings_ButtonImage">

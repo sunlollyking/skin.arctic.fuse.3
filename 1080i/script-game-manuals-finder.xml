@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <!-- No default control: the results list is empty when the dialog opens, and
+         the add-on focuses it, or a button, once the search has answered -->
+    <controls>
+        <include>Part_Dim_Overlay</include>
+        <control type="group">
+            <description>
+                Offers a manual for a game that has none beside it, through
+                script.game.manuals. The add-on asks whichever add-on says it can
+                provide manuals; nothing here knows about any service.
+
+                There is normally one answer, so the question is not which manual to
+                take but whether this is the right game and worth the download. It is
+                described rather than listed.
+            </description>
+            <include>Animation_BounceIn_Dialog</include>
+            <include content="Part_Conditional_Backing">
+                <param name="visible">true</param>
+                <param name="onleft">200</param>
+                <param name="items">GameManuals_Finder_Buttons</param>
+            </include>
+            <control type="group">
+                <include>Dimension_DialogWideMenu</include>
+                <include content="Size_SlideOver_Conditional_Buttons">
+                    <param name="condition">true</param>
+                </include>
+                <control type="group" id="8000">
+                    <include>Size_Dialog_Pad</include>
+                    <control type="group">
+                        <include>Size_Group_Head</include>
+                        <include content="Part_HeadText">
+                            <param name="id">0</param>
+                            <param name="label">$ADDON[script.game.manuals 32002]</param>
+                        </include>
+                        <include>Part_CloseButton</include>
+                    </control>
+
+                    <control type="group">
+                        <include>Size_Group_Body</include>
+
+                        <control type="label">
+                            <description>Which game this is about</description>
+                            <left>40</left>
+                            <right>40</right>
+                            <height>40</height>
+                            <font>font_mini</font>
+                            <textcolor>dialog_fg_90</textcolor>
+                            <label>$INFO[Window.Property(game)]</label>
+                        </control>
+
+                        <control type="group">
+                            <description>Searching, or why there is nothing to offer</description>
+                            <top>60</top>
+                            <bottom>80</bottom>
+                            <visible>!String.IsEqual(Window.Property(state),results) + !String.IsEqual(Window.Property(state),downloading)</visible>
+                            <animation effect="fade" time="200">Visible</animation>
+                            <control type="group">
+                                <top>80</top>
+                                <height>100</height>
+                                <visible>String.IsEqual(Window.Property(state),searching)</visible>
+                                <include content="Object_BusySpinner">
+                                    <param name="colordiffuse">dialog_fg</param>
+                                    <param name="haslabel">false</param>
+                                    <param name="icon">special://skin/extras/icons/book-open.png</param>
+                                </include>
+                            </control>
+                            <control type="image">
+                                <centerleft>50%</centerleft>
+                                <top>80</top>
+                                <width>100</width>
+                                <height>100</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="dialog_fg_70">$VAR[Image_GameManuals_Finder_State]</texture>
+                                <visible>!String.IsEqual(Window.Property(state),searching)</visible>
+                            </control>
+                            <control type="label">
+                                <left>40</left>
+                                <right>40</right>
+                                <top>220</top>
+                                <height>40</height>
+                                <align>center</align>
+                                <font>font_main</font>
+                                <textcolor>dialog_fg_90</textcolor>
+                                <label>$INFO[Window.Property(status)]</label>
+                            </control>
+                            <control type="label">
+                                <left>40</left>
+                                <right>40</right>
+                                <top>270</top>
+                                <height>40</height>
+                                <align>center</align>
+                                <font>font_mini</font>
+                                <textcolor>dialog_fg_70</textcolor>
+                                <label>$INFO[Window.Property(hint)]</label>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <description>
+                                The download. The add-on reads the track's width and resizes
+                                the fill, so both are given a fixed width here.
+                            </description>
+                            <top>60</top>
+                            <bottom>80</bottom>
+                            <visible>String.IsEqual(Window.Property(state),downloading)</visible>
+                            <control type="label">
+                                <left>40</left>
+                                <right>40</right>
+                                <top>200</top>
+                                <height>40</height>
+                                <align>center</align>
+                                <font>font_main</font>
+                                <textcolor>dialog_fg_90</textcolor>
+                                <label>$ADDON[script.game.manuals 32007]$INFO[Window.Property(progress),  ]</label>
+                            </control>
+                            <control type="image" id="400">
+                                <left>40</left>
+                                <top>270</top>
+                                <width>800</width>
+                                <height>8</height>
+                                <texture colordiffuse="dialog_fg_12">common/white.png</texture>
+                            </control>
+                            <control type="image" id="410">
+                                <left>40</left>
+                                <top>270</top>
+                                <width>12</width>
+                                <height>8</height>
+                                <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <description>What the catalogue holds for this game</description>
+                            <top>60</top>
+                            <visible>String.IsEqual(Window.Property(state),results)</visible>
+
+                            <control type="image">
+                                <description>The box settles "is this my game" well before the text does</description>
+                                <left>40</left>
+                                <width>200</width>
+                                <height>240</height>
+                                <aspectratio align="center" aligny="top">keep</aspectratio>
+                                <texture fallback="DefaultAddonGame.png" background="true">$INFO[Container(200).ListItem.Art(poster)]</texture>
+                            </control>
+
+                            <control type="group">
+                                <left>280</left>
+                                <right>40</right>
+                                <control type="label">
+                                    <height>40</height>
+                                    <font>font_main_bold</font>
+                                    <textcolor>dialog_fg_90</textcolor>
+                                    <scroll>true</scroll>
+                                    <label>$INFO[Container(200).ListItem.Label]</label>
+                                </control>
+                                <control type="label">
+                                    <description>Which machine, as a tagline under the title</description>
+                                    <top>40</top>
+                                    <height>40</height>
+                                    <font>font_mini</font>
+                                    <textcolor>$VAR[ColorHighlight]</textcolor>
+                                    <label>$INFO[Container(200).ListItem.Property(manual.system)]</label>
+                                </control>
+                                <control type="grouplist">
+                                    <description>
+                                        A grouplist so that a field the catalogue has nothing for
+                                        closes up rather than leaving a labelled blank
+                                    </description>
+                                    <top>80</top>
+                                    <height>160</height>
+                                    <itemgap>0</itemgap>
+                                    <orientation>vertical</orientation>
+                                    <include content="GameManualDetail">
+                                        <param name="label" value="$ADDON[script.game.manuals 32016]" />
+                                        <param name="property" value="manual.region" />
+                                    </include>
+                                    <include content="GameManualDetail">
+                                        <param name="label" value="$ADDON[script.game.manuals 32017]" />
+                                        <param name="property" value="manual.year" />
+                                    </include>
+                                    <include content="GameManualDetail">
+                                        <param name="label" value="$ADDON[script.game.manuals 32018]" />
+                                        <param name="property" value="manual.publisher" />
+                                    </include>
+                                    <include content="GameManualDetail">
+                                        <param name="label" value="$ADDON[script.game.manuals 32019]" />
+                                        <param name="property" value="manual.developer" />
+                                    </include>
+                                    <include content="GameManualDetail">
+                                        <param name="label" value="$ADDON[script.game.manuals 32020]" />
+                                        <param name="property" value="manual.genre" />
+                                    </include>
+                                </control>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <top>320</top>
+                            <bottom>80</bottom>
+                            <visible>String.IsEqual(Window.Property(state),results)</visible>
+                            <include content="List_Dialog">
+                                <param name="id">200</param>
+                                <param name="itemlayout_include">List_Layout_Dialog_GameManuals</param>
+                                <include>Size_Grouplist_Pad</include>
+                                <onup>200</onup>
+                                <ondown>200</ondown>
+                                <onright>9000</onright>
+                            </include>
+                        </control>
+                    </control>
+
+                    <control type="group">
+                        <description>Which add-on is being asked</description>
+                        <visible>!String.IsEmpty(Window.Property(provider))</visible>
+                        <include content="Part_InfoText">
+                            <param name="label">$ADDON[script.game.manuals 32009]: $INFO[Window.Property(provider)]</param>
+                        </include>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

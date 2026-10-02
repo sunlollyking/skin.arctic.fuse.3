@@ -17,35 +17,18 @@
             <animation effect="fade" time="200">WindowOpen</animation>
             <animation effect="fade" time="200">WindowClose</animation>
 
-            <control type="image" id="9000">
+            <control type="image" id="100">
                 <description>
-                    The page itself. Kodi sizes this control to the page as it loads, so
-                    the geometry set here is only the area it starts from.
+                    The page itself. script.game.manuals fits the page to this area,
+                    which stops short of the labels, then moves and resizes it to zoom
+                    and pan.
                 </description>
-                <left>60</left>
-                <top>40</top>
-                <width>1800</width>
-                <height>940</height>
-                <aspectratio>keep</aspectratio>
-                <texture background="true">$INFO[Window.Property(Manual.Image)]</texture>
-            </control>
-
-            <control type="label">
-                <description>
-                    Shown while the document is being read. Opening happens on a background
-                    job, so without this a manual on a share would show an empty window for
-                    as long as the read took.
-                </description>
-                <left>60</left>
-                <top>40</top>
-                <width>1800</width>
-                <height>940</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>font_mini</font>
-                <textcolor>main_fg_70</textcolor>
-                <label>$INFO[Window.Property(Manual.Status)]</label>
-                <visible>!String.IsEmpty(Window.Property(Manual.Status))</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>960</height>
+                <aspectratio>stretch</aspectratio>
+                <fadetime>150</fadetime>
             </control>
 
             <control type="image">
@@ -63,29 +46,30 @@
             <control type="label">
                 <left>60</left>
                 <top>1000</top>
-                <width>900</width>
+                <width>480</width>
                 <height>40</height>
                 <aligny>center</aligny>
                 <font>font_mini</font>
                 <textcolor>main_fg_100</textcolor>
-                <label>$INFO[Window.Property(Manual.Title)]</label>
+                <label>$INFO[Window.Property(title)]</label>
             </control>
 
             <control type="label">
-                <description>Only says anything while zoomed in</description>
-                <left>760</left>
+                <description>How to get around, until the page is zoomed into</description>
+                <left>560</left>
                 <top>1000</top>
-                <width>400</width>
+                <width>800</width>
                 <height>40</height>
                 <align>center</align>
                 <aligny>center</aligny>
                 <font>font_mini</font>
                 <textcolor>main_fg_70</textcolor>
-                <label>$INFO[Window.Property(Manual.ZoomLabel)]</label>
+                <label>$ADDON[script.game.manuals 32012]</label>
+                <visible>String.IsEmpty(Window.Property(zoomed))</visible>
             </control>
 
             <control type="label">
-                <left>960</left>
+                <left>1380</left>
                 <right>60</right>
                 <top>1000</top>
                 <height>40</height>
@@ -93,7 +77,7 @@
                 <aligny>center</aligny>
                 <font>font_mini</font>
                 <textcolor>main_fg_70</textcolor>
-                <label>$INFO[Window.Property(Manual.PageLabel)]</label>
+                <label>$INFO[Window.Property(page)]</label>
             </control>
         </control>
     </controls>

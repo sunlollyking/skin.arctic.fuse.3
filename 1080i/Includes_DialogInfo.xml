@@ -1852,12 +1852,12 @@
                         <label>$LOCALIZE[35310]</label>
                         <usealttexture>false</usealttexture>
                         <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
-                        <!-- The viewer is a window, and one cannot be activated
-                             under a modal dialog. The address the catalogues
-                             reported is handed over so that a manual already
-                             known about is fetched rather than searched for. -->
-                        <onclick>Dialog.Close(gameinformation)</onclick>
-                        <onclick>ShowGameManual($ESCINFO[ListItem.FilenameAndPath],$ESCINFO[ListItem.Property(manual)])</onclick>
+                        <!-- The address the catalogues reported is handed over so
+                             that a manual already known about is fetched rather
+                             than searched for. -->
+                        <onclick condition="!System.HasAddon(script.game.manuals)">InstallAddon(script.game.manuals)</onclick>
+                        <onclick condition="System.HasAddon(script.game.manuals) + !System.AddonIsEnabled(script.game.manuals)">EnableAddon(script.game.manuals)</onclick>
+                        <onclick condition="System.AddonIsEnabled(script.game.manuals)">RunScript(script.game.manuals,game=$ESCINFO[ListItem.FilenameAndPath],title=$ESCINFO[ListItem.Title],manual=$ESCINFO[ListItem.Property(manual)])</onclick>
                         <visible>!String.IsEmpty(ListItem.Property(hasmanual))</visible>
                     </include>
 

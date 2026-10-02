@@ -1288,7 +1288,7 @@
         <definition>
             <control type="group">
                 <height>40</height>
-                <visible>!String.IsEmpty(Container(110).ListItem.Property($PARAM[property]))</visible>
+                <visible>!String.IsEmpty(Container(200).ListItem.Property($PARAM[property]))</visible>
                 <control type="label">
                     <left>0</left>
                     <width>180</width>
@@ -1305,7 +1305,7 @@
                     <aligny>center</aligny>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_90</textcolor>
-                    <label>$INFO[Container(110).ListItem.Property($PARAM[property])]</label>
+                    <label>$INFO[Container(200).ListItem.Property($PARAM[property])]</label>
                 </control>
             </control>
         </definition>
