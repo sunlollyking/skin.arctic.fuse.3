@@ -100,6 +100,192 @@
         </include>
     </include>
 
+    <!--
+        Showcase: one game at a time, on a stage. Its box stands at three
+        quarters, built from its spine and front, with its cartridge rising
+        out of the top or its disc sliding out of the side. The games
+        themselves run along the bottom as ScreenScraper's 3D boxes.
+    -->
+    <include name="View_553_Showcase">
+        <control type="group">
+            <visible>Control.IsVisible(553)</visible>
+
+            <control type="group" description="What the game is">
+                <left>90</left>
+                <top>90</top>
+                <control type="image">
+                    <width>700</width>
+                    <height>190</height>
+                    <aspectratio align="left" aligny="center">keep</aspectratio>
+                    <fadetime>300</fadetime>
+                    <texture background="true">$INFO[Container(553).ListItem.Art(clearlogo)]</texture>
+                    <visible>!String.IsEmpty(Container(553).ListItem.Art(clearlogo))</visible>
+                </control>
+                <control type="textbox">
+                    <width>800</width>
+                    <height>190</height>
+                    <aligny>center</aligny>
+                    <font>font_title_huge</font>
+                    <textcolor>main_fg_100</textcolor>
+                    <label>$INFO[Container(553).ListItem.Label]</label>
+                    <visible>String.IsEmpty(Container(553).ListItem.Art(clearlogo))</visible>
+                </control>
+                <control type="label">
+                    <top>220</top>
+                    <width>800</width>
+                    <height>40</height>
+                    <font>font_main</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$INFO[Container(553).ListItem.Platform]$INFO[Container(553).ListItem.Year,  •  ,]$INFO[Container(553).ListItem.Genre,  •  ,]$INFO[Container(553).ListItem.Players,  •  ,]</label>
+                </control>
+                <control type="label">
+                    <top>266</top>
+                    <width>800</width>
+                    <height>40</height>
+                    <font>font_main</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$INFO[Container(553).ListItem.Rating,$LOCALIZE[563] ,]$INFO[Container(553).ListItem.Rating(igdbcritic),     $LOCALIZE[31030] ,]$INFO[Container(553).ListItem.AchievementsTotal,     $LOCALIZE[35588] ,]</label>
+                </control>
+                <control type="textbox">
+                    <top>330</top>
+                    <width>780</width>
+                    <height>360</height>
+                    <font>font_main_plot</font>
+                    <textcolor>main_fg_90</textcolor>
+                    <label>$INFO[Container(553).ListItem.Plot]</label>
+                    <autoscroll time="3000" delay="9000" repeat="6000">true</autoscroll>
+                </control>
+            </control>
+
+            <control type="group" description="The stage">
+                <left>1140</left>
+                <top>190</top>
+                <!-- Relative to this group's parent, so it sits in front of the box -->
+                <camera x="1380" y="470" />
+                <animation effect="fade" start="0" end="100" time="300">Visible</animation>
+                <visible>!Container(553).OnNext + !Container(553).OnPrevious</visible>
+
+                <control type="group" description="The disc, sliding out of the side and turning">
+                    <left>250</left>
+                    <top>80</top>
+                    <width>400</width>
+                    <height>400</height>
+                    <visible>!String.IsEmpty(Container(553).ListItem.Art(disc)) + !Container(553).OnNext + !Container(553).OnPrevious</visible>
+                    <animation effect="slide" start="-200,0" end="0,0" delay="350" time="800" tween="cubic" easing="out">Visible</animation>
+                    <control type="image">
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$INFO[Container(553).ListItem.Art(disc)]</texture>
+                        <animation effect="rotate" start="0" end="-360" center="auto" time="12000" loop="true" condition="true">Conditional</animation>
+                    </control>
+                </control>
+
+                <control type="group" description="The box, swaying gently">
+                    <animation effect="rotatey" start="-7" end="7" center="80,0" time="6000" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+                    <control type="group">
+                        <animation effect="rotatey" start="60" end="60" center="80,0" time="10" condition="true">Conditional</animation>
+                        <control type="image">
+                            <width>80</width>
+                            <height>560</height>
+                            <aspectratio align="right" aligny="bottom">stretch</aspectratio>
+                            <texture background="true" colordiffuse="ffa8a8a8">$INFO[Container(553).ListItem.Art(boxspine)]</texture>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <animation effect="rotatey" start="-30" end="-30" center="80,0" time="10" condition="true">Conditional</animation>
+                        <control type="image" description="The cartridge, rising out of the box behind its front">
+                            <left>130</left>
+                            <top>-200</top>
+                            <width>300</width>
+                            <height>300</height>
+                            <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                            <texture background="true">$INFO[Container(553).ListItem.Art(cartridge)]</texture>
+                            <visible>String.IsEmpty(Container(553).ListItem.Art(disc)) + !Container(553).OnNext + !Container(553).OnPrevious</visible>
+                            <animation effect="slide" start="0,240" end="0,0" delay="300" time="700" tween="cubic" easing="out">Visible</animation>
+                        </control>
+                        <control type="image">
+                            <left>80</left>
+                            <width>400</width>
+                            <height>560</height>
+                            <aspectratio align="left" aligny="bottom">stretch</aspectratio>
+                            <texture background="true">$INFO[Container(553).ListItem.Art(boxfront)]</texture>
+                        </control>
+                        <control type="image" description="Its reflection">
+                            <left>80</left>
+                            <top>564</top>
+                            <width>400</width>
+                            <height>560</height>
+                            <aspectratio align="left" aligny="top">stretch</aspectratio>
+                            <texture background="true" flipy="true" diffuse="common/gradient-v-down.png" colordiffuse="4dffffff">$INFO[Container(553).ListItem.Art(boxfront)]</texture>
+                        </control>
+                    </control>
+                </control>
+            </control>
+
+            <control type="image" description="The floor the carousel stands on">
+                <left>0</left>
+                <right>0</right>
+                <top>780</top>
+                <height>300</height>
+                <texture colordiffuse="main_bg_90">common/gradient-v.png</texture>
+            </control>
+
+            <control type="fixedlist" id="553">
+                <left>0</left>
+                <right>0</right>
+                <top>800</top>
+                <height>280</height>
+                <orientation>horizontal</orientation>
+                <focusposition>5</focusposition>
+                <movement>0</movement>
+                <preloaditems>4</preloaditems>
+                <scrolltime tween="cubic" easing="out">350</scrolltime>
+                <include content="Action_View_Movement_OnUp">
+                    <param name="id">553</param>
+                </include>
+                <include content="Action_View_Movement_OnBack">
+                    <param name="id">553</param>
+                    <param name="onback">[Integer.IsEqual(Container(553).CurrentItem,1)]</param>
+                </include>
+                <include content="Action_View_Movement_OnDown">
+                    <param name="id">553</param>
+                </include>
+                <pagecontrol>60</pagecontrol>
+                <visible>$EXP[Exp_View_553]</visible>
+                <viewtype label="$LOCALIZE[31909]">wrap</viewtype>
+                <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <itemlayout width="175" height="280">
+                    <control type="image">
+                        <left>10</left>
+                        <top>40</top>
+                        <width>155</width>
+                        <height>210</height>
+                        <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                        <texture background="true" colordiffuse="main_fg_50">$VAR[Image_Showcase_Box]</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="175" height="280">
+                    <control type="image">
+                        <left>10</left>
+                        <top>40</top>
+                        <width>155</width>
+                        <height>210</height>
+                        <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                        <texture background="true">$VAR[Image_Showcase_Box]</texture>
+                        <animation effect="zoom" end="122" center="87,250" time="250" tween="cubic" easing="out" condition="Control.HasFocus(553)">Conditional</animation>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+    </include>
+
+    <variable name="Image_Showcase_Box">
+        <value condition="!String.IsEmpty(ListItem.Art(box3d))">$INFO[ListItem.Art(box3d)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(boxfront))">$INFO[ListItem.Art(boxfront)]</value>
+        <value>$INFO[ListItem.Icon]</value>
+    </variable>
+
     <!-- Row Template View -->
     <include name="View_Row_Include">
         <definition>

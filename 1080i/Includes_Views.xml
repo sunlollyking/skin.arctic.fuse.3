@@ -170,6 +170,8 @@
     <include name="View_Row_Line">
         <control type="group">
             <visible>!Integer.IsEqual(Container.NumItems,0)</visible>
+            <!-- The showcase carries its own -->
+            <visible>!$EXP[Exp_View_553]</visible>
             <control type="group">
                 <visible>$EXP[View_Row_Info_Details_Expression]</visible>
                 <visible>!$EXP[View_Mode_Comb_Flix_Expression]</visible>
@@ -203,6 +205,8 @@
     <include name="View_Row_Info">
         <control type="group">
             <visible>!Integer.IsEqual(Container.NumItems,0)</visible>
+            <!-- The showcase carries its own -->
+            <visible>!$EXP[Exp_View_553]</visible>
             <include>Info_Panel_Dimensions</include>
             <include content="Info_Panel">
                 <param name="visible">String.IsEmpty(Window.Property(TMDBHelper.WidgetContainer))</param>
@@ -219,7 +223,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,509,530,551,510,511,512,513,514,515,516,520,521,522,523,524,526,527,528,580,581,582,583,584</views>
+        <views>500,501,502,503,504,505,506,509,530,551,553,510,511,512,513,514,515,516,520,521,522,523,524,526,527,528,580,581,582,583,584</views>
     </include>
 
     <include name="View_Row_Items">
@@ -237,6 +241,7 @@
                 <include condition="$EXP[Exp_View_509_Include]">View_509_Placard_Row</include>
                 <include condition="$EXP[Exp_View_530_Include]">View_530_Machine_Row</include>
                 <include condition="$EXP[Exp_View_551_Include]">View_551_Spine_Row</include>
+                <include condition="$EXP[Exp_View_553_Include]">View_553_Showcase</include>
 
                 <!-- Wall Views -->
                 <include condition="$EXP[Exp_View_510_Include]">View_510_Square_Wall</include>
@@ -302,6 +307,7 @@
         <value condition="Control.IsVisible(506)">506</value>
         <value condition="Control.IsVisible(509)">509</value>
         <value condition="Control.IsVisible(551)">551</value>
+        <value condition="Control.IsVisible(553)">553</value>
 
         <value condition="Control.IsVisible(510)">510</value>
         <value condition="Control.IsVisible(511)">511</value>

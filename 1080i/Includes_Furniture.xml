@@ -141,6 +141,7 @@
             <include>Furniture_SlidesOver</include>
             <visible>!Player.HasMedia | Skin.HasSetting(Footer.DisableNowPlaying)</visible>
             <visible>String.IsEmpty(ListItem.VideoCodec) | !Skin.HasSetting(Footer.EnableCodecs)</visible>
+            <visible>!$EXP[Exp_View_553]</visible>
             <control type="image">
                 <width>300</width>
                 <height>80</height>
@@ -220,6 +221,8 @@
     <include name="Furniture_Footer_Left_Content">
         <control type="group">
             <include>Dimension_Bottombar</include>
+            <!-- The showcase's carousel runs along the bottom -->
+            <visible>!$EXP[Exp_View_553]</visible>
             <include content="View_Furniture_Footer_ViewLine" condition="Window.IsMedia + !Window.IsVisible(addonbrowser) + !Window.IsVisible(eventlog) + !Window.IsVisible(MyMusicPlaylistEditor.xml)">
                 <param name="visible">true</param>
                 <param name="use_subtext">true</param>
