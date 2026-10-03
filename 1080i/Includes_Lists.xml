@@ -630,10 +630,10 @@
     </include>
 
     <include name="List_Spine_Wall">
-        <param name="item_w">36</param>
-        <param name="item_h">300</param>
-        <param name="itemlayout_w">36</param>
-        <param name="itemlayout_h">300</param>
+        <param name="item_w">45</param>
+        <param name="item_h">345</param>
+        <param name="itemlayout_w">45</param>
+        <param name="itemlayout_h">345</param>
         <param name="orientation">vertical</param>
         <param name="control">panel</param>
         <definition>

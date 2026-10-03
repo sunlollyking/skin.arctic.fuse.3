@@ -2594,7 +2594,7 @@
         <param name="id" />
         <definition>
             <control type="group">
-                <animation effect="zoom" end="60" center="0,0" time="10" condition="true">Conditional</animation>
+                <animation effect="zoom" end="72" center="0,0" time="10" condition="true">Conditional</animation>
                 <include content="Layout_Spine">
                     <param name="selected">$PARAM[selected]</param>
                     <param name="id">$PARAM[id]</param>
@@ -2603,7 +2603,7 @@
                 </include>
             </control>
             <control type="image" description="The shelf">
-                <top>253</top>
+                <top>304</top>
                 <width>$PARAM[item_w]</width>
                 <height>6</height>
                 <texture colordiffuse="main_fg_12">common/white.png</texture>
