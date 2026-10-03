@@ -1960,6 +1960,12 @@
                         <param name="name">$INFO[ListItem.Rating]</param>
                         <visible>!String.IsEmpty(ListItem.Rating)</visible>
                     </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/comments.png</param>
+                        <param name="role">$LOCALIZE[31030]</param>
+                        <param name="name">$INFO[ListItem.Rating(igdbcritic)]</param>
+                        <visible>!String.IsEmpty(ListItem.Rating(igdbcritic))</visible>
+                    </include>
                 </control>
                 <control type="grouplist">
                     <orientation>vertical</orientation>
