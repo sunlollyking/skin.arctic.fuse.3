@@ -2538,3 +2538,8 @@ msgstr ""
 msgctxt "#31909"
 msgid "Showcase"
 msgstr ""
+
+#: /1080i/Includes_Views_Row.xml
+msgctxt "#31910"
+msgid "Cabinet"
+msgstr ""

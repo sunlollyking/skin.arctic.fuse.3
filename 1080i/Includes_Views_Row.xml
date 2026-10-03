@@ -280,6 +280,152 @@
         </control>
     </include>
 
+    <!--
+        Cabinet: an arcade front end. The game's marquee lights the top, its
+        screen plays behind its bezel, and the games turn past on a wheel of
+        their logos down the right.
+    -->
+    <include name="View_554_Cabinet">
+        <control type="group">
+            <visible>Control.IsVisible(554)</visible>
+            <control type="image">
+                <texture colordiffuse="e6000000">common/white.png</texture>
+            </control>
+
+            <control type="group" description="The marquee, lit">
+                <left>60</left>
+                <top>36</top>
+                <width>1180</width>
+                <height>230</height>
+                <control type="image">
+                    <aspectratio>keep</aspectratio>
+                    <fadetime>300</fadetime>
+                    <texture background="true">$VAR[Image_Cabinet_Marquee]</texture>
+                    <animation effect="fade" start="80" end="100" time="2600" tween="sine" easing="inout" pulse="true" condition="true">Conditional</animation>
+                </control>
+            </control>
+
+            <control type="group" description="The screen behind its bezel">
+                <left>60</left>
+                <top>290</top>
+                <width>1180</width>
+                <height>664</height>
+                <control type="image">
+                    <texture colordiffuse="ff050505">common/white.png</texture>
+                </control>
+                <control type="image">
+                    <aspectratio>keep</aspectratio>
+                    <fadetime>250</fadetime>
+                    <texture background="true">$VAR[Image_Cabinet_Screen]</texture>
+                </control>
+                <control type="image">
+                    <texture>common/scanlines.png</texture>
+                </control>
+                <control type="image">
+                    <fadetime>250</fadetime>
+                    <texture background="true">$INFO[Container(554).ListItem.Art(bezel)]</texture>
+                </control>
+            </control>
+
+            <control type="label">
+                <left>60</left>
+                <top>974</top>
+                <width>1180</width>
+                <height>50</height>
+                <align>center</align>
+                <font>font_main</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$INFO[Container(554).ListItem.Year]$INFO[Container(554).ListItem.Publisher,  •  ,]$INFO[Container(554).ListItem.Genre,  •  ,]$INFO[Container(554).ListItem.Players,  •  ,]</label>
+            </control>
+
+            <control type="image" description="Where the wheel turns">
+                <right>0</right>
+                <width>660</width>
+                <texture colordiffuse="b3000000">common/gradient-h-fade.png</texture>
+                <animation effect="rotate" end="180" center="auto" time="10" condition="true">Conditional</animation>
+            </control>
+
+            <control type="fixedlist" id="554">
+                <right>40</right>
+                <top>0</top>
+                <width>600</width>
+                <height>1080</height>
+                <orientation>vertical</orientation>
+                <focusposition>3</focusposition>
+                <movement>0</movement>
+                <preloaditems>4</preloaditems>
+                <scrolltime tween="cubic" easing="out">250</scrolltime>
+                <include content="Action_View_Movement_OnBack">
+                    <param name="id">554</param>
+                    <param name="onback">[Integer.IsEqual(Container(554).CurrentItem,1)]</param>
+                </include>
+                <onleft>SetFocus(9000)</onleft>
+                <pagecontrol>60</pagecontrol>
+                <visible>$EXP[Exp_View_554]</visible>
+                <viewtype label="$LOCALIZE[31910]">list</viewtype>
+                <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <itemlayout width="600" height="154">
+                    <control type="image">
+                        <left>110</left>
+                        <top>27</top>
+                        <width>380</width>
+                        <height>100</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true" colordiffuse="main_fg_50">$INFO[ListItem.Art(clearlogo)]</texture>
+                    </control>
+                    <control type="label">
+                        <left>60</left>
+                        <width>480</width>
+                        <height>154</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font_main_bold</font>
+                        <textcolor>main_fg_50</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="600" height="154">
+                    <control type="group">
+                        <animation effect="zoom" end="135" center="300,77" time="200" tween="cubic" easing="out" condition="Control.HasFocus(554)">Conditional</animation>
+                        <control type="image">
+                            <left>110</left>
+                            <top>27</top>
+                            <width>380</width>
+                            <height>100</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+                        </control>
+                        <control type="label">
+                            <left>60</left>
+                            <width>480</width>
+                            <height>154</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>font_main_bold</font>
+                            <textcolor>main_fg_100</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                            <visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+    </include>
+
+    <variable name="Image_Cabinet_Marquee">
+        <value condition="!String.IsEmpty(Container(554).ListItem.Art(marquee))">$INFO[Container(554).ListItem.Art(marquee)]</value>
+        <value>$INFO[Container(554).ListItem.Art(clearlogo)]</value>
+    </variable>
+
+    <variable name="Image_Cabinet_Screen">
+        <value condition="!String.IsEmpty(Container(554).ListItem.Art(screenshot))">$INFO[Container(554).ListItem.Art(screenshot)]</value>
+        <value condition="!String.IsEmpty(Container(554).ListItem.Art(titlescreen))">$INFO[Container(554).ListItem.Art(titlescreen)]</value>
+        <value>$INFO[Container(554).ListItem.Art(fanart)]</value>
+    </variable>
+
     <variable name="Image_Showcase_Box">
         <value condition="!String.IsEmpty(ListItem.Art(box3d))">$INFO[ListItem.Art(box3d)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(boxfront))">$INFO[ListItem.Art(boxfront)]</value>
