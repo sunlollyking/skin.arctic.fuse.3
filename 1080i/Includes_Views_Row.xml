@@ -91,6 +91,15 @@
         </include>
     </include>
 
+    <include name="View_551_Spine_Row">
+        <include content="View_Row_Include">
+            <param name="id">551</param>
+            <param name="include">List_Spine_Row</param>
+            <param name="viewtype_label">$LOCALIZE[31908]</param>
+            <param name="visible">$EXP[Exp_View_551]</param>
+        </include>
+    </include>
+
     <!-- Row Template View -->
     <include name="View_Row_Include">
         <definition>

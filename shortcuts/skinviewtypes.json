@@ -8,6 +8,7 @@
         "504":  "31100",
         "505":  "31563",
         "530":  "31902",
+        "551":  "31908",
         "506":  "31156",
         "509":  "31164",
 
@@ -42,6 +43,7 @@
         "504":  "special://skin/extras/viewtypes/row-board.jpg",
         "505":  "special://skin/extras/viewtypes/row-card.jpg",
         "530":  "special://skin/extras/viewtypes/row-board.jpg",
+        "551":  "special://skin/extras/viewtypes/row-spine.jpg",
         "506":  "special://skin/extras/viewtypes/row-flyer.jpg",
         "509":  "special://skin/extras/viewtypes/row-placard.jpg",
 
@@ -70,7 +72,7 @@
     },
     "groups": {
         "31007": {
-            "viewtypes": ["500","501","502","503","504","505","506","509","530"],
+            "viewtypes": ["500","501","502","503","504","505","506","509","530","551"],
             "icon": "special://skin/extras/icons/table-columns.png"
         },
         "535": {
@@ -272,6 +274,7 @@
                 "505",
                 "506",
                 "530",
+                "551",
                 "510",
                 "511",
                 "512",
@@ -321,6 +324,7 @@
                 "505",
                 "506",
                 "530",
+                "551",
                 "510",
                 "511",
                 "512",
@@ -384,6 +388,7 @@
                 "505",
                 "506",
                 "530",
+                "551",
                 "510",
                 "511",
                 "512",

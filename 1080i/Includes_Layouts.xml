@@ -2483,6 +2483,123 @@
         </definition>
     </include>
 
+    <!--
+        A box's spine on a shelf. In focus, the box turns on the corner where its
+        spine meets its front, so the cover swings round into view: both faces
+        turn by the same angle about that one edge, which keeps the box rigid.
+    -->
+    <include name="Layout_Spine">
+        <param name="selected">false</param>
+        <param name="listitem">ListItem</param>
+        <param name="id" />
+        <definition>
+            <control type="group">
+                <width>$PARAM[item_w]</width>
+                <height>$PARAM[item_h]</height>
+                <!-- Every box seen from in front of itself, wherever it is on the shelf -->
+                <camera x="58" y="210" />
+
+                <control type="group">
+                    <include content="Object_Animation_Spine_Turn" condition="$PARAM[selected]">
+                        <param name="id">$PARAM[id]</param>
+                        <param name="start">0</param>
+                        <param name="end">62</param>
+                    </include>
+                    <control type="image">
+                        <left>2</left>
+                        <width>56</width>
+                        <height>420</height>
+                        <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                        <texture background="true">$INFO[$PARAM[listitem].Art(boxspine)]</texture>
+                        <visible>!String.IsEmpty($PARAM[listitem].Art(boxspine))</visible>
+                        <include content="Object_Spine_Shade" condition="$PARAM[selected]">
+                            <param name="id">$PARAM[id]</param>
+                        </include>
+                    </control>
+                    <control type="group" description="A game with no spine art gets a plain one with its title down it">
+                        <visible>String.IsEmpty($PARAM[listitem].Art(boxspine)) + !$PARAM[listitem].IsParentFolder</visible>
+                        <control type="image">
+                            <left>4</left>
+                            <top>80</top>
+                            <width>52</width>
+                            <height>340</height>
+                            <texture colordiffuse="ff23262d">common/white.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>44</left>
+                            <top>94</top>
+                            <width>312</width>
+                            <height>28</height>
+                            <angle>270</angle>
+                            <font>font_tiny</font>
+                            <textcolor>main_fg_70</textcolor>
+                            <label>$INFO[$PARAM[listitem].Label]</label>
+                        </control>
+                    </control>
+                    <control type="image">
+                        <left>8</left>
+                        <top>376</top>
+                        <width>44</width>
+                        <height>44</height>
+                        <texture colordiffuse="main_fg_70">special://skin/extras/icons/angle-left.png</texture>
+                        <visible>$PARAM[listitem].IsParentFolder</visible>
+                    </control>
+                </control>
+
+                <control type="image" description="The spine's reflection in the shelf">
+                    <left>2</left>
+                    <top>424</top>
+                    <width>56</width>
+                    <height>420</height>
+                    <aspectratio align="center" aligny="top">keep</aspectratio>
+                    <texture background="true" flipy="true" diffuse="common/gradient-v-down.png" colordiffuse="40ffffff">$INFO[$PARAM[listitem].Art(boxspine)]</texture>
+                    <visible>!String.IsEmpty($PARAM[listitem].Art(boxspine))</visible>
+                    <include content="Object_Animation_Spine_Hide" condition="$PARAM[selected]">
+                        <param name="id">$PARAM[id]</param>
+                    </include>
+                </control>
+
+                <control type="image" description="The turned box's shadow on the spines behind it">
+                    <left>58</left>
+                    <top>20</top>
+                    <width>420</width>
+                    <height>400</height>
+                    <texture>common/gradient-h-fade.png</texture>
+                    <visible>$PARAM[selected] + Control.HasFocus($PARAM[id])</visible>
+                    <animation effect="fade" start="0" end="100" time="360" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+                </control>
+
+                <control type="group" description="The front, edge on until the box turns">
+                    <include content="Object_Animation_Spine_Turn">
+                        <param name="id">$PARAM[id]</param>
+                        <param name="start">-90</param>
+                        <param name="end">-28</param>
+                    </include>
+                    <control type="image">
+                        <visible>$PARAM[selected] + Control.HasFocus($PARAM[id])</visible>
+                        <left>58</left>
+                        <width>300</width>
+                        <height>420</height>
+                        <aspectratio align="left" aligny="bottom">keep</aspectratio>
+                        <texture background="true">$INFO[$PARAM[listitem].Art(boxfront)]</texture>
+                    </control>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Object_Animation_Spine_Turn">
+        <animation effect="rotatey" start="$PARAM[start]" end="$PARAM[end]" center="58,0" time="360" tween="cubic" easing="out" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+    </include>
+
+    <include name="Object_Spine_Shade">
+        <animation effect="fade" end="70" time="360" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+    </include>
+
+    <include name="Object_Animation_Spine_Hide">
+        <animation effect="fade" end="0" time="150" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+    </include>
+
     <include name="Layout_Machine">
         <param name="detailed">false</param>
         <param name="selected">false</param>

@@ -2528,3 +2528,8 @@ msgstr ""
 msgctxt "#31907"
 msgid " player"
 msgstr ""
+
+#: /1080i/Includes_Views_Row.xml
+msgctxt "#31908"
+msgid "Spines"
+msgstr ""

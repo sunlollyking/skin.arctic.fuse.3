@@ -603,6 +603,32 @@
         </definition>
     </include>
 
+    <include name="List_Spine_Row">
+        <param name="item_w">60</param>
+        <param name="item_h">500</param>
+        <param name="itemlayout_w">60</param>
+        <param name="itemlayout_h">500</param>
+        <param name="orientation">horizontal</param>
+        <param name="control">fixedlist</param>
+        <definition>
+            <include content="List_Core">
+                <param name="orientation">$PARAM[orientation]</param>
+                <param name="control">$PARAM[control]</param>
+                <param name="id">$PARAM[id]</param>
+                <param name="item_w">$PARAM[item_w]</param>
+                <param name="item_h">$PARAM[item_h]</param>
+                <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
+                <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
+                <param name="itemlayout_include">Layout_Spine</param>
+                <param name="preloaditems">4</param>
+                <param name="scrolltime">300</param>
+                <nested />
+                <focusposition>11</focusposition>
+                <movement>11</movement>
+            </include>
+        </definition>
+    </include>
+
     <include name="List_Flyer_Row">
         <param name="item_w">view_icon_item_w</param>
         <param name="item_h">view_landscape_item_h</param>
