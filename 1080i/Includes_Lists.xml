@@ -629,6 +629,33 @@
         </definition>
     </include>
 
+    <include name="List_Spine_Wall">
+        <param name="item_w">36</param>
+        <param name="item_h">300</param>
+        <param name="itemlayout_w">36</param>
+        <param name="itemlayout_h">300</param>
+        <param name="orientation">vertical</param>
+        <param name="control">panel</param>
+        <definition>
+            <include content="List_Core">
+                <param name="orientation">$PARAM[orientation]</param>
+                <param name="control">$PARAM[control]</param>
+                <param name="id">$PARAM[id]</param>
+                <param name="item_w">$PARAM[item_w]</param>
+                <param name="item_h">$PARAM[item_h]</param>
+                <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
+                <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
+                <param name="itemlayout_include">Layout_Spine_Shelf</param>
+                <param name="offset_x">6</param>
+                <param name="offset_y">$PARAM[offset_y]</param>
+                <nested />
+                <!-- Margins on the panel, not the items, so no shelf runs off the screen -->
+                <left>74</left>
+                <right>74</right>
+            </include>
+        </definition>
+    </include>
+
     <include name="List_Flyer_Row">
         <param name="item_w">view_icon_item_w</param>
         <param name="item_h">view_landscape_item_h</param>

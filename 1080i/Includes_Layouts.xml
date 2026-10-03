@@ -2588,6 +2588,29 @@
         </definition>
     </include>
 
+    <!-- A smaller spine, for a bookcase of several shelves -->
+    <include name="Layout_Spine_Shelf">
+        <param name="selected">false</param>
+        <param name="id" />
+        <definition>
+            <control type="group">
+                <animation effect="zoom" end="60" center="0,0" time="10" condition="true">Conditional</animation>
+                <include content="Layout_Spine">
+                    <param name="selected">$PARAM[selected]</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="item_w">60</param>
+                    <param name="item_h">500</param>
+                </include>
+            </control>
+            <control type="image" description="The shelf">
+                <top>253</top>
+                <width>$PARAM[item_w]</width>
+                <height>6</height>
+                <texture colordiffuse="main_fg_12">common/white.png</texture>
+            </control>
+        </definition>
+    </include>
+
     <include name="Object_Animation_Spine_Turn">
         <animation effect="rotatey" start="$PARAM[start]" end="$PARAM[end]" center="58,0" time="360" tween="cubic" easing="out" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
     </include>

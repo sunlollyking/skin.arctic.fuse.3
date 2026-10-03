@@ -2543,3 +2543,8 @@ msgstr ""
 msgctxt "#31910"
 msgid "Cabinet"
 msgstr ""
+
+#: /1080i/Includes_Views_Wall.xml
+msgctxt "#31911"
+msgid "Bookcase"
+msgstr ""

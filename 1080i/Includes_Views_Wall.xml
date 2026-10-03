@@ -71,6 +71,16 @@
         </include>
     </include>
 
+    <!-- Bookcase: shelves of spines -->
+    <include name="View_552_Spine_Wall">
+        <include content="View_Wall_Include">
+            <param name="id">552</param>
+            <param name="include">List_Spine_Wall</param>
+            <param name="viewtype_label">$LOCALIZE[31911]</param>
+            <param name="visible">$EXP[Exp_View_552]</param>
+        </include>
+    </include>
+
     <!-- Wall Template View -->
     <include name="View_Wall_Include">
         <param name="overlay">true</param>

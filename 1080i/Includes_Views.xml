@@ -148,7 +148,7 @@
     <!-- Expressions -->
     <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_506] | $EXP[Exp_View_509] | $EXP[Exp_View_530] | $EXP[Exp_View_551]]</expression>
 
-    <expression name="View_Mode_Wall_Expression">[$EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514] | $EXP[Exp_View_515] | $EXP[Exp_View_516]]</expression>
+    <expression name="View_Mode_Wall_Expression">[$EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514] | $EXP[Exp_View_515] | $EXP[Exp_View_516] | $EXP[Exp_View_552]]</expression>
 
     <expression name="View_Mode_List_Expression">[$EXP[View_Mode_List_Full_Expression] | $EXP[View_Mode_List_Flix_Expression]]</expression>
     <expression name="View_Mode_List_Full_Expression">[$EXP[Exp_View_580] | $EXP[Exp_View_581] | $EXP[Exp_View_582]]</expression>
@@ -224,7 +224,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,509,530,551,553,554,510,511,512,513,514,515,516,520,521,522,523,524,526,527,528,580,581,582,583,584</views>
+        <views>500,501,502,503,504,505,506,509,530,551,553,554,510,511,512,513,514,515,516,552,520,521,522,523,524,526,527,528,580,581,582,583,584</views>
     </include>
 
     <include name="View_Row_Items">
@@ -252,6 +252,7 @@
                 <include condition="$EXP[Exp_View_513_Include]">View_513_Circle_Wall</include>
                 <include condition="$EXP[Exp_View_514_Include]">View_514_Board_Wall</include>
                 <include condition="$EXP[Exp_View_516_Include]">View_516_Flyer_Wall</include>
+                <include condition="$EXP[Exp_View_552_Include]">View_552_Spine_Wall</include>
                 <include condition="$EXP[Exp_View_515_Include]">View_515_Machine_Wall</include>
 
                 <!-- Combined Views -->
@@ -318,6 +319,7 @@
         <value condition="Control.IsVisible(513)">513</value>
         <value condition="Control.IsVisible(514)">514</value>
         <value condition="Control.IsVisible(516)">516</value>
+        <value condition="Control.IsVisible(552)">552</value>
 
         <value condition="Control.IsVisible(520)">530</value>
         <value condition="Control.IsVisible(521)">531</value>

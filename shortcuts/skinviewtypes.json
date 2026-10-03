@@ -11,6 +11,7 @@
         "551":  "31908",
         "553":  "31909",
         "554":  "31910",
+        "552":  "31911",
         "506":  "31156",
         "509":  "31164",
 
@@ -48,6 +49,7 @@
         "551":  "special://skin/extras/viewtypes/row-spine.jpg",
         "553":  "special://skin/extras/viewtypes/showcase.jpg",
         "554":  "special://skin/extras/viewtypes/cabinet.jpg",
+        "552":  "special://skin/extras/viewtypes/wall-spine.jpg",
         "506":  "special://skin/extras/viewtypes/row-flyer.jpg",
         "509":  "special://skin/extras/viewtypes/row-placard.jpg",
 
@@ -84,7 +86,7 @@
             "icon": "special://skin/extras/icons/table-list.png"
         },
         "31008": {
-            "viewtypes": ["510","511","512","513","514","515","516"],
+            "viewtypes": ["510","511","512","513","514","515","516","552"],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
         "31083": {
@@ -288,6 +290,7 @@
                 "514",
                 "515",
                 "516",
+                "552",
                 "580",
                 "581",
                 "582",
@@ -340,6 +343,7 @@
                 "514",
                 "515",
                 "516",
+                "552",
                 "580",
                 "581",
                 "582",
@@ -406,6 +410,7 @@
                 "514",
                 "515",
                 "516",
+                "552",
                 "580",
                 "581",
                 "582",
