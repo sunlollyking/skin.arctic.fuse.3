@@ -943,6 +943,13 @@
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
+            "name": "Number of Players",
+            "path": "gamedb://players/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
             "name": "Game Collections",
             "path": "gamedb://collections/",
             "node": "games",
