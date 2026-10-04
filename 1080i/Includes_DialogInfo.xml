@@ -1834,6 +1834,16 @@
                     </include>
 
                     <include content="Button_Underline_Switcher">
+                        <param name="id">4017</param>
+                        <label>$LOCALIZE[13511]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <!-- Kodi's game information dialog chooses art for id 10 -->
+                        <onclick>SendClick(10)</onclick>
+                        <visible>Integer.IsGreater(ListItem.DBID,0)</visible>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
                         <param name="id">4014</param>
                         <label>$LOCALIZE[35588]</label>
                         <usealttexture>false</usealttexture>
