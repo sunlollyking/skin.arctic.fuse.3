@@ -695,6 +695,14 @@
             <include>Animation_BounceIn_Dialog</include>
             <control type="group">
                 <include>Dimension_DialogWideMenu</include>
+                <include content="Part_Background_Panel">
+                    <param name="dialog_size">Dimension_DialogWideMenu</param>
+                    <param name="topline">false</param>
+                    <param name="subline">false</param>
+                </include>
+            </control>
+            <control type="group">
+                <include>Dimension_DialogWideMenu</include>
                 <control type="group">
                     <include>Size_Dialog_Pad</include>
                     <control type="group">
