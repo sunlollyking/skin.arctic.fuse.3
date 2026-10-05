@@ -392,6 +392,16 @@
                 <left>$PARAM[left]</left>
                 <width>$PARAM[width]</width>
                 <height>info_title_h</height>
+                <!-- Many game logos are black or navy lettering, unreadable on a
+                     dark background; a soft light behind them lets them read -->
+                <control type="image">
+                    <left>-60</left>
+                    <top>-40</top>
+                    <width>560</width>
+                    <height>215</height>
+                    <texture>common/logo_glow.png</texture>
+                    <visible>String.IsEqual($PARAM[container]$PARAM[listitem].DBType,game) + !String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
+                </control>
                 <control type="image">
                     <height>info_title_logo_h</height>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
