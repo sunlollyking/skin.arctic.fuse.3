@@ -1983,11 +1983,11 @@
                     <!-- The third column; see the one before it -->
                     <height>480</height>
                     <left>$PARAM[right_group_left]</left>
-                    <!-- A game's age as the UK board's mark, whichever board rated it -->
+                    <!-- A game's age as the UK board's classification, whichever board rated it -->
                     <include content="Object_InfoCircle">
                         <param name="icon">$INFO[ListItem.Property(agerating),flags/color/mpaa/UK ,.png]</param>
                         <param name="role">$LOCALIZE[31905]</param>
-                        <param name="name">$INFO[ListItem.Mpaa]</param>
+                        <param name="name">$INFO[ListItem.Property(ageratingboard)] $INFO[ListItem.Property(agerating)]</param>
                         <param name="backing_visible">false</param>
                         <param name="colordiffuse">white</param>
                         <param name="aspectratio">keep</param>
