@@ -2,6 +2,7 @@
 <includes>
 
     <variable name="Image_MediaList_Thumb_C450">
+        <value condition="String.IsEqual(Container(450).ListItem.Property(ageratingboard),BBFC) + !String.IsEmpty(Container(450).ListItem.Property(agerating))">$INFO[Container(450).ListItem.Property(agerating),flags/color/mpaa/UK ,.png]</value>
         <value condition="[String.IsEqual(Container(450).ListItem.DBType,episode) | String.IsEqual(Container(450).ListItem.DBType,video) | String.IsEqual(Container(450).ListItem.DBType,musicvideo)] + !String.IsEmpty(Container(450).ListItem.Art(thumb)) + !String.IsEqual(Container(450).ListItem.Icon,Container(450).ListItem.Art(fanart)) + !String.IsEqual(Container(450).ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(Container(450).ListItem.Art(thumb),Container(450).ListItem.Art(poster)) + !String.IsEqual(Container(450).ListItem.Art(thumb),Container(450).ListItem.Art(tvshow.poster))">$INFO[Container(450).ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.EPGEventIcon)">$INFO[Container(450).ListItem.EPGEventIcon]</value>
         <value condition="!String.IsEmpty(Container(450).ListItem.Art(discart))">$INFO[Container(450).ListItem.Art(discart)]</value>
@@ -22,6 +23,7 @@
         <value condition="!String.IsEmpty(Container(450).ListItem.Icon)">$INFO[Container(450).ListItem.Icon]</value>
     </variable>
     <variable name="Image_MediaList_Thumb">
+        <value condition="String.IsEqual(ListItem.Property(ageratingboard),BBFC) + !String.IsEmpty(ListItem.Property(agerating))">$INFO[ListItem.Property(agerating),flags/color/mpaa/UK ,.png]</value>
         <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,musicvideo)] + !String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Icon,ListItem.Art(fanart)) + !String.IsEqual(ListItem.Icon,OverlaySpoiler.png) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(poster)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="!String.IsEmpty(ListItem.EPGEventIcon)">$INFO[ListItem.EPGEventIcon]</value>
         <value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>

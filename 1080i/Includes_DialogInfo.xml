@@ -1983,11 +1983,22 @@
                     <!-- The third column; see the one before it -->
                     <height>480</height>
                     <left>$PARAM[right_group_left]</left>
+                    <!-- A game's age as the UK board's mark, whichever board rated it -->
+                    <include content="Object_InfoCircle">
+                        <param name="icon">$INFO[ListItem.Property(agerating),flags/color/mpaa/UK ,.png]</param>
+                        <param name="role">$LOCALIZE[31905]</param>
+                        <param name="name">$INFO[ListItem.Mpaa]</param>
+                        <param name="backing_visible">false</param>
+                        <param name="colordiffuse">white</param>
+                        <param name="aspectratio">keep</param>
+                        <param name="bordersize">0</param>
+                        <visible>!String.IsEmpty(ListItem.Mpaa) + String.IsEqual(ListItem.Property(ageratingboard),BBFC)</visible>
+                    </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/award.png</param>
                         <param name="role">$LOCALIZE[31905]</param>
                         <param name="name">$INFO[ListItem.Mpaa]</param>
-                        <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
+                        <visible>!String.IsEmpty(ListItem.Mpaa) + !String.IsEqual(ListItem.Property(ageratingboard),BBFC)</visible>
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/cubes-stacked.png</param>
