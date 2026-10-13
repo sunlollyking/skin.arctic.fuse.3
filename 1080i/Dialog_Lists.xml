@@ -397,6 +397,10 @@
         </definition>
     </include>
 
+    <variable name="GameAchievement_Missable_Label">
+        <value condition="!String.IsEmpty(ListItem.Property(achievement.missable))">$LOCALIZE[35710]</value>
+    </variable>
+
     <include name="List_Layout_GameAchievements">
         <param name="selected">false</param>
         <param name="detailed">false</param>
@@ -417,6 +421,7 @@
             <control type="group">
                 <left>40</left>
                 <right>40</right>
+                <animation effect="fade" start="100" end="40" time="0" condition="String.IsEmpty(Window.Property(Achievements.SetEnabled))">Conditional</animation>
                 <control type="group">
                     <height>60</height>
                     <width>60</width>
@@ -456,11 +461,34 @@
                         <param name="selected">$PARAM[selected]</param>
                         <param name="fallback">DefaultPicture.png</param>
                     </include>
+                    <control type="group">
+                        <description>Marks what beating the game takes</description>
+                        <width>$PARAM[item_h]</width>
+                        <visible>!String.IsEmpty(ListItem.Property(achievement.progression)) | !String.IsEmpty(ListItem.Property(achievement.win))</visible>
+                        <control type="group">
+                            <include>Part_List_Icon_Padding</include>
+                            <control type="image">
+                                <right>-10</right>
+                                <bottom>-10</bottom>
+                                <width>48</width>
+                                <height>48</height>
+                                <texture colordiffuse="dialog_bg_90">common/circle.png</texture>
+                            </control>
+                            <control type="image">
+                                <right>0</right>
+                                <bottom>0</bottom>
+                                <width>28</width>
+                                <height>28</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="dialog_fg_90">$VAR[Image_GameAchievementType]</texture>
+                            </control>
+                        </control>
+                    </control>
                     <include content="List_Layout_Dialog_FourLabels">
                         <param name="item_h">$PARAM[item_h]</param>
                         <param name="selected">$PARAM[selected]</param>
                         <param name="label">$INFO[ListItem.Label]$INFO[ListItem.Property(achievement.measuredprogress), (,)]</param>
-                        <param name="label4">$INFO[ListItem.Property(achievement.unlockeddate),, - ]$INFO[ListItem.Property(achievement.raritycategory)]</param>
+                        <param name="label4">$INFO[ListItem.Property(achievement.unlockeddate),, - ]$INFO[ListItem.Property(achievement.raritycategory)]$VAR[GameAchievement_Missable_Label, - ,]</param>
                         <param name="label3">$INFO[ListItem.Property(achievement.points)]</param>
                     </include>
                 </control>

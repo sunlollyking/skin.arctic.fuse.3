@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="Image_GameAchievementType">
+        <value condition="!String.IsEmpty(ListItem.Property(achievement.win))">special://skin/extras/icons/trophy.png</value>
+        <value condition="!String.IsEmpty(ListItem.Property(achievement.progression))">special://skin/extras/icons/flag.png</value>
+    </variable>
+
     <variable name="Image_GameAchievementEarned">
         <value condition="!String.IsEmpty(ListItem.Property(achievement.earned))">special://skin/extras/icons/award.png</value>
         <value>special://skin/extras/icons/lock.png</value>
