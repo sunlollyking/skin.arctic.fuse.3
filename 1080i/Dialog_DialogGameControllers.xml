@@ -716,7 +716,8 @@
 
             <include content="DialogGameControllers_GameIndicators_Card" description="The value a leaderboard attempt is tracking">
                 <param name="condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
-                <param name="title">RetroPlayer.LeaderboardTracker</param>
+                <param name="title">RetroPlayer.LeaderboardTrackerTitle</param>
+                <param name="detail">RetroPlayer.LeaderboardTracker</param>
                 <param name="left">20</param>
                 <param name="height">80</param>
             </include>
