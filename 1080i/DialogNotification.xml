@@ -79,7 +79,7 @@
                 <textcolor>main_fg_100</textcolor>
                 <label>$INFO[Control.GetLabel(401)]</label>
                 <scroll>true</scroll>
-                <scrollsuffix>   </scrollsuffix>
+                <scrollsuffix>&#8199;&#8199;&#8199;</scrollsuffix>
             </control>
             <control type="label">
                 <left>120</left>
@@ -90,7 +90,7 @@
                 <textcolor>main_fg_70</textcolor>
                 <label>$INFO[Control.GetLabel(402)]</label>
                 <scroll>true</scroll>
-                <scrollsuffix>   </scrollsuffix>
+                <scrollsuffix>&#8199;&#8199;&#8199;</scrollsuffix>
             </control>
         </control>
 
