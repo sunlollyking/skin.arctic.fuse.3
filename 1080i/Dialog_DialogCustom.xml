@@ -1683,7 +1683,7 @@
             <param name="dialog">true</param>
             <param name="control">radiobutton</param>
             <param name="istext">true</param>
-            <param name="label">$LOCALIZE[35241]</param>
+            <param name="label">$LOCALIZE[35244]</param>
             <description>Bezel button</description>
             <onclick>PlayerControl(Bezel)</onclick>
             <selected>RetroPlayer.BezelEnabled</selected>
