@@ -456,6 +456,21 @@
                 </control>
                 <control type="group">
                     <left>60</left>
+                    <control type="group">
+                        <description>RetroAchievements frames a badge earned in hardcore in gold</description>
+                        <width>$PARAM[item_h]</width>
+                        <visible>!String.IsEmpty(ListItem.Property(achievement.hardcore))</visible>
+                        <control type="group">
+                            <left>-3</left>
+                            <top>17</top>
+                            <bottom>17</bottom>
+                            <right>37</right>
+                            <control type="image">
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="FFFFF503">diffuse/square_w120_h120.png</texture>
+                            </control>
+                        </control>
+                    </control>
                     <include content="Part_List_Icon">
                         <param name="item_h">$PARAM[item_h]</param>
                         <param name="selected">$PARAM[selected]</param>
