@@ -7,7 +7,7 @@
         "503":  "31418",
         "504":  "31100",
         "505":  "31563",
-        "530":  "31902",
+        "579":  "31902",
         "575":  "31908",
         "577":  "31909",
         "578":  "31910",
@@ -53,7 +53,7 @@
         "503":  "special://skin/extras/viewtypes/row-circle.jpg",
         "504":  "special://skin/extras/viewtypes/row-board.jpg",
         "505":  "special://skin/extras/viewtypes/row-card.jpg",
-        "530":  "special://skin/extras/viewtypes/row-board.jpg",
+        "579":  "special://skin/extras/viewtypes/row-board.jpg",
         "575":  "special://skin/extras/viewtypes/row-spine.jpg",
         "577":  "special://skin/extras/viewtypes/showcase.jpg",
         "578":  "special://skin/extras/viewtypes/cabinet.jpg",
@@ -94,7 +94,7 @@
     },
     "groups": {
         "31007": {
-            "viewtypes": ["500","501","502","503","504","505","506","509","530","575","577","578"],
+            "viewtypes": ["500","501","502","503","504","505","506","509","579","575","577","578"],
             "icon": "special://skin/extras/icons/table-columns.png"
         },
         "535": {
@@ -299,7 +299,7 @@
                 "504",
                 "505",
                 "506",
-                "530",
+                "579",
                 "575",
                 "577",
                 "578",
@@ -324,7 +324,7 @@
         "platforms": {
             "rule": "Container.Content(platforms)",
             "viewtypes": [
-                "530",
+                "579",
                 "515",
                 "501",
                 "504",
@@ -340,8 +340,8 @@
                 "526",
                 "528"
             ],
-            "library": "530",
-            "plugins": "530"
+            "library": "579",
+            "plugins": "579"
         },
         "releases": {
             "rule": "Container.Content(releases)",
@@ -353,7 +353,7 @@
                 "504",
                 "505",
                 "506",
-                "530",
+                "579",
                 "575",
                 "577",
                 "578",
@@ -420,7 +420,7 @@
                 "504",
                 "505",
                 "506",
-                "530",
+                "579",
                 "575",
                 "577",
                 "578",

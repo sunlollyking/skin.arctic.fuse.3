@@ -146,7 +146,7 @@
     </include>
 
     <!-- Expressions -->
-    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_506] | $EXP[Exp_View_509] | $EXP[Exp_View_530] | $EXP[Exp_View_575]]</expression>
+    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_506] | $EXP[Exp_View_509] | $EXP[Exp_View_579] | $EXP[Exp_View_575]]</expression>
 
     <expression name="View_Mode_Wall_Expression">[$EXP[View_Mode_Comb_Wall_Expression] | $EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514] | $EXP[Exp_View_515] | $EXP[Exp_View_516] | $EXP[Exp_View_576]]</expression>
 
@@ -233,7 +233,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,509,530,575,577,578,510,511,512,513,514,515,516,576,520,521,522,523,524,526,527,528,550,551,552,553,554,556,580,581,582,583,584,585</views>
+        <views>500,501,502,503,504,505,506,509,579,575,577,578,510,511,512,513,514,515,516,576,520,521,522,523,524,526,527,528,550,551,552,553,554,556,580,581,582,583,584,585</views>
     </include>
 
     <include name="View_Row_Items">
@@ -249,7 +249,7 @@
                 <include condition="$EXP[Exp_View_505_Include]">View_505_Card_Row</include>
                 <include condition="$EXP[Exp_View_506_Include]">View_506_Flyer_Row</include>
                 <include condition="$EXP[Exp_View_509_Include]">View_509_Placard_Row</include>
-                <include condition="$EXP[Exp_View_530_Include]">View_530_Machine_Row</include>
+                <include condition="$EXP[Exp_View_579_Include]">View_579_Machine_Row</include>
                 <include condition="$EXP[Exp_View_575_Include]">View_575_Spine_Row</include>
                 <include condition="$EXP[Exp_View_577_Include]">View_577_Showcase</include>
                 <include condition="$EXP[Exp_View_578_Include]">View_578_Cabinet</include>
