@@ -91,12 +91,12 @@
         </include>
     </include>
 
-    <include name="View_551_Spine_Row">
+    <include name="View_575_Spine_Row">
         <include content="View_Row_Include">
-            <param name="id">551</param>
+            <param name="id">575</param>
             <param name="include">List_Spine_Row</param>
             <param name="viewtype_label">$LOCALIZE[31908]</param>
-            <param name="visible">$EXP[Exp_View_551]</param>
+            <param name="visible">$EXP[Exp_View_575]</param>
         </include>
     </include>
 
@@ -106,9 +106,9 @@
         out of the top or its disc sliding out of the side. The games
         themselves run along the bottom as ScreenScraper's 3D boxes.
     -->
-    <include name="View_553_Showcase">
+    <include name="View_577_Showcase">
         <control type="group">
-            <visible>Control.IsVisible(553)</visible>
+            <visible>Control.IsVisible(577)</visible>
 
             <control type="group" description="What the game is">
                 <left>90</left>
@@ -118,8 +118,8 @@
                     <height>190</height>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
                     <fadetime>300</fadetime>
-                    <texture background="true">$INFO[Container(553).ListItem.Art(clearlogo)]</texture>
-                    <visible>!String.IsEmpty(Container(553).ListItem.Art(clearlogo))</visible>
+                    <texture background="true">$INFO[Container(577).ListItem.Art(clearlogo)]</texture>
+                    <visible>!String.IsEmpty(Container(577).ListItem.Art(clearlogo))</visible>
                 </control>
                 <control type="textbox">
                     <width>800</width>
@@ -127,8 +127,8 @@
                     <aligny>center</aligny>
                     <font>font_title_huge</font>
                     <textcolor>main_fg_100</textcolor>
-                    <label>$INFO[Container(553).ListItem.Label]</label>
-                    <visible>String.IsEmpty(Container(553).ListItem.Art(clearlogo))</visible>
+                    <label>$INFO[Container(577).ListItem.Label]</label>
+                    <visible>String.IsEmpty(Container(577).ListItem.Art(clearlogo))</visible>
                 </control>
                 <control type="label">
                     <top>220</top>
@@ -136,7 +136,7 @@
                     <height>40</height>
                     <font>font_main</font>
                     <textcolor>main_fg_70</textcolor>
-                    <label>$INFO[Container(553).ListItem.Platform]$INFO[Container(553).ListItem.Year,  •  ,]$INFO[Container(553).ListItem.Genre,  •  ,]$INFO[Container(553).ListItem.Players,  •  ,]</label>
+                    <label>$INFO[Container(577).ListItem.Platform]$INFO[Container(577).ListItem.Year,  •  ,]$INFO[Container(577).ListItem.Genre,  •  ,]$INFO[Container(577).ListItem.Players,  •  ,]</label>
                 </control>
                 <control type="label">
                     <top>266</top>
@@ -144,7 +144,7 @@
                     <height>40</height>
                     <font>font_main</font>
                     <textcolor>main_fg_70</textcolor>
-                    <label>$INFO[Container(553).ListItem.Rating,$LOCALIZE[563] ,]$INFO[Container(553).ListItem.Rating(igdbcritic),     $LOCALIZE[31030] ,]$INFO[Container(553).ListItem.AchievementsTotal,     $LOCALIZE[35588] ,]</label>
+                    <label>$INFO[Container(577).ListItem.Rating,$LOCALIZE[563] ,]$INFO[Container(577).ListItem.Rating(igdbcritic),     $LOCALIZE[31030] ,]$INFO[Container(577).ListItem.AchievementsTotal,     $LOCALIZE[35588] ,]</label>
                 </control>
                 <control type="textbox">
                     <top>330</top>
@@ -152,7 +152,7 @@
                     <height>360</height>
                     <font>font_main_plot</font>
                     <textcolor>main_fg_90</textcolor>
-                    <label>$INFO[Container(553).ListItem.Plot]</label>
+                    <label>$INFO[Container(577).ListItem.Plot]</label>
                     <autoscroll time="3000" delay="9000" repeat="6000">true</autoscroll>
                 </control>
             </control>
@@ -163,18 +163,18 @@
                 <!-- Relative to this group's parent, so it sits in front of the box -->
                 <camera x="1380" y="470" />
                 <animation effect="fade" start="0" end="100" time="300">Visible</animation>
-                <visible>!Container(553).OnNext + !Container(553).OnPrevious</visible>
+                <visible>!Container(577).OnNext + !Container(577).OnPrevious</visible>
 
                 <control type="group" description="The disc, sliding out of the side and turning">
                     <left>250</left>
                     <top>80</top>
                     <width>400</width>
                     <height>400</height>
-                    <visible>!String.IsEmpty(Container(553).ListItem.Art(disc)) + !Container(553).OnNext + !Container(553).OnPrevious</visible>
+                    <visible>!String.IsEmpty(Container(577).ListItem.Art(disc)) + !Container(577).OnNext + !Container(577).OnPrevious</visible>
                     <animation effect="slide" start="-200,0" end="0,0" delay="350" time="800" tween="cubic" easing="out">Visible</animation>
                     <control type="image">
                         <aspectratio>keep</aspectratio>
-                        <texture background="true">$INFO[Container(553).ListItem.Art(disc)]</texture>
+                        <texture background="true">$INFO[Container(577).ListItem.Art(disc)]</texture>
                         <animation effect="rotate" start="0" end="-360" center="auto" time="12000" loop="true" condition="true">Conditional</animation>
                     </control>
                 </control>
@@ -187,7 +187,7 @@
                             <width>80</width>
                             <height>560</height>
                             <aspectratio align="right" aligny="bottom">stretch</aspectratio>
-                            <texture background="true" colordiffuse="ffa8a8a8">$INFO[Container(553).ListItem.Art(boxspine)]</texture>
+                            <texture background="true" colordiffuse="ffa8a8a8">$INFO[Container(577).ListItem.Art(boxspine)]</texture>
                         </control>
                     </control>
                     <control type="group">
@@ -198,8 +198,8 @@
                             <width>300</width>
                             <height>300</height>
                             <aspectratio align="center" aligny="bottom">keep</aspectratio>
-                            <texture background="true">$INFO[Container(553).ListItem.Art(cartridge)]</texture>
-                            <visible>String.IsEmpty(Container(553).ListItem.Art(disc)) + !Container(553).OnNext + !Container(553).OnPrevious</visible>
+                            <texture background="true">$INFO[Container(577).ListItem.Art(cartridge)]</texture>
+                            <visible>String.IsEmpty(Container(577).ListItem.Art(disc)) + !Container(577).OnNext + !Container(577).OnPrevious</visible>
                             <animation effect="slide" start="0,240" end="0,0" delay="300" time="700" tween="cubic" easing="out">Visible</animation>
                         </control>
                         <control type="image">
@@ -207,7 +207,7 @@
                             <width>400</width>
                             <height>560</height>
                             <aspectratio align="left" aligny="bottom">stretch</aspectratio>
-                            <texture background="true">$INFO[Container(553).ListItem.Art(boxfront)]</texture>
+                            <texture background="true">$INFO[Container(577).ListItem.Art(boxfront)]</texture>
                         </control>
                         <control type="image" description="Its reflection">
                             <left>80</left>
@@ -215,7 +215,7 @@
                             <width>400</width>
                             <height>560</height>
                             <aspectratio align="left" aligny="top">stretch</aspectratio>
-                            <texture background="true" flipy="true" diffuse="common/gradient-v-down.png" colordiffuse="4dffffff">$INFO[Container(553).ListItem.Art(boxfront)]</texture>
+                            <texture background="true" flipy="true" diffuse="common/gradient-v-down.png" colordiffuse="4dffffff">$INFO[Container(577).ListItem.Art(boxfront)]</texture>
                         </control>
                     </control>
                 </control>
@@ -229,7 +229,7 @@
                 <texture colordiffuse="main_bg_90">common/gradient-v.png</texture>
             </control>
 
-            <control type="fixedlist" id="553">
+            <control type="fixedlist" id="577">
                 <left>0</left>
                 <right>0</right>
                 <top>800</top>
@@ -240,17 +240,17 @@
                 <preloaditems>4</preloaditems>
                 <scrolltime tween="cubic" easing="out">350</scrolltime>
                 <include content="Action_View_Movement_OnUp">
-                    <param name="id">553</param>
+                    <param name="id">577</param>
                 </include>
                 <include content="Action_View_Movement_OnBack">
-                    <param name="id">553</param>
-                    <param name="onback">[Integer.IsEqual(Container(553).CurrentItem,1)]</param>
+                    <param name="id">577</param>
+                    <param name="onback">[Integer.IsEqual(Container(577).CurrentItem,1)]</param>
                 </include>
                 <include content="Action_View_Movement_OnDown">
-                    <param name="id">553</param>
+                    <param name="id">577</param>
                 </include>
                 <pagecontrol>60</pagecontrol>
-                <visible>$EXP[Exp_View_553]</visible>
+                <visible>$EXP[Exp_View_577]</visible>
                 <viewtype label="$LOCALIZE[31909]">wrap</viewtype>
                 <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
@@ -273,7 +273,7 @@
                         <height>210</height>
                         <aspectratio align="center" aligny="bottom">keep</aspectratio>
                         <texture background="true">$VAR[Image_Showcase_Box]</texture>
-                        <animation effect="zoom" end="122" center="87,250" time="250" tween="cubic" easing="out" condition="Control.HasFocus(553)">Conditional</animation>
+                        <animation effect="zoom" end="122" center="87,250" time="250" tween="cubic" easing="out" condition="Control.HasFocus(577)">Conditional</animation>
                     </control>
                 </focusedlayout>
             </control>
@@ -285,9 +285,9 @@
         screen plays behind its bezel, and the games turn past on a wheel of
         their logos down the right.
     -->
-    <include name="View_554_Cabinet">
+    <include name="View_578_Cabinet">
         <control type="group">
-            <visible>Control.IsVisible(554)</visible>
+            <visible>Control.IsVisible(578)</visible>
             <control type="image">
                 <texture colordiffuse="e6000000">common/white.png</texture>
             </control>
@@ -323,7 +323,7 @@
                 </control>
                 <control type="image">
                     <fadetime>250</fadetime>
-                    <texture background="true">$INFO[Container(554).ListItem.Art(bezel)]</texture>
+                    <texture background="true">$INFO[Container(578).ListItem.Art(bezel)]</texture>
                 </control>
             </control>
 
@@ -335,7 +335,7 @@
                 <align>center</align>
                 <font>font_main</font>
                 <textcolor>main_fg_70</textcolor>
-                <label>$INFO[Container(554).ListItem.Year]$INFO[Container(554).ListItem.Publisher,  •  ,]$INFO[Container(554).ListItem.Genre,  •  ,]$INFO[Container(554).ListItem.Players,  •  ,]</label>
+                <label>$INFO[Container(578).ListItem.Year]$INFO[Container(578).ListItem.Publisher,  •  ,]$INFO[Container(578).ListItem.Genre,  •  ,]$INFO[Container(578).ListItem.Players,  •  ,]</label>
             </control>
 
             <control type="image" description="Where the wheel turns">
@@ -345,7 +345,7 @@
                 <animation effect="rotate" end="180" center="auto" time="10" condition="true">Conditional</animation>
             </control>
 
-            <control type="fixedlist" id="554">
+            <control type="fixedlist" id="578">
                 <right>40</right>
                 <top>0</top>
                 <width>600</width>
@@ -356,12 +356,12 @@
                 <preloaditems>4</preloaditems>
                 <scrolltime tween="cubic" easing="out">250</scrolltime>
                 <include content="Action_View_Movement_OnBack">
-                    <param name="id">554</param>
-                    <param name="onback">[Integer.IsEqual(Container(554).CurrentItem,1)]</param>
+                    <param name="id">578</param>
+                    <param name="onback">[Integer.IsEqual(Container(578).CurrentItem,1)]</param>
                 </include>
                 <onleft>SetFocus(9000)</onleft>
                 <pagecontrol>60</pagecontrol>
-                <visible>$EXP[Exp_View_554]</visible>
+                <visible>$EXP[Exp_View_578]</visible>
                 <viewtype label="$LOCALIZE[31910]">list</viewtype>
                 <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
                 <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
@@ -389,7 +389,7 @@
                 </itemlayout>
                 <focusedlayout width="600" height="154">
                     <control type="group">
-                        <animation effect="zoom" end="135" center="300,77" time="200" tween="cubic" easing="out" condition="Control.HasFocus(554)">Conditional</animation>
+                        <animation effect="zoom" end="135" center="300,77" time="200" tween="cubic" easing="out" condition="Control.HasFocus(578)">Conditional</animation>
                         <control type="image">
                             <left>110</left>
                             <top>27</top>
@@ -416,14 +416,14 @@
     </include>
 
     <variable name="Image_Cabinet_Marquee">
-        <value condition="!String.IsEmpty(Container(554).ListItem.Art(marquee))">$INFO[Container(554).ListItem.Art(marquee)]</value>
-        <value>$INFO[Container(554).ListItem.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty(Container(578).ListItem.Art(marquee))">$INFO[Container(578).ListItem.Art(marquee)]</value>
+        <value>$INFO[Container(578).ListItem.Art(clearlogo)]</value>
     </variable>
 
     <variable name="Image_Cabinet_Screen">
-        <value condition="!String.IsEmpty(Container(554).ListItem.Art(screenshot))">$INFO[Container(554).ListItem.Art(screenshot)]</value>
-        <value condition="!String.IsEmpty(Container(554).ListItem.Art(titlescreen))">$INFO[Container(554).ListItem.Art(titlescreen)]</value>
-        <value>$INFO[Container(554).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(578).ListItem.Art(screenshot))">$INFO[Container(578).ListItem.Art(screenshot)]</value>
+        <value condition="!String.IsEmpty(Container(578).ListItem.Art(titlescreen))">$INFO[Container(578).ListItem.Art(titlescreen)]</value>
+        <value>$INFO[Container(578).ListItem.Art(fanart)]</value>
     </variable>
 
     <variable name="Image_Showcase_Box">

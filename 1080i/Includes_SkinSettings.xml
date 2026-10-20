@@ -186,6 +186,16 @@
             <onclick>SetProperty(CustomDialogSettingsItems,DialogCustom_Settings_Items_BackgroundStyle,Home)</onclick>
             <onclick>ActivateWindow(1118)</onclick>
         </include>
+        <include content="Settings_Button" description="Background style">
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">010</param>
+            <param name="control">button</param>
+            <label>$LOCALIZE[31268]</label>
+            <label2>$VAR[Label_Setting_BackgroundStyle]</label2>
+            <onclick>Skin.ToggleSetting(Info.EnableStylisedBackgrounds)</onclick>
+            <include>Action_Blur_ClearContentFallbacks_Onclick</include>
+        </include>
         <include content="Settings_Button" description="Ratings">
             <param name="dialog">false</param>
             <param name="window">skinsettings</param>
@@ -195,6 +205,16 @@
             <label>$LOCALIZE[31082]</label>
             <label2>$VAR[Label_Setting_Ratings]</label2>
             <onclick>Skin.ToggleSetting(Ratings.EnableColor)</onclick>
+        </include>
+
+        <include content="Settings_Button" description="Title style">
+            <param name="window">skinsettings</param>
+            <param name="baseid">$PARAM[baseid]</param>
+            <param name="id">011</param>
+            <param name="control">button</param>
+            <label>$LOCALIZE[31267]</label>
+            <label2>$VAR[Label_Setting_TitleStyle]</label2>
+            <onclick>Skin.ToggleSetting(Info.EnableStylisedTitles)</onclick>
         </include>
     </include>
 
@@ -585,6 +605,8 @@
             <selected>!Skin.HasSetting(Background.DisableVideo)</selected>
             <onclick>Skin.ToggleSetting(Background.DisableVideo)</onclick>
         </include>
+
+
     </include>
 
     <!-- Details -->
