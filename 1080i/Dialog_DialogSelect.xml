@@ -340,20 +340,50 @@
     </include>
 
 
+    <!-- Every category on one row that scrolls, rather than the hub selector's
+         current category and the next three -->
     <include name="DialogSelect_GamePreview_Categories">
         <control type="group">
             <top>constant_dialog_pad</top>
             <right>constant_dialog_header_right</right>
             <height>view_bar</height>
             <visible>Integer.IsGreater(Container(10813).NumItems,1)</visible>
-            <include content="Categories_Selector">
-                <param name="id">10813</param>
-                <param name="altfocusid">10814</param>
+            <control type="list" id="10813">
+                <left>0</left>
+                <right>0</right>
                 <centertop>50%</centertop>
                 <height>80</height>
-                <left>0</left>
+                <orientation>horizontal</orientation>
+                <scrolltime tween="quadratic" easing="out">400</scrolltime>
                 <ondown>10811</ondown>
-            </include>
+                <itemlayout width="240" height="80">
+                    <control type="label">
+                        <right>30</right>
+                        <font>font_main</font>
+                        <textcolor>dialog_fg_30</textcolor>
+                        <aligny>center</aligny>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="240" height="80">
+                    <control type="label">
+                        <right>30</right>
+                        <font>font_main_bold</font>
+                        <textcolor>dialog_fg_100</textcolor>
+                        <aligny>center</aligny>
+                        <scroll>true</scroll>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="image">
+                        <description>Shows the row has focus</description>
+                        <bottom>8</bottom>
+                        <width>60</width>
+                        <height>4</height>
+                        <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                        <visible>Control.HasFocus(10813)</visible>
+                    </control>
+                </focusedlayout>
+            </control>
         </control>
     </include>
 
