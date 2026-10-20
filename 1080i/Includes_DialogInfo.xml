@@ -2003,7 +2003,7 @@
                              than searched for. -->
                         <onclick condition="!System.HasAddon(script.game.manuals)">InstallAddon(script.game.manuals)</onclick>
                         <onclick condition="System.HasAddon(script.game.manuals) + !System.AddonIsEnabled(script.game.manuals)">EnableAddon(script.game.manuals)</onclick>
-                        <onclick condition="System.AddonIsEnabled(script.game.manuals)">RunScript(script.game.manuals,game=$ESCINFO[ListItem.FilenameAndPath],title=$ESCINFO[ListItem.Title],manual=$ESCINFO[ListItem.Property(manual)])</onclick>
+                        <onclick>RunScript(script.game.manuals,game=$ESCINFO[ListItem.FilenameAndPath],title=$ESCINFO[ListItem.Title],manual=$ESCINFO[ListItem.Property(manual)])</onclick>
                         <visible>!String.IsEmpty(ListItem.Property(hasmanual))</visible>
                     </include>
 
