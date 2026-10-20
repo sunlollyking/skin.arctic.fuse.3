@@ -2683,3 +2683,18 @@ msgstr ""
 msgctxt "#31911"
 msgid "Bookcase"
 msgstr ""
+
+#: /1080i/Dialog_DialogGameControllers.xml
+msgctxt "#31912"
+msgid "Challenge active"
+msgstr ""
+
+#: /1080i/Dialog_DialogGameControllers.xml
+msgctxt "#31913"
+msgid "Achievement progress"
+msgstr ""
+
+#: /1080i/Dialog_DialogGameControllers.xml
+msgctxt "#31914"
+msgid "Leaderboard"
+msgstr ""

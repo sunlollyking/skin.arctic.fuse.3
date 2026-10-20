@@ -628,7 +628,8 @@
         <param name="title"></param>
         <param name="detail"></param>
         <param name="bar"></param>
-        <param name="height">100</param>
+        <param name="caption"></param>
+        <param name="height">124</param>
         <param name="left">100</param>
         <definition>
             <control type="group">
@@ -651,10 +652,20 @@
                     <visible>!String.IsEmpty($PARAM[badge])</visible>
                 </control>
 
+                <control type="label" description="What kind of card this is">
+                    <left>$PARAM[left]</left>
+                    <right>20</right>
+                    <top>16</top>
+                    <height>28</height>
+                    <font>font_tiny</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$PARAM[caption]</label>
+                </control>
+
                 <control type="label">
                     <left>$PARAM[left]</left>
                     <right>160</right>
-                    <top>20</top>
+                    <top>44</top>
                     <height>40</height>
                     <font>font_mini</font>
                     <textcolor>main_fg_100</textcolor>
@@ -666,7 +677,7 @@
                 <control type="label" description="How far along, where that is counted">
                     <right>20</right>
                     <width>120</width>
-                    <top>20</top>
+                    <top>44</top>
                     <height>40</height>
                     <align>right</align>
                     <font>font_mini</font>
@@ -703,7 +714,8 @@
                 <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
                 <param name="badge">RetroPlayer.AchievementsChallengeBadge</param>
                 <param name="title">RetroPlayer.AchievementsChallengeTitle</param>
-                <param name="height">80</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
             </include>
 
             <include content="DialogGameControllers_GameIndicators_Card" description="How far along a measured achievement is">
@@ -712,14 +724,16 @@
                 <param name="title">RetroPlayer.AchievementsIndicatorTitle</param>
                 <param name="detail">RetroPlayer.AchievementsIndicatorProgress</param>
                 <param name="bar">RetroPlayer.AchievementsIndicatorPercent</param>
+                <param name="caption">$LOCALIZE[31913]</param>
             </include>
 
             <include content="DialogGameControllers_GameIndicators_Card" description="The value a leaderboard attempt is tracking">
                 <param name="condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
                 <param name="title">RetroPlayer.LeaderboardTrackerTitle</param>
                 <param name="detail">RetroPlayer.LeaderboardTracker</param>
+                <param name="caption">$LOCALIZE[31914]</param>
                 <param name="left">20</param>
-                <param name="height">80</param>
+                <param name="height">104</param>
             </include>
         </control>
     </include>
