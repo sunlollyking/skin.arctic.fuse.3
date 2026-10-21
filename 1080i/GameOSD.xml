@@ -10,5 +10,9 @@
             <param name="resize">true</param>
             <param name="visible">!Window.IsVisible(Custom_1118_Dialog_Settings.xml)</param>
         </include>
+        <control type="group">
+            <visible>!Window.IsVisible(Custom_1118_Dialog_Settings.xml)</visible>
+            <include>GameOSD_PlayerBattery</include>
+        </control>
     </controls>
 </window>

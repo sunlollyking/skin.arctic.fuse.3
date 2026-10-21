@@ -738,6 +738,101 @@
         </control>
     </include>
 
+    <variable name="ColorGamePlayerBattery">
+        <value condition="String.IsEqual(ListItem.Property(game.batterystate),charging)">rating_9</value>
+        <value condition="Integer.IsGreater(ListItem.Property(game.batterylevel),60)">rating_8</value>
+        <value condition="Integer.IsGreater(ListItem.Property(game.batterylevel),40)">rating_5</value>
+        <value>rating_3</value>
+    </variable>
+
+    <include name="GameOSD_PlayerBattery_Bar">
+        <param name="left"></param>
+        <param name="threshold"></param>
+        <definition>
+            <control type="image">
+                <left>$PARAM[left]</left>
+                <top>20</top>
+                <width>12</width>
+                <height>40</height>
+                <texture colordiffuse="main_fg_12">common/white.png</texture>
+            </control>
+            <control type="image">
+                <left>$PARAM[left]</left>
+                <top>20</top>
+                <width>12</width>
+                <height>40</height>
+                <texture colordiffuse="$VAR[ColorGamePlayerBattery]">common/white.png</texture>
+                <visible>Integer.IsGreater(ListItem.Property(game.batterylevel),$PARAM[threshold])</visible>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Kodi fills the list with each player whose controller reports a battery -->
+    <include name="GameOSD_PlayerBattery_Layout">
+        <control type="group">
+            <width>200</width>
+            <height>80</height>
+            <control type="image">
+                <texture border="20" colordiffuse="main_bg_70">common/menu.png</texture>
+            </control>
+            <control type="image" description="Behind the player number">
+                <left>20</left>
+                <top>20</top>
+                <width>40</width>
+                <height>40</height>
+                <texture colordiffuse="$VAR[ColorHighlight]">common/circle.png</texture>
+            </control>
+            <control type="label">
+                <left>20</left>
+                <top>20</top>
+                <width>40</width>
+                <height>40</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>$VAR[ColorSelected]</textcolor>
+                <label>$INFO[ListItem.Label,P]</label>
+            </control>
+            <include content="GameOSD_PlayerBattery_Bar">
+                <param name="left">88</param>
+                <param name="threshold">0</param>
+            </include>
+            <include content="GameOSD_PlayerBattery_Bar">
+                <param name="left">108</param>
+                <param name="threshold">20</param>
+            </include>
+            <include content="GameOSD_PlayerBattery_Bar">
+                <param name="left">128</param>
+                <param name="threshold">40</param>
+            </include>
+            <include content="GameOSD_PlayerBattery_Bar">
+                <param name="left">148</param>
+                <param name="threshold">60</param>
+            </include>
+            <include content="GameOSD_PlayerBattery_Bar">
+                <param name="left">168</param>
+                <param name="threshold">80</param>
+            </include>
+        </control>
+    </include>
+
+    <include name="GameOSD_PlayerBattery">
+        <control type="list" id="1200">
+            <left>60</left>
+            <top>60</top>
+            <width>200</width>
+            <height>900</height>
+            <orientation>vertical</orientation>
+            <include>Animation_FadeIn</include>
+            <itemlayout width="200" height="100">
+                <include>GameOSD_PlayerBattery_Layout</include>
+            </itemlayout>
+            <focusedlayout width="200" height="100">
+                <include>GameOSD_PlayerBattery_Layout</include>
+            </focusedlayout>
+        </control>
+    </include>
+
     <!-- Kodi fills the menu (3) from the items below and the disc list (108321)
          from the game's discs, and shows one at a time -->
     <include name="DialogGameControllers_GameDiscManager">
