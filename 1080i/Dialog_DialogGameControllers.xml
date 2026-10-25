@@ -408,6 +408,8 @@
         <param name="dialog_size">Dimension_DialogFullMenu</param>
         <param name="has_button_grouplist">false</param>
         <param name="visible">true</param>
+        <param name="has_header_details">false</param>
+        <param name="header_details" />
         <definition>
             <include>Part_Dim_Overlay</include>
             <control type="group">
@@ -421,10 +423,15 @@
                     <include>Size_Dialog_Pad</include>
                     <control type="group">
                         <include condition="$PARAM[has_button_grouplist]">Size_LeftGroup_Main</include>
-                        <include content="Part_HeaderBasic">
+                        <include content="Part_HeaderBasic" condition="!$PARAM[has_header_details]">
                             <param name="header_id">$PARAM[header_id]</param>
                             <param name="header">$PARAM[header]</param>
                             <param name="id">$PARAM[id]</param>
+                        </include>
+                        <include content="DialogGameControllers_HeaderDetails" condition="$PARAM[has_header_details]">
+                            <param name="header_id">$PARAM[header_id]</param>
+                            <param name="header">$PARAM[header]</param>
+                            <param name="details">$PARAM[header_details]</param>
                         </include>
                         <control type="group">
                             <include>Size_Group_Body</include>
@@ -482,9 +489,29 @@
         </include>
     </include>
 
+    <include name="DialogGameControllers_HeaderDetails">
+        <description>Part_HeaderBasic with the dialog's own details on the divider</description>
+        <definition>
+            <control type="group">
+                <include>Size_Group_Head</include>
+                <include content="Part_HeadText">
+                    <param name="id">$PARAM[header_id]</param>
+                    <param name="label">$PARAM[header]</param>
+                </include>
+                <include>Part_CloseButton</include>
+                <include content="Part_ItemLine">
+                    <param name="visible">true</param>
+                    <param name="label">$PARAM[details]</param>
+                </include>
+            </control>
+        </definition>
+    </include>
+
     <include name="DialogGameControllers_GameAchievements">
         <include content="DialogGameControllers_GameLeaderBoards">
-            <param name="header">$INFO[Window.Property(Achievements.GameTitle)]$INFO[Window.Property(Achievements.Progress), (,)]$INFO[Window.Property(Achievements.Beaten),  •  ,]</param>
+            <param name="header">$VAR[Label_GameAchievements_Header]</param>
+            <param name="has_header_details">true</param>
+            <param name="header_details">$INFO[Container(3).NumItems,, $LOCALIZE[31022]]$INFO[Window.Property(Achievements.Progress),  •  ,]$INFO[Window.Property(Achievements.Beaten),  •  ,]</param>
             <param name="itemlayout_include">List_Layout_GameAchievements</param>
             <param name="has_button_grouplist">true</param>
             <param name="items">DialogGameControllers_GameAchievements_Items</param>
