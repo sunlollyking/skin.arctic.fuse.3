@@ -106,6 +106,14 @@
         <include>Dimension_DialogCenter</include>
     </include>
 
+    <include name="Dimension_DialogFullMenu_Switcher">
+        <description>Dimension_DialogFullMenu with room for a switcher band below its heading</description>
+        <width>1600</width>
+        <centerleft>50%</centerleft>
+        <top>70</top>
+        <bottom>70</bottom>
+    </include>
+
     <include name="Dimension_DialogHugeMenu">
         <width>1280</width>
         <include>Dimension_DialogCenter</include>

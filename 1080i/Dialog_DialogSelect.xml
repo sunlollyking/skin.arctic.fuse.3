@@ -145,12 +145,17 @@
         <definition>
             <include>Part_Dim_Overlay</include>
             <control type="group">
-                <include>Dimension_DialogFullMenu</include>
+                <include condition="!$PARAM[categories]">Dimension_DialogFullMenu</include>
+                <include condition="$PARAM[categories]">Dimension_DialogFullMenu_Switcher</include>
                 <include content="Animation_BounceIn_Dialog">
                     <param name="windowopen_delay">$PARAM[windowopen_delay]</param>
                 </include>
-                <include content="Part_Background_Panel">
+                <include content="Part_Background_Panel" condition="!$PARAM[categories]">
                     <param name="dialog_size">Dimension_DialogFullMenu</param>
+                    <param name="topline">false</param>
+                </include>
+                <include content="Part_Background_Panel" condition="$PARAM[categories]">
+                    <param name="dialog_size">Dimension_DialogFullMenu_Switcher</param>
                     <param name="topline">false</param>
                 </include>
                 <!-- Content -->
@@ -163,16 +168,16 @@
                             <include content="Part_HeadText">
                                 <param name="id">1</param>
                                 <param name="label">$PARAM[header]</param>
-                                <param name="visible">!Integer.IsGreater(Container(10813).NumItems,1)</param>
                             </include>
                             <include condition="$PARAM[categories]">DialogSelect_GamePreview_Categories</include>
-                            <include content="Part_ItemPage">
+                            <include content="Part_ItemPage" condition="!$PARAM[categories]">
                                 <param name="id">$PARAM[id]</param>
                             </include>
                             <include>Part_CloseButton</include>
                         </control>
                         <control type="group">
-                            <include>Size_Group_Body</include>
+                            <include condition="!$PARAM[categories]">Size_Group_Body</include>
+                            <include condition="$PARAM[categories]">Size_Group_Body_Switcher</include>
 
                             <control type="group">
                                 <left>0</left>
@@ -340,47 +345,48 @@
     </include>
 
 
-    <!-- Every category on one row that scrolls, rather than the hub selector's
-         current category and the next three -->
+    <!-- The categories are a switcher band below the heading, like the information
+         dialog's; Kodi fills them, so they are a list with one cell per category -->
     <include name="DialogSelect_GamePreview_Categories">
         <control type="group">
-            <top>constant_dialog_pad</top>
-            <right>constant_dialog_header_right</right>
-            <height>view_bar</height>
+            <bottom>-60</bottom>
             <visible>Integer.IsGreater(Container(10813).NumItems,1)</visible>
+            <include>Part_Line</include>
             <control type="list" id="10813">
-                <left>0</left>
-                <right>0</right>
-                <centertop>50%</centertop>
-                <height>80</height>
+                <left>40</left>
+                <right>40</right>
+                <height>55</height>
+                <bottom>-5</bottom>
                 <orientation>horizontal</orientation>
                 <scrolltime tween="quadratic" easing="out">400</scrolltime>
                 <ondown>10811</ondown>
-                <itemlayout width="240" height="80">
+                <itemlayout width="240" height="55">
                     <control type="label">
-                        <right>30</right>
-                        <font>font_main</font>
+                        <width>200</width>
+                        <aligny>top</aligny>
+                        <font>font_main_bold</font>
                         <textcolor>dialog_fg_30</textcolor>
-                        <aligny>center</aligny>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                 </itemlayout>
-                <focusedlayout width="240" height="80">
-                    <control type="label">
-                        <right>30</right>
-                        <font>font_main_bold</font>
-                        <textcolor>dialog_fg_100</textcolor>
-                        <aligny>center</aligny>
-                        <scroll>true</scroll>
-                        <label>$INFO[ListItem.Label]</label>
+                <focusedlayout width="240" height="55">
+                    <control type="image">
+                        <width>200</width>
+                        <texture border="10" colordiffuse="$VAR[ColorHighlight]">common/underline.png</texture>
+                        <visible>Control.HasFocus(10813)</visible>
                     </control>
                     <control type="image">
-                        <description>Shows the row has focus</description>
-                        <bottom>8</bottom>
-                        <width>60</width>
-                        <height>4</height>
-                        <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                        <visible>Control.HasFocus(10813)</visible>
+                        <width>200</width>
+                        <texture border="10" colordiffuse="main_back">common/underline.png</texture>
+                        <visible>!Control.HasFocus(10813)</visible>
+                    </control>
+                    <control type="label">
+                        <width>200</width>
+                        <aligny>top</aligny>
+                        <font>font_main_bold</font>
+                        <textcolor>dialog_fg_100</textcolor>
+                        <scroll>true</scroll>
+                        <label>$INFO[ListItem.Label]</label>
                     </control>
                 </focusedlayout>
             </control>
