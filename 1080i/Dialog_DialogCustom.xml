@@ -61,6 +61,8 @@
         <param name="dialog_size">Dimension_DialogWideMenu</param>
         <param name="resize">false</param>
         <param name="visible">true</param>
+        <param name="has_details">false</param>
+        <param name="details" />
         <definition>
             <include content="Part_Dim_Overlay">
                 <param name="visible">$PARAM[visible]</param>
@@ -84,8 +86,12 @@
                         <include content="Part_HeadText">
                             <param name="label">$PARAM[header]</param>
                         </include>
-                        <include content="Part_ItemPage">
+                        <include content="Part_ItemPage" condition="!$PARAM[has_details]">
                             <param name="id">$PARAM[id]</param>
+                        </include>
+                        <include content="Part_ItemLine" condition="$PARAM[has_details]">
+                            <param name="visible">true</param>
+                            <param name="label">$PARAM[details]</param>
                         </include>
                         <include content="Part_CloseButton">
                             <param name="id">$PARAM[closebutton_id]</param>
