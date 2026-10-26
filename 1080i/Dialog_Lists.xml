@@ -208,25 +208,6 @@
         </definition>
     </include>
 
-    <include name="List_Layout_Dialog_GameManuals">
-        <param name="selected">false</param>
-        <param name="detailed">false</param>
-        <definition>
-            <include content="List_Layout_Dialog_DetailedCheckmark">
-                <param name="detailed">$PARAM[detailed]</param>
-                <param name="selected">$PARAM[selected]</param>
-                <param name="misc">$PARAM[misc]</param>
-                <param name="item_h">$PARAM[item_h]</param>
-                <param name="fallback">special://skin/extras/icons/book.png</param>
-                <param name="icon">$INFO[ListItem.Icon]</param>
-                <param name="is_defaulticon">[String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</param>
-                <param name="label">$INFO[ListItem.Label]</param>
-                <param name="label2">$INFO[ListItem.Property(manual.size)]</param>
-                <param name="label2_visible">!String.IsEmpty(ListItem.Property(manual.size))</param>
-            </include>
-        </definition>
-    </include>
-
     <include name="List_Layout_Dialog_GameDiscs">
         <param name="selected">false</param>
         <param name="detailed">false</param>
@@ -260,6 +241,25 @@
                 <param name="is_defaulticon">[String.IsEmpty(ListItem.Art(screenshot)) + [String.StartsWith(ListItem.Icon,Default) | String.StartsWith(ListItem.Icon,special://skin/extras/icons/)]]</param>
                 <param name="label">$VAR[Label_GameSave_Top]</param>
                 <param name="label2">$VAR[Label_GameSave_Sub]</param>
+                <param name="label2_visible">true</param>
+            </include>
+        </definition>
+    </include>
+
+    <include name="List_Layout_Dialog_GameManuals">
+        <param name="selected">false</param>
+        <param name="detailed">false</param>
+        <definition>
+            <include content="List_Layout_Dialog_DetailedCheckmark">
+                <param name="detailed">$PARAM[detailed]</param>
+                <param name="selected">$PARAM[selected]</param>
+                <param name="misc">$PARAM[misc]</param>
+                <param name="item_h">$PARAM[item_h]</param>
+                <param name="fallback">special://skin/extras/icons/book-open.png</param>
+                <param name="icon">$INFO[ListItem.Art(poster)]</param>
+                <param name="is_defaulticon">String.IsEmpty(ListItem.Art(poster))</param>
+                <param name="label">$INFO[ListItem.Label]</param>
+                <param name="label2">$VAR[Label_GameManual_Sub]</param>
                 <param name="label2_visible">true</param>
             </include>
         </definition>
@@ -406,7 +406,6 @@
         <param name="detailed">false</param>
         <definition>
             <control type="group">
-                <animation effect="fade" start="100" end="70" condition="String.IsEmpty(ListItem.Property(achievement.earned))">Conditional</animation>
                 <include condition="$PARAM[selected]">Part_List_Highlight</include>
             </control>
             <control type="progress">
@@ -461,13 +460,11 @@
                         <width>$PARAM[item_h]</width>
                         <visible>!String.IsEmpty(ListItem.Property(achievement.hardcore))</visible>
                         <control type="group">
-                            <left>-3</left>
-                            <top>17</top>
-                            <bottom>17</bottom>
-                            <right>37</right>
+                            <include>Part_List_Icon_Padding</include>
                             <control type="image">
+                                <bordersize>-3</bordersize>
                                 <aspectratio>keep</aspectratio>
-                                <texture colordiffuse="FFFFF503">diffuse/square_w120_h120.png</texture>
+                                <texture colordiffuse="gold">diffuse/square_w120_h120.png</texture>
                             </control>
                         </control>
                     </control>
@@ -482,20 +479,23 @@
                         <visible>!String.IsEmpty(ListItem.Property(achievement.progression)) | !String.IsEmpty(ListItem.Property(achievement.win))</visible>
                         <control type="group">
                             <include>Part_List_Icon_Padding</include>
-                            <control type="image">
-                                <right>-10</right>
-                                <bottom>-10</bottom>
-                                <width>48</width>
-                                <height>48</height>
-                                <texture colordiffuse="dialog_bg_90">common/circle.png</texture>
-                            </control>
-                            <control type="image">
-                                <right>0</right>
-                                <bottom>0</bottom>
-                                <width>28</width>
-                                <height>28</height>
-                                <aspectratio>keep</aspectratio>
-                                <texture colordiffuse="dialog_fg_90">$VAR[Image_GameAchievementType]</texture>
+                            <control type="group">
+                                <right>-20</right>
+                                <bottom>-20</bottom>
+                                <width>64</width>
+                                <height>64</height>
+                                <include content="Object_Control" condition="$PARAM[selected]">
+                                    <param name="control">image</param>
+                                    <include content="Dimension_Padding"><param name="pad">4</param></include>
+                                    <texture colordiffuse="$VAR[ColorHighlight]">indicator/circle-fo.png</texture>
+                                </include>
+                                <control type="image">
+                                    <texture colordiffuse="ff333333">indicator/circle-colordiffuse.png</texture>
+                                </control>
+                                <control type="image">
+                                    <bordersize>20</bordersize>
+                                    <texture>$VAR[Image_GameAchievementType]</texture>
+                                </control>
                             </control>
                         </control>
                     </control>

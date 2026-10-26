@@ -5,16 +5,10 @@
         <include content="DialogCustom_Favourites">
             <param name="id">8000</param>
             <param name="header">$LOCALIZE[31335]</param>
-            <param name="has_details">true</param>
-            <param name="details">$INFO[RetroPlayer.RichPresence]</param>
+            <param name="details">$INFO[RetroPlayer.RichPresence,  •  ,]</param>
             <param name="include_content">DialogCustom_GameOSD_Items</param>
             <param name="include_list">DialogCustom_Settings_Grouplist</param>
             <param name="resize">true</param>
-            <param name="visible">!Window.IsVisible(Custom_1118_Dialog_Settings.xml)</param>
         </include>
-        <control type="group">
-            <visible>!Window.IsVisible(Custom_1118_Dialog_Settings.xml)</visible>
-            <include>GameOSD_PlayerBattery</include>
-        </control>
     </controls>
 </window>

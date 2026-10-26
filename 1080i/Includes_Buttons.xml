@@ -238,7 +238,7 @@
                 <param name="id">300</param>
                 <param name="groupid">9300</param>
                 <param name="icon">special://skin/extras/icons/right-left.png</param>
-                <label>$ADDON[script.game.manuals 32022]</label>
+                <label>$ADDON[script.game.manuals 32009]</label>
                 <visible>Integer.IsGreater(Window.Property(providers),1)</visible>
             </include>
             <include content="Button_Dialog">
@@ -255,4 +255,5 @@
             </include>
         </definition>
     </include>
+
 </includes>

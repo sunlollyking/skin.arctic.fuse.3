@@ -46,26 +46,12 @@
             <control type="label">
                 <left>60</left>
                 <top>1000</top>
-                <width>480</width>
+                <width>1260</width>
                 <height>40</height>
                 <aligny>center</aligny>
                 <font>font_mini</font>
-                <textcolor>main_fg_100</textcolor>
+                <textcolor>main_fg_90</textcolor>
                 <label>$INFO[Window.Property(title)]</label>
-            </control>
-
-            <control type="label">
-                <description>How to get around, until the page is zoomed into</description>
-                <left>560</left>
-                <top>1000</top>
-                <width>800</width>
-                <height>40</height>
-                <align>center</align>
-                <aligny>center</aligny>
-                <font>font_mini</font>
-                <textcolor>main_fg_70</textcolor>
-                <label>$ADDON[script.game.manuals 32012]</label>
-                <visible>String.IsEmpty(Window.Property(zoomed))</visible>
             </control>
 
             <control type="label">
