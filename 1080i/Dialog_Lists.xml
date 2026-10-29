@@ -401,6 +401,10 @@
         <value condition="!String.IsEmpty(ListItem.Property(achievement.missable))">$LOCALIZE[35710]</value>
     </variable>
 
+    <variable name="GameAchievement_Attempting_Label">
+        <value condition="!String.IsEmpty(ListItem.Property(achievement.attempting))">$LOCALIZE[35718]</value>
+    </variable>
+
     <include name="List_Layout_GameAchievements">
         <param name="selected">false</param>
         <param name="detailed">false</param>
@@ -503,7 +507,7 @@
                         <param name="item_h">$PARAM[item_h]</param>
                         <param name="selected">$PARAM[selected]</param>
                         <param name="label">$INFO[ListItem.Label]$INFO[ListItem.Property(achievement.measuredprogress), (,)]</param>
-                        <param name="label4">$INFO[ListItem.Property(achievement.unlockeddate),, - ]$INFO[ListItem.Property(achievement.raritycategory)]$VAR[GameAchievement_Missable_Label, - ,]</param>
+                        <param name="label4">$VAR[GameAchievement_Attempting_Label,, - ]$INFO[ListItem.Property(achievement.unlockeddate),, - ]$INFO[ListItem.Property(achievement.raritycategory)]$VAR[GameAchievement_Missable_Label, - ,]</param>
                         <param name="label3">$INFO[ListItem.Property(achievement.points)]</param>
                     </include>
                 </control>
