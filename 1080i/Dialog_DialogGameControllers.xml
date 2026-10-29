@@ -703,19 +703,34 @@
     </include>
 
     <include name="DialogGameControllers_GameIndicators">
-        <control type="grouplist">
+        <control type="grouplist" description="Below the notifications, with room for every card at once">
             <right>60</right>
-            <top>60</top>
+            <top>176</top>
             <width>440</width>
-            <height>400</height>
+            <height>620</height>
             <orientation>vertical</orientation>
             <itemgap>20</itemgap>
-            <align>right</align>
 
-            <include content="DialogGameControllers_GameIndicators_Card" description="The achievement being attempted">
-                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-                <param name="badge">RetroPlayer.AchievementsChallengeBadge</param>
-                <param name="title">RetroPlayer.AchievementsChallengeTitle</param>
+            <include content="DialogGameControllers_GameIndicators_Card" description="The achievements being attempted, in the order they started">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(1))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(1)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(1)</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(2))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(2)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(2)</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(3))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(3)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(3)</param>
                 <param name="caption">$LOCALIZE[31912]</param>
                 <param name="height">104</param>
             </include>
