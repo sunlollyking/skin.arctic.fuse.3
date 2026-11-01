@@ -72,10 +72,6 @@
         <top>constant_dialog_top</top>
     </include>
 
-    <include name="Size_Group_Body_Switcher">
-        <top>180</top>
-    </include>
-
     <include name="Size_Group_Head">
         <height>constant_dialog_top</height>
     </include>

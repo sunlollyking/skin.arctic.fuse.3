@@ -145,17 +145,12 @@
         <definition>
             <include>Part_Dim_Overlay</include>
             <control type="group">
-                <include condition="!$PARAM[categories]">Dimension_DialogFullMenu</include>
-                <include condition="$PARAM[categories]">Dimension_DialogFullMenu_Switcher</include>
+                <include>Dimension_DialogFullMenu</include>
                 <include content="Animation_BounceIn_Dialog">
                     <param name="windowopen_delay">$PARAM[windowopen_delay]</param>
                 </include>
-                <include content="Part_Background_Panel" condition="!$PARAM[categories]">
+                <include content="Part_Background_Panel">
                     <param name="dialog_size">Dimension_DialogFullMenu</param>
-                    <param name="topline">false</param>
-                </include>
-                <include content="Part_Background_Panel" condition="$PARAM[categories]">
-                    <param name="dialog_size">Dimension_DialogFullMenu_Switcher</param>
                     <param name="topline">false</param>
                 </include>
                 <!-- Content -->
@@ -169,27 +164,36 @@
                                 <param name="id">1</param>
                                 <param name="label">$PARAM[header]</param>
                             </include>
-                            <include condition="$PARAM[categories]">DialogSelect_GamePreview_Categories</include>
                             <include content="Part_ItemPage" condition="!$PARAM[categories]">
                                 <param name="id">$PARAM[id]</param>
                             </include>
                             <include>Part_CloseButton</include>
                         </control>
                         <control type="group">
-                            <include condition="!$PARAM[categories]">Size_Group_Body</include>
-                            <include condition="$PARAM[categories]">Size_Group_Body_Switcher</include>
+                            <include>Size_Group_Body</include>
+                            <include condition="$PARAM[categories]">DialogSelect_GamePreview_Categories</include>
 
                             <control type="group">
                                 <left>0</left>
                                 <right>0</right>
                                 <top>20</top>
                                 <bottom>20</bottom>
+                                <include condition="$PARAM[categories]">DialogSelect_GamePreview_CategoryRoom</include>
 
                                 <control type="wraplist" id="$PARAM[id]">
                                     <onup condition="$PARAM[categories]">10813</onup>
 
                                     <animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
                                     <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container($PARAM[id]).NumItems,1)">Conditional</animation>
+                                    <!-- Kodi says which way the filters moved to another category -->
+                                    <animation type="Conditional" condition="String.IsEqual(Window.Property(categorymove),next)" reversible="false">
+                                        <effect type="slide" start="240,0" end="0,0" time="200" tween="cubic" easing="out" />
+                                        <effect type="fade" start="0" end="100" time="200" />
+                                    </animation>
+                                    <animation type="Conditional" condition="String.IsEqual(Window.Property(categorymove),previous)" reversible="false">
+                                        <effect type="slide" start="-240,0" end="0,0" time="200" tween="cubic" easing="out" />
+                                        <effect type="fade" start="0" end="100" time="200" />
+                                    </animation>
                                     <orientation>horizontal</orientation>
                                     <focusposition>1</focusposition>
                                     <preloaditems>2</preloaditems>
@@ -265,6 +269,9 @@
                                     <font>font_main_bold</font>
                                     <label>$INFO[Container($PARAM[id]).ListItem.Label]</label>
                                 </control>
+                                <include content="DialogSelect_GamePreview_Position" condition="$PARAM[categories]">
+                                    <param name="id">$PARAM[id]</param>
+                                </include>
 
                                 <control type="button">
                                     <texturenofocus />
@@ -345,52 +352,54 @@
     </include>
 
 
-    <!-- The categories are a switcher band below the heading, like the information
-         dialog's; Kodi fills them, so they are a list with one cell per category -->
+    <!-- The categories on a line below the heading, as a widget shows its own -->
     <include name="DialogSelect_GamePreview_Categories">
         <control type="group">
-            <bottom>-60</bottom>
+            <height>80</height>
             <visible>Integer.IsGreater(Container(10813).NumItems,1)</visible>
-            <include>Part_Line</include>
-            <control type="list" id="10813">
+            <include content="Categories_Selector_ControlList">
+                <param name="id">10813</param>
+                <param name="altfocusid">10813</param>
+                <ondown>10811</ondown>
+            </include>
+            <include content="Categories_Selector_OverlayList">
+                <param name="id">10813</param>
+            </include>
+            <control type="image">
                 <left>40</left>
                 <right>40</right>
-                <height>55</height>
-                <bottom>-5</bottom>
-                <orientation>horizontal</orientation>
-                <scrolltime tween="quadratic" easing="out">400</scrolltime>
-                <ondown>10811</ondown>
-                <itemlayout width="240" height="55">
-                    <control type="label">
-                        <width>200</width>
-                        <aligny>top</aligny>
-                        <font>font_main_bold</font>
-                        <textcolor>dialog_fg_30</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="240" height="55">
-                    <control type="image">
-                        <width>200</width>
-                        <texture border="10" colordiffuse="$VAR[ColorHighlight]">common/underline.png</texture>
-                        <visible>Control.HasFocus(10813)</visible>
-                    </control>
-                    <control type="image">
-                        <width>200</width>
-                        <texture border="10" colordiffuse="main_back">common/underline.png</texture>
-                        <visible>!Control.HasFocus(10813)</visible>
-                    </control>
-                    <control type="label">
-                        <width>200</width>
-                        <aligny>top</aligny>
-                        <font>font_main_bold</font>
-                        <textcolor>dialog_fg_100</textcolor>
-                        <scroll>true</scroll>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                </focusedlayout>
+                <height>1</height>
+                <centerbottom>10</centerbottom>
+                <texture colordiffuse="dialog_fg_06">common/white.png</texture>
             </control>
         </control>
+    </include>
+
+    <!-- Which filter of how many, in place of the item and page line -->
+    <include name="DialogSelect_GamePreview_Position">
+        <definition>
+            <control type="label">
+                <left>400</left>
+                <right>400</right>
+                <top>60</top>
+                <height>40</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_hint_bold</font>
+                <textcolor>dialog_fg_30</textcolor>
+                <label>$INFO[Container($PARAM[id]).CurrentItem]$INFO[Container($PARAM[id]).NumItems, $LOCALIZE[20163] ,]</label>
+                <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,1)</visible>
+            </control>
+        </definition>
+    </include>
+
+
+    <!-- The filters move down and shrink to fit below the categories, when Kodi lists them -->
+    <include name="DialogSelect_GamePreview_CategoryRoom">
+        <animation type="Conditional" condition="Integer.IsGreater(Container(10813).NumItems,1)">
+            <effect type="zoom" end="86" center="auto" time="0" />
+            <effect type="slide" end="0,36" time="0" />
+        </animation>
     </include>
 
     <include name="DialogSelect_GameSaves">
