@@ -700,6 +700,36 @@
         <value>$LOCALIZE[35331]</value>
     </variable>
 
+    <!-- A leaderboard attempt can last a whole level, so its value stays top right, clear of the
+         notifications for the achievements -->
+    <include name="DialogGameControllers_GameIndicators_Leaderboard">
+        <definition>
+            <control type="group">
+                <visible>!String.IsEmpty(RetroPlayer.LeaderboardTracker)</visible>
+                <top>176</top>
+                <right>60</right>
+                <width>720</width>
+                <height>80</height>
+                <include content="Animation_SlideIn_Dialog">
+                    <param name="visible_condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
+                    <param name="windowopen_condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
+                </include>
+                <include content="Furniture_Busy_FloatingText">
+                    <param name="mainlabel">$INFO[RetroPlayer.LeaderboardTracker]</param>
+                    <param name="minilabel">$VAR[DialogGameControllers_GameIndicators_Leaderboard_Label]</param>
+                </include>
+                <include content="Furniture_ItemIcon">
+                    <param name="icon">$INFO[Player.Icon]</param>
+                    <param name="icon_colordiffuse">white</param>
+                    <param name="bordersize">2</param>
+                    <param name="flipped">true</param>
+                    <param name="right">15</param>
+                    <param name="size">50</param>
+                </include>
+            </control>
+        </definition>
+    </include>
+
     <include name="DialogGameControllers_GameIndicators">
         <include content="DialogGameControllers_GameIndicators_Notification">
             <param name="minilabel">$LOCALIZE[15312]</param>
@@ -733,16 +763,7 @@
             <param name="slide_2_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
             <param name="slide_3_condition">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
         </include>
-        <include content="DialogGameControllers_GameIndicators_Notification">
-            <param name="minilabel">$VAR[DialogGameControllers_GameIndicators_Leaderboard_Label]</param>
-            <param name="mainlabel">$INFO[RetroPlayer.LeaderboardTracker]</param>
-            <param name="visible">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
-            <param name="icon">$INFO[Player.Icon]</param>
-            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-            <param name="slide_2_condition">!String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)</param>
-            <param name="slide_3_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
-            <param name="slide_4_condition">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
-        </include>
+        <include>DialogGameControllers_GameIndicators_Leaderboard</include>
     </include>
 
     <variable name="ColorGamePlayerBattery">
