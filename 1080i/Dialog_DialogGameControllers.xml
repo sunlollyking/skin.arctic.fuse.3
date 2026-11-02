@@ -700,70 +700,139 @@
         <value>$LOCALIZE[35331]</value>
     </variable>
 
-    <!-- A leaderboard attempt can last a whole level, so its value stays top right, clear of the
-         notifications for the achievements -->
-    <include name="DialogGameControllers_GameIndicators_Leaderboard">
+    <include name="DialogGameControllers_GameIndicators_Card">
+        <param name="condition"></param>
+        <param name="badge"></param>
+        <param name="title"></param>
+        <param name="detail"></param>
+        <param name="bar"></param>
+        <param name="caption"></param>
+        <param name="height">124</param>
+        <param name="left">100</param>
+        <param name="titleright">160</param>
         <definition>
             <control type="group">
-                <visible>!String.IsEmpty(RetroPlayer.LeaderboardTracker)</visible>
-                <top>176</top>
-                <right>60</right>
-                <width>720</width>
-                <height>80</height>
-                <include content="Animation_SlideIn_Dialog">
-                    <param name="visible_condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
-                    <param name="windowopen_condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
-                </include>
-                <include content="Furniture_Busy_FloatingText">
-                    <param name="mainlabel">$INFO[RetroPlayer.LeaderboardTracker]</param>
-                    <param name="minilabel">$VAR[DialogGameControllers_GameIndicators_Leaderboard_Label]</param>
-                </include>
-                <include content="Furniture_ItemIcon">
-                    <param name="icon">$INFO[Player.Icon]</param>
-                    <param name="icon_colordiffuse">white</param>
-                    <param name="bordersize">2</param>
-                    <param name="flipped">true</param>
-                    <param name="right">15</param>
-                    <param name="size">50</param>
-                </include>
+                <visible>$PARAM[condition]</visible>
+                <width>440</width>
+                <height>$PARAM[height]</height>
+                <animation effect="fade" time="200">VisibleChange</animation>
+
+                <control type="image">
+                    <texture border="20" colordiffuse="main_bg_70">common/menu.png</texture>
+                </control>
+
+                <control type="image" description="The badge, where there is one to show">
+                    <left>20</left>
+                    <centertop>50%</centertop>
+                    <width>60</width>
+                    <height>60</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture background="true" diffuse="diffuse/square_w120_h120.png">$INFO[$PARAM[badge]]</texture>
+                    <visible>!String.IsEmpty($PARAM[badge])</visible>
+                </control>
+
+                <control type="label" description="What kind of card this is">
+                    <left>$PARAM[left]</left>
+                    <right>20</right>
+                    <top>16</top>
+                    <height>28</height>
+                    <font>font_tiny</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$PARAM[caption]</label>
+                </control>
+
+                <control type="label">
+                    <left>$PARAM[left]</left>
+                    <right>$PARAM[titleright]</right>
+                    <top>44</top>
+                    <height>40</height>
+                    <font>font_mini</font>
+                    <textcolor>main_fg_100</textcolor>
+                    <label>$INFO[$PARAM[title]]</label>
+                    <scroll>true</scroll>
+                    <scrollsuffix>&#8199;&#8199;&#8199;</scrollsuffix>
+                </control>
+
+                <control type="label" description="How far along, where that is counted">
+                    <right>20</right>
+                    <width>120</width>
+                    <top>44</top>
+                    <height>40</height>
+                    <align>right</align>
+                    <font>font_mini</font>
+                    <textcolor>main_fg_70</textcolor>
+                    <label>$INFO[$PARAM[detail]]</label>
+                    <visible>!String.IsEmpty($PARAM[detail])</visible>
+                </control>
+
+                <control type="progress">
+                    <left>$PARAM[left]</left>
+                    <right>20</right>
+                    <bottom>20</bottom>
+                    <height>4</height>
+                    <texturebg colordiffuse="main_fg_12" border="12,0,12,0">progress/progress-nib.png</texturebg>
+                    <midtexture colordiffuse="$VAR[ColorHighlight]" border="12,0,12,0">progress/progress-nib.png</midtexture>
+                    <info>$PARAM[bar]</info>
+                    <visible>!String.IsEmpty($PARAM[bar])</visible>
+                </control>
             </control>
         </definition>
     </include>
 
     <include name="DialogGameControllers_GameIndicators">
-        <include content="DialogGameControllers_GameIndicators_Notification">
-            <param name="minilabel">$LOCALIZE[15312]</param>
-            <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle]</param>
-            <param name="visible">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-            <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge]</param>
-        </include>
-        <include content="DialogGameControllers_GameIndicators_Notification">
-            <param name="minilabel">$LOCALIZE[15312]</param>
-            <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle(2)]</param>
-            <param name="visible">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
-            <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge(2)]</param>
-            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-        </include>
-        <include content="DialogGameControllers_GameIndicators_Notification">
-            <param name="minilabel">$LOCALIZE[15312]</param>
-            <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle(3)]</param>
-            <param name="visible">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
-            <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge(3)]</param>
-            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-            <param name="slide_2_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
-        </include>
-        <include content="DialogGameControllers_GameIndicators_Notification">
-            <param name="minilabel">$INFO[RetroPlayer.AchievementsIndicatorProgress]</param>
-            <param name="mainlabel">$INFO[RetroPlayer.AchievementsIndicatorTitle]</param>
-            <param name="visible">!String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)</param>
-            <param name="icon">$INFO[RetroPlayer.AchievementsIndicatorBadge]</param>
-            <param name="progress">RetroPlayer.AchievementsIndicatorPercent</param>
-            <param name="hasprogress">true</param>
-            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
-            <param name="slide_2_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
-            <param name="slide_3_condition">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
-        </include>
-        <include>DialogGameControllers_GameIndicators_Leaderboard</include>
+        <control type="grouplist" description="Below the notifications, with room for every card at once">
+            <right>60</right>
+            <top>176</top>
+            <width>440</width>
+            <height>620</height>
+            <orientation>vertical</orientation>
+            <itemgap>20</itemgap>
+
+            <include content="DialogGameControllers_GameIndicators_Card" description="The achievements being attempted, in the order they started">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(1))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(1)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(1)</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
+                <param name="titleright">20</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(2))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(2)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(2)</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
+                <param name="titleright">20</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(3))</param>
+                <param name="badge">RetroPlayer.AchievementsChallengeBadge(3)</param>
+                <param name="title">RetroPlayer.AchievementsChallengeTitle(3)</param>
+                <param name="caption">$LOCALIZE[31912]</param>
+                <param name="height">104</param>
+                <param name="titleright">20</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card" description="How far along a measured achievement is">
+                <param name="condition">!String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)</param>
+                <param name="badge">RetroPlayer.AchievementsIndicatorBadge</param>
+                <param name="title">RetroPlayer.AchievementsIndicatorTitle</param>
+                <param name="detail">RetroPlayer.AchievementsIndicatorProgress</param>
+                <param name="bar">RetroPlayer.AchievementsIndicatorPercent</param>
+                <param name="caption">$LOCALIZE[31913]</param>
+            </include>
+
+            <include content="DialogGameControllers_GameIndicators_Card" description="The value a leaderboard attempt is tracking">
+                <param name="condition">!String.IsEmpty(RetroPlayer.LeaderboardTracker)</param>
+                <param name="title">RetroPlayer.LeaderboardTrackerTitle</param>
+                <param name="detail">RetroPlayer.LeaderboardTracker</param>
+                <param name="caption">$LOCALIZE[31914]</param>
+                <param name="left">20</param>
+                <param name="height">104</param>
+            </include>
+        </control>
     </include>
 
     <variable name="ColorGamePlayerBattery">
