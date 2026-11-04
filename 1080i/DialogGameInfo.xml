@@ -38,6 +38,29 @@
             </control>
         </control>
 
+        <control type="group">
+            <include content="Animation_Slide_In">
+                <param name="type">WindowOpen</param>
+                <param name="posy">160</param>
+                <param name="delay">200</param>
+            </include>
+            <include content="Animation_Slide_Out">
+                <param name="type">WindowClose</param>
+                <param name="posy">160</param>
+            </include>
+            <include>DialogInfo_Widget_Group</include>
+            <control type="grouplist" id="5000">
+                <include>DialogInfo_Widget_Grouplist</include>
+
+                <onup>8000</onup>
+                <onback>8000</onback>
+
+                <include>DialogInfo_GameWidgets</include>
+
+                <include>Widget_End_Bumper</include>
+            </control>
+        </control>
+
         <include content="Object_Hidden_Button">
             <param name="id">6</param>
         </include>

@@ -1178,6 +1178,78 @@
         </definition>
     </include>
 
+    <!-- Under a game's details, as a film's info has its cast and collection -->
+    <include name="DialogInfo_GameWidgets">
+        <include content="Widget_Info_Row">
+            <param name="id">41</param>
+            <param name="baseid">50</param>
+            <param name="basegroupid">51</param>
+            <param name="label">$INFO[ListItem.Property(series)]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="widgetfade_include">true</param>
+            <param name="set_widgetcontainer">false</param>
+            <param name="menuid">8000</param>
+            <param name="widget_hideartwork">true</param>
+            <param name="widget_showoverlay">true</param>
+            <param name="altvisible">true</param>
+            <param name="visible">!String.IsEmpty(ListItem.Property(seriesid))</param>
+            <onclick>Dialog.Close(gameinformation)</onclick>
+            <onclick>ActivateWindow(games,gamedb://series/$INFO[ListItem.Property(seriesid)]/,return)</onclick>
+            <content target="games">$INFO[ListItem.Property(seriesid),gamedb://series/,/]</content>
+        </include>
+        <include content="Widget_Info_Row">
+            <param name="id">42</param>
+            <param name="baseid">50</param>
+            <param name="basegroupid">51</param>
+            <param name="label">$LOCALIZE[35792]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="widgetfade_include">true</param>
+            <param name="set_widgetcontainer">false</param>
+            <param name="menuid">8000</param>
+            <param name="widget_hideartwork">true</param>
+            <param name="widget_showoverlay">true</param>
+            <param name="altvisible">true</param>
+            <param name="visible">!String.IsEmpty(ListItem.Property(similarcount))</param>
+            <onclick>Dialog.Close(gameinformation)</onclick>
+            <onclick>ActivateWindow(games,gamedb://titles/?similarto=$INFO[ListItem.DBID],return)</onclick>
+            <content target="games">$INFO[ListItem.DBID,gamedb://titles/?similarto=,]</content>
+        </include>
+        <include content="Widget_Info_Row">
+            <param name="id">43</param>
+            <param name="baseid">50</param>
+            <param name="basegroupid">51</param>
+            <param name="label">$LOCALIZE[35793]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="widgetfade_include">true</param>
+            <param name="set_widgetcontainer">false</param>
+            <param name="menuid">8000</param>
+            <param name="widget_hideartwork">true</param>
+            <param name="widget_showoverlay">true</param>
+            <param name="altvisible">true</param>
+            <param name="visible">!String.IsEmpty(ListItem.Property(relatedcount))</param>
+            <onclick>Dialog.Close(gameinformation)</onclick>
+            <onclick>ActivateWindow(games,gamedb://titles/?relatedto=$INFO[ListItem.DBID],return)</onclick>
+            <content target="games">$INFO[ListItem.DBID,gamedb://titles/?relatedto=,]</content>
+        </include>
+        <include content="Widget_Info_Row">
+            <param name="id">44</param>
+            <param name="baseid">50</param>
+            <param name="basegroupid">51</param>
+            <param name="label">$LOCALIZE[35806]</param>
+            <param name="include">List_Poster_Row</param>
+            <param name="widgetfade_include">true</param>
+            <param name="set_widgetcontainer">false</param>
+            <param name="menuid">8000</param>
+            <param name="widget_hideartwork">true</param>
+            <param name="widget_showoverlay">true</param>
+            <param name="altvisible">true</param>
+            <param name="visible">!String.IsEmpty(ListItem.Property(charactercount))</param>
+            <onclick>Dialog.Close(gameinformation)</onclick>
+            <onclick>ActivateWindow(games,$INFO[Container(5044).ListItem.FolderPath],return)</onclick>
+            <content target="games">$INFO[ListItem.DBID,gamedb://characters/?gameid=,]</content>
+        </include>
+    </include>
+
     <include name="DialogInfo_MusicWidgets">
         <include content="Widget_Info_Row">
             <param name="id">08</param>
@@ -1911,12 +1983,14 @@
 
     <include name="DialogInfo_GameDetails">
         <include content="_DialogInfo_GameDetails">
-            <!-- Three columns of facts rather than two: a game carries far more
+            <!-- Four columns of facts rather than two: a game carries far more
                  of them than a film, and stacked two deep they pushed the
                  description into a narrow strip -->
-            <param name="left_group_width">400</param>
-            <param name="mid_group_left">400</param>
-            <param name="right_group_left">720</param>
+            <param name="left_group_width">330</param>
+            <param name="mid_group_left">330</param>
+            <param name="right_group_left">640</param>
+            <param name="fourth_group_left">950</param>
+            <param name="column_width">310</param>
             <param name="right">80</param>
         </include>
     </include>
@@ -2009,6 +2083,17 @@
                     </include>
 
                     <include content="Button_Underline_Switcher">
+                        <param name="id">4018</param>
+                        <label>$LOCALIZE[35783]</label>
+                        <usealttexture>false</usealttexture>
+                        <onfocus>ClearProperty(Background.DialogInfo.HideArtwork,Home)</onfocus>
+                        <onclick>SetProperty(header,$INFO[ListItem.Title],1114)</onclick>
+                        <onclick>SetProperty(textbox,$ESCINFO[ListItem.Property(highscores)],1114)</onclick>
+                        <onclick>ActivateWindow(1114)</onclick>
+                        <visible>!String.IsEmpty(ListItem.Property(highscores))</visible>
+                    </include>
+
+                    <include content="Button_Underline_Switcher">
                         <param name="id">4006</param>
                         <label>$LOCALIZE[184]</label>
                         <usealttexture>false</usealttexture>
@@ -2077,6 +2162,7 @@
                          description above keeps its room -->
                     <height>480</height>
                     <left>$PARAM[mid_group_left]</left>
+                    <width>$PARAM[column_width]</width>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/calendar-day.png</param>
                         <param name="role">$LOCALIZE[172]</param>
@@ -2094,6 +2180,12 @@
                         <param name="role">$LOCALIZE[31906]</param>
                         <param name="name">$INFO[ListItem.Property(edition)]</param>
                         <visible>!String.IsEmpty(ListItem.Property(edition))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/layer-group.png</param>
+                        <param name="role">$LOCALIZE[35778]</param>
+                        <param name="name">$INFO[ListItem.Property(series)]$INFO[ListItem.Property(spinoff), · ,]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(series))</visible>
                     </include>
                     <include content="Object_InfoCircle">
                         <param name="icon">special://skin/extras/icons/trophy.png</param>
@@ -2120,6 +2212,7 @@
                     <!-- The third column; see the one before it -->
                     <height>480</height>
                     <left>$PARAM[right_group_left]</left>
+                    <width>$PARAM[column_width]</width>
                     <!-- A game's age as the UK board's classification, whichever board rated it -->
                     <include content="Object_InfoCircle">
                         <param name="icon">$INFO[ListItem.Property(agerating),flags/color/mpaa/UK ,.png]</param>
@@ -2166,6 +2259,56 @@
                         <param name="role">$LOCALIZE[35585]</param>
                         <param name="name">$LOCALIZE[107]</param>
                         <visible>!String.IsEmpty(ListItem.Property(hasmanual))</visible>
+                    </include>
+                </control>
+
+                <!-- How it's played, and how far you've got -->
+                <control type="grouplist">
+                    <orientation>vertical</orientation>
+                    <itemgap>0</itemgap>
+                    <height>480</height>
+                    <left>$PARAM[fourth_group_left]</left>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/flag-checkered.png</param>
+                        <param name="role">$LOCALIZE[126]</param>
+                        <param name="name">$INFO[ListItem.Property(completion)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(completion))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/stopwatch.png</param>
+                        <param name="role">$LOCALIZE[35773]</param>
+                        <param name="name">$INFO[ListItem.Property(timetobeat)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(timetobeat))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/ranking-star.png</param>
+                        <param name="role">$LOCALIZE[35782]</param>
+                        <param name="name">$INFO[ListItem.Property(highscore)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(highscore))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/people-group.png</param>
+                        <param name="role">$LOCALIZE[35599]</param>
+                        <param name="name">$INFO[ListItem.Property(coopdetails)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(coopdetails))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/dice.png</param>
+                        <param name="role">$LOCALIZE[35798]</param>
+                        <param name="name">$INFO[ListItem.Property(modes)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(modes))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/language.png</param>
+                        <param name="role">$LOCALIZE[35601]</param>
+                        <param name="name">$INFO[ListItem.Property(languagesupport)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(languagesupport))</visible>
+                    </include>
+                    <include content="Object_InfoCircle">
+                        <param name="icon">special://skin/extras/icons/circle-exclamation.png</param>
+                        <param name="role">$LOCALIZE[35791]</param>
+                        <param name="name">$INFO[ListItem.Property(ageratingcontent)]</param>
+                        <visible>!String.IsEmpty(ListItem.Property(ageratingcontent))</visible>
                     </include>
                 </control>
             </control>
