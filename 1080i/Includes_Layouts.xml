@@ -2266,7 +2266,7 @@
                         <param name="selected">$PARAM[selected]</param>
                     </include>
                     <control type="image">
-                        <texture background="true" diffuse="$PARAM[diffuse]">$VAR[Image_Clearlogo$PARAM[affix]]</texture>
+                        <texture background="true" diffuse="$PARAM[diffuse]" subpixel="true">$VAR[Image_Clearlogo$PARAM[affix]]</texture>
                         <aspectratio scalediffuse="false" align="left">keep</aspectratio>
                         <bordersize>20</bordersize>
                         <visible>String.IsEmpty($PARAM[listitem].Art(banner)) + String.IsEmpty($PARAM[listitem].Art(tvshow.banner)) + String.IsEmpty($PARAM[listitem].Art(season.banner))</visible>
@@ -2579,7 +2579,7 @@
                 <height>60</height>
                 <animation effect="rotate" end="-90" center="auto" condition="true">Conditional</animation>
                 <control type="image">
-                    <texture background="true">$VAR[Image_Clearlogo]</texture>
+                    <texture background="true" subpixel="true">$VAR[Image_Clearlogo]</texture>
                     <aspectratio>keep</aspectratio>
                 </control>
             </control>
@@ -3188,7 +3188,7 @@
                     <left>10%</left>
                     <right>10%</right>
                     <bottom>34%</bottom>
-                    <texture background="true">$VAR[Image_Machine_Logo]</texture>
+                    <texture background="true" subpixel="true">$VAR[Image_Machine_Logo]</texture>
                     <aspectratio align="center" aligny="center">keep</aspectratio>
                     <visible>![String.IsEmpty($PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[listitem].Art(logo))]</visible>
                 </control>

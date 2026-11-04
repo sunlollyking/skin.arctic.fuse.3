@@ -5,7 +5,7 @@
         <param name="size">1280x720</param>
         <param name="variant">flixart</param>
         <definition>
-            <texture background="true" diffuse="special://skin/extras/diffuse/flixart/$PARAM[size]/$PARAM[variant].png">$VAR[Image_Foreground]</texture>
+            <texture background="true" diffuse="special://skin/extras/diffuse/flixart/$PARAM[size]/$PARAM[variant].png" subpixel="true">$VAR[Image_Foreground]</texture>
         </definition>
     </include>
 

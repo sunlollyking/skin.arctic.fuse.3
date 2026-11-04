@@ -433,7 +433,7 @@
         <param name="selected">false</param>
         <definition>
             <control type="image">
-                <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                <texture background="true" diffuse="$PARAM[diffuse]" subpixel="true">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[aspectratio]</aspectratio>
                 <visible>![String.IsEqual($PARAM[listitem].Art(thumb),$PARAM[listitem].Icon) | String.IsEmpty($PARAM[listitem].Art(thumb))] | !String.IsEmpty($PARAM[listitem].Art(fanart)) | !String.IsEmpty($PARAM[listitem].Art(poster)) | !String.StartsWith($PARAM[listitem].Icon,Default)</visible>
                 <visible>!String.IsEqual($PARAM[listitem].DBType,game)</visible>
@@ -442,7 +442,7 @@
                  filling a tile cuts an edge off many of them. Many game art links
                  are a catalogue's guess at a file name and lead nowhere. -->
             <control type="image">
-                <texture background="true" diffuse="$PARAM[diffuse]" fallback="DefaultAddonGame.png">$PARAM[icon]</texture>
+                <texture background="true" diffuse="$PARAM[diffuse]" fallback="DefaultAddonGame.png" subpixel="true">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[game_aspectratio]</aspectratio>
                 <visible>String.IsEqual($PARAM[listitem].DBType,game) + !String.StartsWith($PARAM[listitem].Icon,Default)</visible>
             </control>
@@ -451,13 +451,13 @@
                     <param name="colordiffuse">$VAR[ColorSelected]</param>
                 </include>
                 <colordiffuse>main_fg_100</colordiffuse>
-                <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                <texture background="true" diffuse="$PARAM[diffuse]" subpixel="true">$PARAM[icon]</texture>
                 <aspectratio scalediffuse="false">$PARAM[aspectratio]</aspectratio>
                 <visible>String.StartsWith($PARAM[listitem].Icon,Default) + [String.IsEqual($PARAM[listitem].Art(thumb),$PARAM[listitem].Icon) | String.IsEmpty($PARAM[listitem].Art(thumb))] + String.IsEmpty($PARAM[listitem].Art(fanart)) + String.IsEmpty($PARAM[listitem].Art(poster))</visible>
                 <visible>!String.IsEqual($PARAM[listitem].Icon,DefaultFolder.png) | !String.IsEqual($PARAM[listitem].Label,$LOCALIZE[22082])</visible>
             </control>
             <control type="image">
-                <texture background="true" diffuse="$PARAM[diffuse]">fallback/more-items-wide.png</texture>
+                <texture background="true" diffuse="$PARAM[diffuse]" subpixel="true">fallback/more-items-wide.png</texture>
                 <aspectratio scalediffuse="false">scale</aspectratio>
                 <visible>String.IsEqual($PARAM[listitem].Icon,DefaultFolder.png) + String.IsEqual($PARAM[listitem].Label,$LOCALIZE[22082])</visible>
             </control>
@@ -476,7 +476,7 @@
             </include>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <texture diffuse="$PARAM[overlay_diffuse]">diffuse/circle/circle_200_overlay.png</texture>
+                <texture diffuse="$PARAM[overlay_diffuse]" subpixel="true">diffuse/circle/circle_200_overlay.png</texture>
                 <visible>String.IsEqual($PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[listitem].DBType,episode) | String.IsEqual($PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[listitem].DBType,video) | String.IsEqual($PARAM[listitem].DBType,set)</visible>
             </control>
         </control>
@@ -491,7 +491,7 @@
             </include>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <texture diffuse="$PARAM[overlay_diffuse]">diffuse/circle/discart_overlay.png</texture>
+                <texture diffuse="$PARAM[overlay_diffuse]" subpixel="true">diffuse/circle/discart_overlay.png</texture>
             </control>
         </control>
     </include>
@@ -533,7 +533,7 @@
                     <param name="colordiffuse">$VAR[ColorSelected]</param>
                 </include>
                 <colordiffuse>main_fg_100</colordiffuse>
-                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultGenres.png">$VAR[Image_Icon]</texture>
+                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultGenres.png" subpixel="true">$VAR[Image_Icon]</texture>
                 <aspectratio scalediffuse="false">keep</aspectratio>
                 <bordersize>$PARAM[genre_bordersize]</bordersize>
                 <visible>[String.IsEqual($PARAM[listitem].DBType,genre) | String.IsEqual($PARAM[listitem].Property(DBType),genre)]</visible>
@@ -543,7 +543,7 @@
                     <param name="colordiffuse">$VAR[ColorSelected]</param>
                 </include>
                 <colordiffuse>main_fg_100</colordiffuse>
-                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultStudios.png">$VAR[Image_Icon]</texture>
+                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultStudios.png" subpixel="true">$VAR[Image_Icon]</texture>
                 <aspectratio scalediffuse="false">keep</aspectratio>
                 <bordersize>$PARAM[other_bordersize]</bordersize>
                 <visible>[String.IsEqual($PARAM[listitem].DBType,studio) | String.IsEqual($PARAM[listitem].Property(DBType),studio)]</visible>
@@ -553,7 +553,7 @@
                     <param name="colordiffuse">$VAR[ColorSelected]</param>
                 </include>
                 <colordiffuse>main_fg_100</colordiffuse>
-                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultCountry.png">$VAR[Image_Icon]</texture>
+                <texture background="true" diffuse="$PARAM[icon_diffuse]" fallback="DefaultCountry.png" subpixel="true">$VAR[Image_Icon]</texture>
                 <aspectratio scalediffuse="false">keep</aspectratio>
                 <bordersize>$PARAM[other_bordersize]</bordersize>
                 <visible>[String.IsEqual($PARAM[listitem].DBType,country) | String.IsEqual($PARAM[listitem].Property(DBType),country)]</visible>
