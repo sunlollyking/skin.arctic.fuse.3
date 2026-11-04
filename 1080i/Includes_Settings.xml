@@ -94,6 +94,13 @@
             <onclick>ActivateWindow(Profiles)</onclick>
         </item>
         <item>
+            <label>Switch profile</label>
+            <label2>$LOCALIZE[10029]</label2>
+            <icon>special://skin/extras/icons/circle-user.png</icon>
+            <onclick>System.LogOff</onclick>
+            <visible>Skin.HasSetting(KidsMode)</visible>
+        </item>
+        <item>
             <label>$LOCALIZE[10003]</label>
             <label2>$LOCALIZE[13000]</label2>
             <icon>special://skin/extras/icons/filebox.png</icon>
