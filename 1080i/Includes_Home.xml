@@ -101,9 +101,9 @@
 
     <include name="Home_Horz_Movement">
         <onup>SetProperty(Bumper.Direction,Up,Home)</onup>
-        <onup condition="Skin.String(HomeSwitcher.OnUp,options)">ActivateWindow(1170)</onup>
-        <onup condition="String.IsEmpty(Skin.String(HomeSwitcher.OnUp))">ActivateWindow(1181)</onup>
-        <oninfo>ActivateWindow(1181)</oninfo>
+        <onup condition="Skin.String(HomeSwitcher.OnUp,options) + !Skin.HasSetting(KidsMode)">ActivateWindow(1170)</onup>
+        <onup condition="String.IsEmpty(Skin.String(HomeSwitcher.OnUp)) + !Skin.HasSetting(KidsMode)">ActivateWindow(1181)</onup>
+        <oninfo condition="!Skin.HasSetting(KidsMode)">ActivateWindow(1181)</oninfo>
         <ondown>$VAR[Hub_Action_Down]</ondown>
     </include>
 
