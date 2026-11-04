@@ -873,6 +873,20 @@
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
+            "name": "Popular Games",
+            "path": "gamedb://popular/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Most Wanted Games",
+            "path": "gamedb://mostwanted/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
             "name": "Random Games",
             "path": "special://skin/extras/playlists/games/RandomGames.xsp",
             "node": "games",
@@ -901,6 +915,13 @@
             "icon": "special://skin/extras/icons/list-ol.png"
         },
         {
+            "name": "Beaten Games",
+            "path": "gamedb://beaten/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
             "name": "Multiplayer Games",
             "path": "gamedb://multiplayer/",
             "node": "games",
@@ -910,6 +931,20 @@
         {
             "name": "Co-op Games",
             "path": "gamedb://coop/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Couch Co-op Games",
+            "path": "gamedb://couchcoop/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Imports in English",
+            "path": "gamedb://englishimports/",
             "node": "games",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
@@ -952,6 +987,27 @@
         {
             "name": "Game Collections",
             "path": "gamedb://collections/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Series",
+            "path": "gamedb://series/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Modes",
+            "path": "gamedb://modes/",
+            "node": "games",
+            "link": "false",
+            "icon": "special://skin/extras/icons/list-ol.png"
+        },
+        {
+            "name": "Game Characters",
+            "path": "gamedb://characters/",
             "node": "games",
             "link": "false",
             "icon": "special://skin/extras/icons/list-ol.png"
