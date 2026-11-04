@@ -347,6 +347,17 @@
         <value>none</value>
     </variable>
 
+    <include name="Kids_PowerMenu_Items">
+        <item>
+            <label>Switch profile</label>
+            <icon>special://skin/extras/icons/address-card.png</icon>
+            <property name="path">System.LogOff</property>
+            <property name="menu">powermenu</property>
+            <onclick>Close</onclick>
+            <onclick>System.LogOff</onclick>
+        </item>
+    </include>
+
     <include name="DialogView_Items">
 
         <!-- View -->
