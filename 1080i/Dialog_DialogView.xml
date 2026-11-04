@@ -245,6 +245,7 @@
         <param name="onback">PreviousMenu</param>
         <param name="include_listitems">DialogView_Items</param>
         <param name="has_tray">!Skin.HasSetting(Options.DisableBottomTray)</param>
+        <param name="include_tiles">true</param>
         <param name="visible">[!Window.IsActive(DialogSelect.xml)]</param>
         <definition>
 
@@ -303,15 +304,15 @@
                         <include>Size_Group_Body</include>
                         <control type="group" id="7000">
                             <include>Size_Grouplist_Pad</include>
-                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[2])">
+                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[2]) + $PARAM[include_tiles]">
                                 <param name="layout_include">ButtonMenu_Layout_Two</param>
                                 <param name="onback">$PARAM[onback]</param>
                             </include>
-                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[3])">
+                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[3]) + $PARAM[include_tiles]">
                                 <param name="layout_include">ButtonMenu_Layout_Three</param>
                                 <param name="onback">$PARAM[onback]</param>
                             </include>
-                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[4])">
+                            <include content="ButtonMenu_Layout" condition="Skin.String(OptionsTiles.Layout,$NUMBER[4]) + $PARAM[include_tiles]">
                                 <param name="layout_include">ButtonMenu_Layout_Four</param>
                                 <param name="onback">$PARAM[onback]</param>
                             </include>

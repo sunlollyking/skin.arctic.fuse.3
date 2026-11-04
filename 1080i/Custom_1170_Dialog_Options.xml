@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1170">
     <defaultcontrol always="true">7000</defaultcontrol>
-    <onload>AlarmClock(refocus,SetFocus(7021),00:00,silent)</onload>
+    <onload condition="!Skin.HasSetting(KidsMode)">AlarmClock(refocus,SetFocus(7021),00:00,silent)</onload>
+    <onload condition="Skin.HasSetting(KidsMode)">AlarmClock(refocus,SetFocus(8000),00:00,silent)</onload>
     <onload>SetProperty(TMDbHelper.ServicePause,True)</onload>
     <zorder>1100</zorder>
     <controls>
@@ -13,6 +14,7 @@
         <include content="DialogView" condition="Skin.HasSetting(KidsMode)">
             <param name="header">$LOCALIZE[33063][COLOR=dialog_fg_30] — [/COLOR]$INFO[System.Time]</param>
             <param name="include_listitems">Kids_PowerMenu_Items</param>
+            <param name="include_tiles">false</param>
         </include>
     </controls>
 </window>
