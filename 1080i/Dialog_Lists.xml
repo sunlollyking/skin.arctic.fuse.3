@@ -537,7 +537,7 @@
                             <control type="image">
                                 <bordersize>-3</bordersize>
                                 <aspectratio>keep</aspectratio>
-                                <texture colordiffuse="gold">diffuse/square_w120_h120.png</texture>
+                                <texture colordiffuse="gold" border="20">common/box.png</texture>
                             </control>
                         </control>
                     </control>
