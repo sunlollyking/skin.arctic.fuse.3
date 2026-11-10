@@ -1769,6 +1769,7 @@
             <label>$LOCALIZE[35249]</label>
             <param name="icon">special://skin/extras/icons/floppy-disk.png</param>
             <onclick>ActivateWindow(InGameSaves)</onclick>
+            <visible>RetroPlayer.SupportsSavestates</visible>
         </include>
         <include content="Settings_ButtonImage">
             <param name="id">8010</param>
