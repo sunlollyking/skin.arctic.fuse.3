@@ -2336,9 +2336,12 @@
                     <include content="Object_ItemBack">
                         <param name="selected">$PARAM[selected]</param>
                         <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                        <param name="listitem">$PARAM[listitem]</param>
+                        <param name="hug_games">true</param>
                     </include>
                     <include content="Object_Control" condition="$PARAM[selected]">
                         <param name="control">image</param>
+                        <visible>![String.IsEqual($PARAM[listitem].DBType,game) + !String.StartsWith($PARAM[listitem].Icon,Default)]</visible>
                         <include content="Texture_Box_Highlight_V">
                             <param name="variant">-backing</param>
                         </include>
@@ -2368,6 +2371,7 @@
                             <param name="listitem">$PARAM[listitem]</param>
                             <param name="aspectratio">scale</param>
                             <param name="selected">$PARAM[selected]</param>
+                            <param name="hug_games">true</param>
                         </include>
                     </control>
                     <control type="group">
@@ -2378,6 +2382,7 @@
                             <param name="listitem">$PARAM[listitem]</param>
                             <param name="aspectratio">keep</param>
                             <param name="selected">$PARAM[selected]</param>
+                            <param name="hug_games">true</param>
                         </include>
                     </control>
                 </control>
@@ -2412,6 +2417,7 @@
                         <param name="listitem">$PARAM[listitem]</param>
                         <param name="indicator">$PARAM[indicator]</param>
                         <param name="focusbounce">true</param>
+                        <param name="hug_games">true</param>
                     </include>
                 </control>
 
@@ -2481,19 +2487,23 @@
     <!-- The back card is a 1:1 texture of only the part past the middle card (left edge follows its rounded corners, no shadow) -->
     <!-- so it doesn't show through the translucent middle card -->
     <include name="Layout_PosterWide_Stack">
-        <control type="image">
-            <left>263</left>
-            <top>15</top>
-            <width>57</width>
-            <height>280</height>
-            <texture colordiffuse="main_fg_06">common/stack-back.png</texture>
-        </control>
+        <!-- The cards behind are the tile's shape, so a game's box stands alone -->
         <control type="group">
-            <left>62.29</left>
-            <top>7.75</top>
-            <width>206.28</width>
-            <height>294.5</height>
-            <include>Object_ItemBack</include>
+            <visible>![String.IsEqual(ListItem.DBType,game) + !String.StartsWith(ListItem.Icon,Default)]</visible>
+            <control type="image">
+                <left>263</left>
+                <top>15</top>
+                <width>57</width>
+                <height>280</height>
+                <texture colordiffuse="main_fg_06">common/stack-back.png</texture>
+            </control>
+            <control type="group">
+                <left>62.29</left>
+                <top>7.75</top>
+                <width>206.28</width>
+                <height>294.5</height>
+                <include>Object_ItemBack</include>
+            </control>
         </control>
     </include>
 
@@ -2815,9 +2825,12 @@
                     <include content="Object_ItemBack">
                         <param name="selected">$PARAM[selected]</param>
                         <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                        <param name="listitem">$PARAM[listitem]</param>
+                        <param name="hug_games">true</param>
                     </include>
                     <include content="Object_Control" condition="$PARAM[selected]">
                         <param name="control">image</param>
+                        <visible>![String.IsEqual($PARAM[listitem].DBType,game) + !String.StartsWith($PARAM[listitem].Icon,Default)]</visible>
                         <include content="Texture_Box_Highlight_V">
                             <param name="variant">-backing</param>
                         </include>
@@ -2829,6 +2842,7 @@
                         <param name="icon">$PARAM[icon]</param>
                         <param name="listitem">$PARAM[listitem]</param>
                         <param name="icon_diffuse">$PARAM[diffuse]</param>
+                        <param name="hug_games">true</param>
                     </include>
 
                     <include content="Object_ProgressLine">
@@ -2843,6 +2857,7 @@
                         <param name="indicator">![$PARAM[detailed]]</param>
                         <param name="focusbounce">true</param>
                         <param name="listitem">$PARAM[listitem]</param>
+                        <param name="hug_games">true</param>
                     </include>
                 </control>
                 <include content="Layout_Labels" condition="![$PARAM[variation]]">
@@ -3362,10 +3377,13 @@
                 <include content="Object_ItemBack">
                     <param name="selected">$PARAM[selected]</param>
                     <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                    <param name="listitem">$PARAM[listitem]</param>
+                    <param name="hug_games">true</param>
                 </include>
 
                 <include content="Object_Control" condition="$PARAM[selected]">
                     <param name="control">image</param>
+                    <visible>![String.IsEqual($PARAM[listitem].DBType,game) + !String.StartsWith($PARAM[listitem].Icon,Default)]</visible>
                     <include content="Texture_Box_Highlight_V">
                         <param name="variant">-backing</param>
                     </include>
@@ -3377,6 +3395,7 @@
                     <param name="listitem">$PARAM[listitem]</param>
                     <param name="selected">$PARAM[selected]</param>
                     <param name="aspectratio">scale</param>
+                    <param name="hug_games">true</param>
                 </include>
 
                 <include content="Object_ProgressLine">
@@ -3410,6 +3429,7 @@
                     <param name="indicator">true</param>
                     <param name="focusbounce">true</param>
                     <param name="listitem">$PARAM[listitem]</param>
+                    <param name="hug_games">true</param>
                 </include>
             </control>
         </definition>

@@ -85,6 +85,7 @@
 
     <variable name="Image_Poster" containers="450" null_id="true">
         <value condition="!String.IsEmpty({listitem}.Property(override_poster))">$INFO[{listitem}.Property(override_poster)]</value>
+        <value condition="String.IsEqual({listitem}.DBType,game) + !String.IsEmpty({listitem}.Art(boxfront))">$INFO[{listitem}.Art(boxfront)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(poster))">$INFO[{listitem}.Art(poster)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(boxfront))">$INFO[{listitem}.Art(boxfront)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.poster))">$INFO[{listitem}.Art(season.poster)]</value>

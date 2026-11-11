@@ -205,10 +205,9 @@
                      square frame the music side uses cut a quarter off the
                      average box, so this one is the shape of the commonest box
                      and fits the art whole rather than filling itself. -->
-                <include content="Object_BigPoster" condition="Window.IsVisible(DialogGameInfo.xml)">
+                <include content="Object_BigGameBox" condition="Window.IsVisible(DialogGameInfo.xml)">
                     <param name="icon">$PARAM[icon]</param>
                     <param name="diffuse">diffuse/poster_w560_h820.png</param>
-                    <param name="aspectratio">keep</param>
                 </include>
                 <include content="Object_Control" condition="![Window.IsVisible(movieinformation) | Window.IsActive(fullscreenvideo) | Window.IsVisible(DialogGameInfo.xml)]">
                     <param name="control">image</param>
