@@ -2327,6 +2327,7 @@
         <param name="diffuse">diffuse/poster_w217_h310.png</param>
         <param name="icon">$VAR[Image_Poster]</param>
         <param name="listitem">ListItem</param>
+        <param name="game_aspectratio">keep</param>
         <definition>
             <control type="group">
                 <width>$PARAM[item_w]</width>
@@ -2367,6 +2368,7 @@
                             <param name="icon">$PARAM[icon]</param>
                             <param name="listitem">$PARAM[listitem]</param>
                             <param name="aspectratio">scale</param>
+                            <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
                             <param name="selected">$PARAM[selected]</param>
                         </include>
                     </control>
@@ -2377,6 +2379,7 @@
                             <param name="icon">$PARAM[icon]</param>
                             <param name="listitem">$PARAM[listitem]</param>
                             <param name="aspectratio">keep</param>
+                            <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
                             <param name="selected">$PARAM[selected]</param>
                         </include>
                     </control>

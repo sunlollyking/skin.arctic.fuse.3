@@ -44,7 +44,8 @@
         "552":  "31629",
         "553":  "31630",
         "554":  "31631",
-        "556":  "31632"
+        "556":  "31632",
+        "586":  "31652"
     },
     "icons": {
         "500":  "special://skin/extras/viewtypes/row-square.jpg",
@@ -90,7 +91,8 @@
         "552":  "special://skin/extras/viewtypes/combined-wall-poster.jpg",
         "553":  "special://skin/extras/viewtypes/combined-wall-circle.jpg",
         "554":  "special://skin/extras/viewtypes/combined-wall-board.jpg",
-        "556":  "special://skin/extras/viewtypes/combined-wall-flyer.jpg"
+        "556":  "special://skin/extras/viewtypes/combined-wall-flyer.jpg",
+        "586":  "special://skin/extras/viewtypes/wall-poster.jpg"
     },
     "groups": {
         "31007": {
@@ -102,7 +104,7 @@
             "icon": "special://skin/extras/icons/table-list.png"
         },
         "31008": {
-            "viewtypes": ["510","511","512","513","514","515","516","576"],
+            "viewtypes": ["510","511","512","513","514","515","516","576","586"],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
         "31083": {
@@ -320,7 +322,8 @@
                 "582",
                 "583",
                 "584",
-                "585"
+                "585",
+                "586"
             ],
             "library": "502",
             "plugins": "502"
@@ -441,7 +444,8 @@
                 "582",
                 "583",
                 "584",
-                "585"
+                "585",
+                "586"
             ],
             "library": "502",
             "plugins": "502"

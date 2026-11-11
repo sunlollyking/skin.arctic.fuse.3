@@ -3587,3 +3587,7 @@ msgstr ""
 msgctxt "#31914"
 msgid "Leaderboard"
 msgstr ""
+
+msgctxt "#31652"
+msgid "Box Art"
+msgstr ""

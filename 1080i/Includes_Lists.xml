@@ -547,6 +547,141 @@
         </definition>
     </include>
 
+    <!-- Box Art: the Poster Wall's tiles, except that in a platform's games every tile is the
+         shape of that platform's usual case (Exp_GamePlatform_*), with the box front filling it.
+         Exactly one layout's condition holds at a time, so a container showing a different
+         listing always notices and lays itself out again. -->
+    <include name="List_BoxArt_Row">
+        <param name="control">panel</param>
+        <param name="orientation">vertical</param>
+        <param name="preloaditems">2</param>
+        <param name="tween">quadratic</param>
+        <param name="scrolltime">400</param>
+        <param name="offset_x">view_offx</param>
+        <param name="offset_y">80</param>
+        <param name="detailed">!String.IsEmpty(ListItem.Property(role))</param>
+        <definition>
+            <control type="$PARAM[control]" id="$PARAM[id]">
+                <nested />
+                <orientation>$PARAM[orientation]</orientation>
+                <preloaditems>$PARAM[preloaditems]</preloaditems>
+                <scrolltime tween="$PARAM[tween]">$PARAM[scrolltime]</scrolltime>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Square]</param>
+                    <param name="itemlayout_w">336</param>
+                    <param name="itemlayout_h">336</param>
+                    <param name="item_w">296</param>
+                    <param name="item_h">296</param>
+                    <param name="diffuse">diffuse/square_w280_h280.png</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Landscape]</param>
+                    <param name="itemlayout_w">450</param>
+                    <param name="itemlayout_h">333</param>
+                    <param name="item_w">410</param>
+                    <param name="item_h">293</param>
+                    <param name="diffuse">diffuse/landscape_w307_h210.png</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Portrait]</param>
+                    <param name="itemlayout_w">view_poster_itemlayout_w</param>
+                    <param name="itemlayout_h">view_poster_itemlayout_h</param>
+                    <param name="item_w">view_poster_item_w</param>
+                    <param name="item_h">view_poster_item_h</param>
+                    <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">!$EXP[Exp_GamePlatformView]</param>
+                    <param name="itemlayout_w">view_poster_itemlayout_w</param>
+                    <param name="itemlayout_h">view_poster_itemlayout_h</param>
+                    <param name="item_w">view_poster_item_w</param>
+                    <param name="item_h">view_poster_item_h</param>
+                    <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                    <param name="icon">$VAR[Image_Poster]</param>
+                    <param name="game_aspectratio">keep</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include>List_Poster_Row_Movement</include>
+            </control>
+        </definition>
+    </include>
+
+    <include name="List_BoxArt_Layout">
+        <param name="icon">$VAR[Image_GameBox]</param>
+        <param name="game_aspectratio">scale</param>
+        <definition>
+            <itemlayout width="$PARAM[itemlayout_w]" height="$PARAM[itemlayout_h]" condition="$PARAM[condition]">
+                <control type="group">
+                    <left>$PARAM[offset_x]</left>
+                    <right>-$PARAM[offset_x]</right>
+                    <top>$PARAM[offset_y]</top>
+                    <bottom>-$PARAM[offset_y]</bottom>
+                    <include content="Layout_Poster">
+                        <param name="selected">false</param>
+                        <param name="item_w">$PARAM[item_w]</param>
+                        <param name="item_h">$PARAM[item_h]</param>
+                        <param name="id">$PARAM[id]</param>
+                        <param name="detailed">$PARAM[detailed]</param>
+                        <param name="diffuse">$PARAM[diffuse]</param>
+                        <param name="icon">$PARAM[icon]</param>
+                        <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                    </include>
+                </control>
+            </itemlayout>
+            <focusedlayout width="$PARAM[itemlayout_w]" height="$PARAM[itemlayout_h]" condition="$PARAM[condition]">
+                <control type="group">
+                    <left>$PARAM[offset_x]</left>
+                    <right>-$PARAM[offset_x]</right>
+                    <top>$PARAM[offset_y]</top>
+                    <bottom>-$PARAM[offset_y]</bottom>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="0" condition="Control.HasFocus($PARAM[id])">Conditional</animation>
+                        <include content="Layout_Poster">
+                            <param name="focusedlayout">true</param>
+                            <param name="selected">false</param>
+                            <param name="item_w">$PARAM[item_w]</param>
+                            <param name="item_h">$PARAM[item_h]</param>
+                            <param name="id">$PARAM[id]</param>
+                            <param name="detailed">$PARAM[detailed]</param>
+                            <param name="diffuse">$PARAM[diffuse]</param>
+                            <param name="icon">$PARAM[icon]</param>
+                            <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                        </include>
+                    </control>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="0" condition="!Control.HasFocus($PARAM[id])">Conditional</animation>
+                        <include content="Layout_Poster">
+                            <param name="focusedlayout">true</param>
+                            <param name="selected">true</param>
+                            <param name="item_w">$PARAM[item_w]</param>
+                            <param name="item_h">$PARAM[item_h]</param>
+                            <param name="id">$PARAM[id]</param>
+                            <param name="detailed">$PARAM[detailed]</param>
+                            <param name="diffuse">$PARAM[diffuse]</param>
+                            <param name="icon">$PARAM[icon]</param>
+                            <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                        </include>
+                    </control>
+                </control>
+            </focusedlayout>
+        </definition>
+    </include>
+
     <include name="List_Landscape_Row">
         <param name="item_w">view_landscape_item_w</param>
         <param name="item_h">view_landscape_item_h</param>
