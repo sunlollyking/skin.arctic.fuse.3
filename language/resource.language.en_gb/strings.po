@@ -3589,5 +3589,5 @@ msgid "Leaderboard"
 msgstr ""
 
 msgctxt "#31652"
-msgid "Box Art"
+msgid "Box Art Wall"
 msgstr ""
