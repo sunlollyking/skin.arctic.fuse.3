@@ -617,6 +617,43 @@
                     <param name="detailed">$PARAM[detailed]</param>
                 </include>
                 <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_MixedLandscape]</param>
+                    <param name="itemlayout_w">450</param>
+                    <param name="itemlayout_h">333</param>
+                    <param name="item_w">410</param>
+                    <param name="item_h">293</param>
+                    <param name="diffuse">diffuse/landscape_w307_h210.png</param>
+                    <param name="game_aspectratio">keep</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Tall]</param>
+                    <param name="itemlayout_w">220</param>
+                    <param name="itemlayout_h">350</param>
+                    <param name="item_w">180</param>
+                    <param name="item_h">310</param>
+                    <param name="diffuse">diffuse/poster_w180_h310.png</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Box]</param>
+                    <param name="itemlayout_w">288</param>
+                    <param name="itemlayout_h">350</param>
+                    <param name="item_w">248</param>
+                    <param name="item_h">310</param>
+                    <param name="diffuse">diffuse/poster_w248_h310.png</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
                     <param name="condition">$EXP[Exp_GamePlatform_Portrait]</param>
                     <param name="itemlayout_w">view_poster_itemlayout_w</param>
                     <param name="itemlayout_h">view_poster_itemlayout_h</param>
