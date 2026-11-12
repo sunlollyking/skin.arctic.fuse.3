@@ -182,6 +182,7 @@
         <value condition="Window.IsVisible(music)">music</value>
         <value condition="Window.IsVisible(pictures)">pictures</value>
         <value condition="Window.IsVisible(programs)">programs</value>
+        <value condition="Window.IsVisible(games)">games</value>
         <value condition="Window.IsVisible(tvchannels)">tvchannels</value>
         <value condition="Window.IsVisible(tvguide)">tvguide</value>
         <value condition="Window.IsVisible(musicplaylist)">musicplaylist</value>
