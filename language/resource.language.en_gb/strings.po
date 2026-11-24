@@ -3496,6 +3496,44 @@ msgctxt "#31876"
 msgid "Filter the skin settings by tag."
 msgstr ""
 
+msgctxt "#31877"
+msgid "Choose the style of the search results of each content type. Content types set to Default and results without a content type use the Default style."
+msgstr ""
+
+msgctxt "#31878"
+msgid "Decoder"
+msgstr ""
+
+msgctxt "#31879"
+msgid "Output"
+msgstr ""
+
+msgctxt "#31880"
+msgid "Adjust"
+msgstr ""
+
+msgctxt "#31881"
+msgid "Select whether the item details are shown as plain text or as pills."
+msgstr ""
+
+msgctxt "#31882"
+msgid "Pill"
+msgstr ""
+
+msgctxt "#31883"
+msgid "Choose which ratings are shown for episodes."
+msgstr ""
+
+#: /1080i/Dialog_DialogSelect.xml
+msgctxt "#31884"
+msgid "Anime"
+msgstr ""
+
+#: /1080i/Dialog_DialogSubtitles.xml
+msgctxt "#31885"
+msgid "Change service"
+msgstr ""
+
 #: /1080i/Includes_Info.xml
 msgctxt "#31900"
 msgid " players"
