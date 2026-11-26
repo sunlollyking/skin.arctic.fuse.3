@@ -1009,6 +1009,125 @@
         </control>
     </include>
 
+    <!-- The game keeps running under the keyboard, so it sits low and leaves the game in view -->
+    <include name="DialogGameControllers_GameKeyboard">
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <width>1480</width>
+            <bottom>30</bottom>
+            <height>640</height>
+            <control type="image">
+                <texture border="20" colordiffuse="main_bg_70">common/menu.png</texture>
+            </control>
+            <control type="label">
+                <left>40</left>
+                <top>20</top>
+                <width>1400</width>
+                <height>60</height>
+                <aligny>center</aligny>
+                <font>font_main</font>
+                <textcolor>main_fg_100</textcolor>
+                <label>$LOCALIZE[35150]</label>
+            </control>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">3</param>
+                <param name="top">90</param>
+            </include>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">4</param>
+                <param name="top">170</param>
+            </include>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">5</param>
+                <param name="top">250</param>
+            </include>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">6</param>
+                <param name="top">330</param>
+            </include>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">7</param>
+                <param name="top">410</param>
+            </include>
+            <include content="DialogGameControllers_GameKeyboard_Row">
+                <param name="id">8</param>
+                <param name="top">490</param>
+            </include>
+            <control type="label">
+                <left>40</left>
+                <top>575</top>
+                <width>1400</width>
+                <height>45</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font_mini</font>
+                <textcolor>main_fg_70</textcolor>
+                <label>$LOCALIZE[35410]</label>
+            </control>
+        </control>
+    </include>
+
+    <include name="DialogGameControllers_GameKeyboard_Row">
+        <definition>
+            <control type="list" id="$PARAM[id]">
+                <left>30</left>
+                <top>$PARAM[top]</top>
+                <width>1420</width>
+                <height>76</height>
+                <orientation>horizontal</orientation>
+                <scrolltime>0</scrolltime>
+                <itemlayout width="100" height="76">
+                    <include content="DialogGameControllers_GameKeyboard_Key">
+                        <param name="tile">main_fg_12</param>
+                        <param name="text">main_fg_100</param>
+                    </include>
+                    <control type="image">
+                        <left>3</left>
+                        <top>3</top>
+                        <width>94</width>
+                        <height>70</height>
+                        <texture border="20" colordiffuse="$VAR[ColorHighlight]">common/menu.png</texture>
+                        <visible>ListItem.IsSelected</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="100" height="76">
+                    <include content="DialogGameControllers_GameKeyboard_Key">
+                        <param name="tile">main_fg_12</param>
+                        <param name="text">main_fg_100</param>
+                    </include>
+                    <control type="group">
+                        <visible>Control.HasFocus($PARAM[id]) | ListItem.IsSelected</visible>
+                        <include content="DialogGameControllers_GameKeyboard_Key">
+                            <param name="tile">$VAR[ColorHighlight]</param>
+                            <param name="text">$VAR[ColorSelected]</param>
+                        </include>
+                    </control>
+                </focusedlayout>
+            </control>
+        </definition>
+    </include>
+
+    <include name="DialogGameControllers_GameKeyboard_Key">
+        <control type="image">
+            <left>3</left>
+            <top>3</top>
+            <width>94</width>
+            <height>70</height>
+            <texture border="20" colordiffuse="$PARAM[tile]">common/menu.png</texture>
+        </control>
+        <control type="label">
+            <left>3</left>
+            <top>3</top>
+            <width>94</width>
+            <height>70</height>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>font_main</font>
+            <textcolor>$PARAM[text]</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+    </include>
+
     <include name="DialogGameControllers_GameCheats">
         <include content="Object_Hidden_Button">
             <param name="control">label</param>

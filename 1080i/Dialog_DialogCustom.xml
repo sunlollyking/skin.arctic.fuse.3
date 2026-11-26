@@ -1671,6 +1671,17 @@
             <visible>RetroPlayer.SupportsCheats</visible>
         </include>
         <include content="Settings_ButtonImage">
+            <param name="id">8017</param>
+            <param name="groupid">8117</param>
+            <param name="dialog">true</param>
+            <description>Keyboard button. The game plays on under the keyboard, so the menu closes first.</description>
+            <param name="icon">special://skin/extras/icons/keyboard.png</param>
+            <label>$LOCALIZE[35150]</label>
+            <onclick>Dialog.Close(GameOSD)</onclick>
+            <onclick>ActivateWindow(GameKeyboard)</onclick>
+            <visible>RetroPlayer.SupportsKeyboard</visible>
+        </include>
+        <include content="Settings_ButtonImage">
             <param name="id">8007</param>
             <param name="groupid">8107</param>
             <param name="dialog">true</param>
