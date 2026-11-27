@@ -1553,13 +1553,14 @@
             <label>$LOCALIZE[35227]</label>
             <onclick>ActivateWindow(GameVideoRotation)</onclick>
         </include>
-        <include content="Button_Dialog_Setting">
+        <include content="Settings_ButtonImage">
             <param name="id">8008</param>
             <param name="groupid">8108</param>
             <param name="dialog">true</param>
+            <param name="icon">special://skin/extras/icons/display.png</param>
             <param name="control">radiobutton</param>
-            <param name="istext">true</param>
             <param name="label">$LOCALIZE[35244]</param>
+            <param name="getlabel">false</param>
             <description>Bezel button</description>
             <onclick>PlayerControl(Bezel)</onclick>
             <selected>RetroPlayer.BezelEnabled</selected>
@@ -1574,6 +1575,7 @@
             <label>$LOCALIZE[13376]</label>
             <param name="label2">$LOCALIZE[31338]</param>
             <param name="has_label2">true</param>
+            <param name="label2_left">30%</param>
             <onclick>ActivateWindow(GameVolume)</onclick>
         </include>
         <include content="Settings_ButtonImage">

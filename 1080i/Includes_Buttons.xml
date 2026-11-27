@@ -51,6 +51,7 @@
         <param name="istext">false</param>
         <param name="radioposx">-2</param>
         <param name="getlabel">true</param>
+        <param name="label2_left">50%</param>
         <definition>
             <include content="Button_Control">
                 <param name="id">$PARAM[id]</param>
@@ -73,6 +74,7 @@
                 <param name="left">$PARAM[left]</param>
                 <param name="has_label2">$PARAM[has_label2]</param>
                 <param name="label2">$PARAM[label2]</param>
+                <param name="label2_left">$PARAM[label2_left]</param>
             </include>
             <include content="Button_Label" condition="$PARAM[istext]">
                 <param name="id">$PARAM[groupid]</param>
@@ -138,6 +140,7 @@
         <param name="font">font_mini_bold</param>
         <param name="left">20</param>
         <param name="has_label2">false</param>
+        <param name="label2_left">50%</param>
         <definition>
             <control type="group">
                 <left>$PARAM[left]</left>
@@ -167,7 +170,7 @@
                         <param name="font">$PARAM[font]</param>
                         <param name="label">$PARAM[label2]</param>
                         <param name="buttonid">$PARAM[buttonid]</param>
-                        <param name="left">50%</param>
+                        <param name="left">$PARAM[label2_left]</param>
                         <param name="align">right</param>
                     </include>
                 </control>
@@ -179,6 +182,7 @@
         <param name="top">-100</param>
         <param name="left">20</param>
         <param name="getlabel">true</param>
+        <param name="label2_left">50%</param>
         <definition>
             <control type="group" id="$PARAM[id]">
                 <top>$PARAM[top]</top>
@@ -208,6 +212,7 @@
                     <param name="left">$PARAM[left]</param>
                     <param name="has_label2">$PARAM[has_label2]</param>
                     <param name="label2">$PARAM[label2]</param>
+                    <param name="label2_left">$PARAM[label2_left]</param>
                 </include>
                 <include content="Button_Label_Controls" condition="![$PARAM[getlabel]]">
                     <param name="label">$PARAM[label]</param>
@@ -217,6 +222,7 @@
                     <param name="left">$PARAM[left]</param>
                     <param name="has_label2">$PARAM[has_label2]</param>
                     <param name="label2">$PARAM[label2]</param>
+                    <param name="label2_left">$PARAM[label2_left]</param>
                 </include>
             </control>
         </definition>

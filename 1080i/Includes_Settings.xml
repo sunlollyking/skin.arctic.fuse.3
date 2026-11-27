@@ -532,6 +532,7 @@
         <param name="help" />
         <param name="radioposx">0</param>
         <param name="getlabel">true</param>
+        <param name="label2_left">50%</param>
         <definition>
             <include content="Button_Dialog">
                 <param name="id">$PARAM[id]</param>
@@ -549,6 +550,7 @@
                 <param name="left">$PARAM[left]</param>
                 <param name="has_label2">$PARAM[has_label2]</param>
                 <param name="label2">$PARAM[label2]</param>
+                <param name="label2_left">$PARAM[label2_left]</param>
                 <texturenofocus />
                 <nested />
             </include>
