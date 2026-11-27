@@ -585,6 +585,20 @@
                     <param name="detailed">$PARAM[detailed]</param>
                 </include>
                 <include content="List_BoxArt_Layout">
+                    <param name="condition">$EXP[Exp_GamePlatform_Switch]</param>
+                    <param name="itemlayout_w">232</param>
+                    <param name="itemlayout_h">350</param>
+                    <param name="item_w">192</param>
+                    <param name="item_h">310</param>
+                    <param name="diffuse">diffuse/poster_w192_h310_r6.png</param>
+                    <param name="corners">_r6</param>
+                    <param name="game_aspectratio">keep</param>
+                    <param name="id">$PARAM[id]</param>
+                    <param name="offset_x">$PARAM[offset_x]</param>
+                    <param name="offset_y">$PARAM[offset_y]</param>
+                    <param name="detailed">$PARAM[detailed]</param>
+                </include>
+                <include content="List_BoxArt_Layout">
                     <param name="condition">$EXP[Exp_GamePlatform_Box]</param>
                     <param name="itemlayout_w">288</param>
                     <param name="itemlayout_h">350</param>
@@ -630,6 +644,7 @@
     <include name="List_BoxArt_Layout">
         <param name="icon">$VAR[Image_GameBox]</param>
         <param name="game_aspectratio">scale</param>
+        <param name="corners" />
         <definition>
             <itemlayout width="$PARAM[itemlayout_w]" height="$PARAM[itemlayout_h]" condition="$PARAM[condition]">
                 <control type="group">
@@ -646,6 +661,7 @@
                         <param name="diffuse">$PARAM[diffuse]</param>
                         <param name="icon">$PARAM[icon]</param>
                         <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                        <param name="corners">$PARAM[corners]</param>
                     </include>
                 </control>
             </itemlayout>
@@ -667,6 +683,7 @@
                             <param name="diffuse">$PARAM[diffuse]</param>
                             <param name="icon">$PARAM[icon]</param>
                             <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                            <param name="corners">$PARAM[corners]</param>
                         </include>
                     </control>
                     <control type="group">
@@ -681,6 +698,7 @@
                             <param name="diffuse">$PARAM[diffuse]</param>
                             <param name="icon">$PARAM[icon]</param>
                             <param name="game_aspectratio">$PARAM[game_aspectratio]</param>
+                            <param name="corners">$PARAM[corners]</param>
                         </include>
                     </control>
                 </control>

@@ -1687,6 +1687,7 @@
         <param name="focusbounce">false</param>
         <param name="shadow">true</param>
         <param name="indicator_reposition">false</param>
+        <param name="corners" />
         <definition>
             <control type="group">
                 <nested />
@@ -1696,7 +1697,9 @@
                     <include content="Dimension_Padding"><param name="pad">-3</param></include>
                     <include condition="$PARAM[shadow]">Object_Shadow_40</include>
                     <control type="image">
-                        <include>Texture_SelectBox_Thin</include>
+                        <include content="Texture_SelectBox_Thin">
+                            <param name="corners">$PARAM[corners]</param>
+                        </include>
                     </control>
                 </include>
                 <include content="Object_Indicator" condition="$PARAM[indicator]">

@@ -292,10 +292,11 @@
     </include>
     <include name="Texture_Box_Highlight_H">
         <param name="variant" />
+        <param name="corners" />
         <param name="colordiffuse">$VAR[ColorHighlight]</param>
         <definition>
             <include content="Texture_FocusStyle">
-                <param name="texture">box</param>
+                <param name="texture">box$PARAM[corners]</param>
                 <param name="variant">$PARAM[variant]</param>
                 <param name="border">20</param>
                 <param name="colordiffuse">$PARAM[colordiffuse]</param>
@@ -304,9 +305,11 @@
     </include>
     <include name="Texture_Box_Highlight_V">
         <param name="variant" />
+        <param name="corners" />
         <definition>
             <include content="Texture_Box_Highlight_H">
                 <param name="variant">$PARAM[variant]</param>
+                <param name="corners">$PARAM[corners]</param>
             </include>
         </definition>
     </include>
@@ -356,10 +359,13 @@
     </include>
 
     <include name="Texture_SelectBox_Thin">
-        <include content="Texture_FocusStyle">
-            <param name="texture">selectbox_thin</param>
-            <param name="border">20</param>
-        </include>
+        <param name="corners" />
+        <definition>
+            <include content="Texture_FocusStyle">
+                <param name="texture">selectbox_thin$PARAM[corners]</param>
+                <param name="border">20</param>
+            </include>
+        </definition>
     </include>
     <include name="Texture_KeyboardButton">
         <include>Texture_Circle_Highlight_Focus_V</include>

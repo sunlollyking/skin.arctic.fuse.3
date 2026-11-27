@@ -331,7 +331,8 @@
          Neo Geo CD 25, PC Engine CD 23, PC Engine 22, CD-i 39, DS 28, 3DS 59, Neo Geo Pocket 42,
          Neo Geo Pocket Color 41; landscape: Nintendo 64 27; wide: Game & Watch 33, near 1.84:1;
          tall: PSP 38, whose UMD cases are 0.58:1; box: DOS 18, Amiga 15, Atari ST 7,
-         WonderSwan 12, near 0.8:1; portrait for the rest.
+         WonderSwan 12, near 0.8:1; Switch 35, whose cases are 0.62:1, with small corners so the
+         logo band and the rating at its corners stay in; portrait for the rest.
          Mixed: the covers run from tall long boxes to jewel cases or landscape boxes, so no one
          shape fits them and they are fitted whole: Mega-CD 44, Saturn 49, 3DO 1, Virtual Boy 36,
          Game Boy 32, Game Boy Color 31 and Game Boy Advance 30 in square tiles, SNES 54 in
@@ -343,8 +344,9 @@
     <expression name="Exp_GamePlatform_MixedLandscape">$EXP[Exp_GamePlatformView] + String.Contains(Container.FolderPath,gamedb://platforms/54/)</expression>
     <expression name="Exp_GamePlatform_Landscape">$EXP[Exp_GamePlatformView] + String.Contains(Container.FolderPath,gamedb://platforms/27/)</expression>
     <expression name="Exp_GamePlatform_Tall">$EXP[Exp_GamePlatformView] + String.Contains(Container.FolderPath,gamedb://platforms/38/)</expression>
+    <expression name="Exp_GamePlatform_Switch">$EXP[Exp_GamePlatformView] + String.Contains(Container.FolderPath,gamedb://platforms/35/)</expression>
     <expression name="Exp_GamePlatform_Box">$EXP[Exp_GamePlatformView] + [String.Contains(Container.FolderPath,gamedb://platforms/18/) | String.Contains(Container.FolderPath,gamedb://platforms/15/) | String.Contains(Container.FolderPath,gamedb://platforms/7/) | String.Contains(Container.FolderPath,gamedb://platforms/12/)]</expression>
-    <expression name="Exp_GamePlatform_Portrait">$EXP[Exp_GamePlatformView] + ![$EXP[Exp_GamePlatform_Square] | $EXP[Exp_GamePlatform_Landscape] | $EXP[Exp_GamePlatform_Wide] | $EXP[Exp_GamePlatform_Mixed] | $EXP[Exp_GamePlatform_MixedLandscape] | $EXP[Exp_GamePlatform_Tall] | $EXP[Exp_GamePlatform_Box]]</expression>
+    <expression name="Exp_GamePlatform_Portrait">$EXP[Exp_GamePlatformView] + ![$EXP[Exp_GamePlatform_Square] | $EXP[Exp_GamePlatform_Landscape] | $EXP[Exp_GamePlatform_Wide] | $EXP[Exp_GamePlatform_Mixed] | $EXP[Exp_GamePlatform_MixedLandscape] | $EXP[Exp_GamePlatform_Tall] | $EXP[Exp_GamePlatform_Switch] | $EXP[Exp_GamePlatform_Box]]</expression>
 
     <!-- A game's real box, for tiles shaped to it -->
     <variable name="Image_GameBox">

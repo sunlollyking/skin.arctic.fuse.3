@@ -2273,6 +2273,8 @@
         <param name="icon">$VAR[Image_Poster]</param>
         <param name="main_artwork">Art(poster)</param>
         <param name="game_aspectratio">keep</param>
+        <!-- Suffix of the rounded box textures, for a tile with other corners -->
+        <param name="corners" />
         <definition>
             <control type="group">
                 <width>$PARAM[item_w]</width>
@@ -2280,11 +2282,13 @@
                 <include content="Object_ItemBack">
                     <param name="selected">$PARAM[selected]</param>
                     <param name="shadow_colordiffuse">$PARAM[shadow_colordiffuse]</param>
+                    <param name="texture">common/box$PARAM[corners].png</param>
                 </include>
                 <include content="Object_Control" condition="$PARAM[selected]">
                     <param name="control">image</param>
                     <include content="Texture_Box_Highlight_V">
                         <param name="variant">-backing</param>
+                        <param name="corners">$PARAM[corners]</param>
                     </include>
                 </include>
 
@@ -2355,6 +2359,7 @@
                         <param name="affix">$PARAM[affix]</param>
                         <param name="indicator">$PARAM[indicator]</param>
                         <param name="focusbounce">true</param>
+                        <param name="corners">$PARAM[corners]</param>
                     </include>
                 </control>
 
